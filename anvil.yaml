@@ -14,7 +14,7 @@ services:
 - source: /runtime/services/anvil/email.yml
   client_config: {}
   server_config: {}
-startup: {type: form, module: admin.dashboard}
+startup: {type: form, module: bank_users.main_form}
 package_name: bank_client
 allow_embedding: false
 name: P2P Lending App
@@ -23,13 +23,8 @@ runtime_options: {version: 2, client_version: '3', server_version: python3-sandb
 metadata: {title: 'P2P Bank ', description: this app provide services to person who are ready to invest and ready to give loan}
 startup_form: null
 db_schema:
-  wallet_notification:
-    client: full
-    server: full
-    columns: []
-    title: fin_wallet_notification
   fin_lendor_business_type:
-    client: full
+    client: none
     server: full
     columns:
     - name: lendor_business_type
@@ -37,7 +32,7 @@ db_schema:
       type: string
     title: fin_lendor_business_type
   fin_lendor_salary_type:
-    client: full
+    client: none
     server: full
     columns:
     - name: lendor_salary_type
@@ -56,7 +51,7 @@ db_schema:
       admin_ui: {width: 200}
       type: string
   fin_lendor_no_of_employees:
-    client: full
+    client: none
     server: full
     columns:
     - name: lendor_no_of_employees
@@ -136,7 +131,7 @@ db_schema:
       admin_ui: {width: 200}
       type: string
   fin_lendor_lending_type:
-    client: full
+    client: none
     server: full
     columns:
     - name: lendor_lending_type
@@ -367,7 +362,7 @@ db_schema:
       type: string
     title: Users
   fin_lendor_employee_type:
-    client: full
+    client: none
     server: full
     columns:
     - name: lendor_employee_type
@@ -375,7 +370,7 @@ db_schema:
       type: string
     title: fin_lendor_employee_type
   fin_lendor_organization_type:
-    client: full
+    client: none
     server: full
     columns:
     - name: lendor_organization_type
@@ -734,6 +729,11 @@ db_schema:
       admin_ui: {width: 200}
       type: number
     title: fin_user_profile
+  fin_wallet_notification:
+    client: full
+    server: full
+    columns: []
+    title: fin_wallet_notification
   fin_wallet_transactions:
     title: fin_wallet_transactions
     client: full
@@ -810,9 +810,6 @@ db_schema:
     - name: account_number
       admin_ui: {width: 200, order: 11}
       type: string
-    - name: emi_status
-      admin_ui: {width: 200}
-      type: bool
   fin_borrower_business_type:
     client: full
     server: full
@@ -938,7 +935,7 @@ db_schema:
       admin_ui: {order: 12, width: 200}
       type: string
   fin_wallet_bank_account_table:
-    client: none
+    client: full
     server: full
     columns:
     - name: account_id
@@ -1113,7 +1110,7 @@ db_schema:
       type: string
     title: fin_borrower_gender
   fin_lendor_qualification:
-    client: full
+    client: none
     server: full
     columns:
     - name: lendor_qualification
@@ -1121,7 +1118,7 @@ db_schema:
       type: string
     title: fin_lendor_qualification
   fin_lendor_lending_period:
-    client: full
+    client: none
     server: full
     columns:
     - name: lendor_lending_period
@@ -1129,7 +1126,7 @@ db_schema:
       type: string
     title: fin_lendor_lending_period
   fin_lendor_account_type:
-    client: full
+    client: none
     server: full
     columns:
     - name: lendor_account_type
