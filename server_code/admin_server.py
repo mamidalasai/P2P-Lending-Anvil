@@ -76,3 +76,7 @@ def add_basic_details(full_name, gender, dob, mobile_no, user_photo, alternate_e
     row[0]['country'] = country
     row[0]['pincode'] = pincode
     
+
+@anvil.server.callable
+def add_data(customer_id, email, password):
+  tables.app_tables.users.add_row(customer_id=customer_id, email=email, password_hash=password)
