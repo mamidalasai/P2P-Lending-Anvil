@@ -83,7 +83,7 @@ def add_basic_details(full_name, gender, dob, mobile_no, user_photo, alternate_e
 def get_table_data():
     # Fetch and return data from Anvil table
     # For example, fetch data from Anvil table 'my_data'
-    data = tables.app_tables.
+    data = tables.app_tables.fin_loan_details.search()
     return data
 
 @anvil.server.callable
