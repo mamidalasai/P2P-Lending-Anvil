@@ -360,6 +360,9 @@ db_schema:
     - name: email_confirmation_key
       admin_ui: {order: 1.5, width: 200}
       type: string
+    - name: customer_id
+      admin_ui: {width: 200}
+      type: number
     title: Users
   fin_lendor_employee_type:
     client: none

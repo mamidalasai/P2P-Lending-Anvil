@@ -87,5 +87,6 @@ def get_table_data():
     return data
 
 @anvil.server.callable
-def add_data(customer_id, email, password):
+def add_data(customer_id, email, password, name, number):
   tables.app_tables.users.add_row(customer_id=customer_id, email=email, password_hash=password)
+  tables.app_tables.fin_user_profile.add_row(customer_id=customer_id, email_user=email, full_name=name, mobile=number)
