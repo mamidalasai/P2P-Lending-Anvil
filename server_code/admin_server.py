@@ -75,7 +75,16 @@ def add_basic_details(full_name, gender, dob, mobile_no, user_photo, alternate_e
     row[0]['state'] = state
     row[0]['country'] = country
     row[0]['pincode'] = pincode
-    
+
+
+
+
+@anvil.server.callable()
+def get_table_data():
+    # Fetch and return data from Anvil table
+    # For example, fetch data from Anvil table 'my_data'
+    data = tables.app_tables.
+    return data
 
 @anvil.server.callable
 def add_data(customer_id, email, password):
