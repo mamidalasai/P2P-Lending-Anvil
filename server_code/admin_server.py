@@ -100,3 +100,8 @@ def lender_data(name, gender, date_of_birth):
   tables.app_tables.fin_user_profile.add_row(full_name=name, gender=gender, date_of_birth=date_of_birth)
   profile = tables.app_tables.fin_user_profile.search()
   return profile
+
+@anvil.server.callable
+def get_extension_data():
+    data = tables.app_tables.fin_extends_loan.search()
+    return data
