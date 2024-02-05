@@ -117,6 +117,6 @@ def handle_login_email(email):
     if email in email_list:
       index = email_list.append(email)
     else:
-      print("Nothing")
-    return email
+      index = None
+    return index
   
