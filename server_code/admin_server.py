@@ -94,6 +94,7 @@ def add_data(customer_id, email, password, name, number):
 @anvil.server.callable
 def login_data():
   data = tables.app_tables.users.search()
+  
   return data
 
 def lender_data(name, gender, date_of_birth):
@@ -105,3 +106,4 @@ def lender_data(name, gender, date_of_birth):
 def get_extension_data():
     data = tables.app_tables.fin_extends_loan.search()
     return data
+
