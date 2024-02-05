@@ -99,7 +99,7 @@ def lender(name, gender, date_of_birth):
 def login_data():
   data = tables.app_tables.users.search()
   return data
-
+@anvil.server.callable
 def profile():
   data = tables.app_tables.fin_user_profile.search()
   return data
@@ -108,17 +108,3 @@ def profile():
 def get_extension_data():
     data = tables.app_tables.fin_extends_loan.search()
     return data
-
-@anvil.server.callable
-def handle_login_email(email):
-    # Your server-side code here
-    data = tables.app_tables.fin_user_profile.search()
-    email_list = []
-    for i in data:
-      email_list.append(i['email_user'])
-    if email in email_list:
-      index = email_list.append(email)
-    else:
-      index = None
-    return index
-  
