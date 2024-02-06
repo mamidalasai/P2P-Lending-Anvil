@@ -10,8 +10,6 @@ import anvil.server
 
 @anvil.server.callable()
 def get_table_data():
-    # Fetch and return data from Anvil table
-    # For example, fetch data from Anvil table 'my_data'
     data = tables.app_tables.fin_loan_details.search()
     return data
 
