@@ -35,3 +35,8 @@ def profile():
 def get_extension_data():
     data = tables.app_tables.fin_extends_loan.search()
     return data
+
+@anvil.server.callable
+def get_today_data():
+  data=tables.app_tables.fin_emi_table.search()
+  return data
