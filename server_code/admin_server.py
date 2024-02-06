@@ -77,8 +77,6 @@ def add_basic_details(full_name, gender, dob, mobile_no, user_photo, alternate_e
     row[0]['pincode'] = pincode
 
 
-
-
 @anvil.server.callable()
 def get_table_data():
     # Fetch and return data from Anvil table
