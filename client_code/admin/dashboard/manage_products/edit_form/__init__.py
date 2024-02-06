@@ -42,7 +42,9 @@ class edit_form(edit_formTemplate):
         self.min_tenure_list = []
         self.max_tenure_list = []
         self.emi_payment_list = []
-        self.first_emi_list = []
+        self.lapsed_lst = []
+        self.default_lst = []
+        self.npa_lst = []
         self.min_month_list = []
         self.disc_coupans_list = []
 
@@ -67,7 +69,9 @@ class edit_form(edit_formTemplate):
             self.min_tenure_list.append(i['min_tenure'])
             self.max_tenure_list.append(i['max_tenure'])
             self.emi_payment_list.append(i['emi_payment'])
-            self.first_emi_list.append(i['first_emi_payment'])
+            self.lapsed_lst.append(i['lapsed_fee'])
+            self.default_lst.append(i['default_fee'])
+            self.npa_lst.append(i['npa'])
             self.min_month_list.append(i['min_months'])
             self.disc_coupans_list.append(i['discount_coupons'])
 
@@ -128,13 +132,15 @@ class edit_form(edit_formTemplate):
                     self.foreclose_type.enabled = False
                     self.extension_allowed.enabled = False
                     self.min_months.enabled = False
-                    self.first_emi_payment.enabled = False
                     self.name.enabled = False
                     self.product_category.enabled = False
                     self.text_box_3.enabled = False
                     self.text_box_4.enabled = False
                     self.check_box_1.enabled = False
                     self.check_box_2.enabled = False
+                    self.lapsed.enabled = False
+                    self.default.enabled = False
+                    self.npa.enabled = False
                     self.radio_button_3.selected = False
                     self.radio_button_4.selected = False
                 elif selected_interest_type == "Variable":
@@ -152,7 +158,6 @@ class edit_form(edit_formTemplate):
                     self.foreclose_type.enabled = False
                     self.extension_allowed.enabled = False
                     self.min_months.enabled = False
-                    self.first_emi_payment.enabled = False
                     self.name.enabled = False
                     self.product_name.enabled = False
                     self.product_category.enabled = False
@@ -161,6 +166,9 @@ class edit_form(edit_formTemplate):
                     self.text_box_4.enabled = False
                     self.check_box_1.enabled = False
                     self.check_box_2.enabled = False
+                    self.lapsed.enabled = False
+                    self.default.enabled = False
+                    self.npa.enabled = False
                     self.radio_button_3.selected = False
                     self.radio_button_4.selected = False
                 else:
@@ -203,8 +211,14 @@ class edit_form(edit_formTemplate):
                 self.check_box_3.checked = checkbox_values[2]
                 self.check_box_4.checked = checkbox_values[3]
 
-            if self.first_emi_list:
-                self.first_emi_payment.text = str(self.first_emi_list[-1])
+            if self.lapsed_lst:
+                self.lapsed.text = self.lapsed_lst[-1]
+
+            if self.default_lst:
+                self.default.text = self.lapsed_lst[-1]
+
+            if self.npa:
+                self.npa.text = self.lapsed_lst[-1]
 
             if self.min_month_list:
                 self.min_months.text = str(self.min_month_list[-1])
@@ -264,15 +278,13 @@ class edit_form(edit_formTemplate):
                 data['foreclosure_fee'] = int(self.foreclosure_fee.text)
                 data['emi_payment'] = self.checkbox_values
                 data['extension_allowed'] = self.extension_allowed.selected_value
-                data['first_emi_payment'] = int(self.first_emi_payment.text)
+                data['lapsed_fee'] = int(self.lapsed.text)
+                data['default_fee'] = int(self.default.text)
+                data['npa'] = int(self.npa.text)
                 data['min_months'] = int(self.min_months.text)
                 data['discount_coupons'] = "Yes" if self.radio_button_3.selected else "No"
 
                 Notification("Product details updated successfully").show()
-
-    # def link_1_copy_click(self, **event_args):
-    #     """This method is called when the link is clicked"""
-    #     open_form('admin.dashboard.manage_products.view_product')
 
     def button_1_copy_3_click(self, **event_args):
         open_form('admin.dashboard.manage_products.view_product')

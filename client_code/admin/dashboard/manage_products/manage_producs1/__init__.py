@@ -136,11 +136,6 @@ class manage_producs1(manage_producs1Template):
             "Six Month" if self.six_month.checked else "",
         ]
         emi_payment = json.dumps(emi_payment)
-        first_emi_payment = self.first_emi_payment.text
-        if not first_emi_payment.isdigit() or int(first_emi_payment) < 1:
-            Notification("Please enter a valid value for First EMI Payment (>= 1)").show()
-            return
-        first_emi_payment = int(first_emi_payment)
 
         if self.radio_button_3.selected:
             # Code to execute when radio_button_3 is selected
@@ -167,9 +162,8 @@ class manage_producs1(manage_producs1Template):
         anvil.server.call('product_details', self.id, product_name, product_group, product_discription,
                           product_categories, processing_fee, extension_fee, membership_type, interest_type, max_amount,
                           min_amount, min_tenure, max_tenure, roi, foreclose_type, foreclosure_fee, extension_allowed,
-                          emi_payment, first_emi_payment, min_months, discount_coupons, lapsed_fee, default_fee, npa)
+                          emi_payment, min_months, discount_coupons, lapsed_fee, default_fee, npa)
         product_id = self.label_1.text
-        # open_form('admin.dashboard.manage_products.add_group',product_id )
         Notification("Products added successfully").show()
         open_form('admin.dashboard.manage_products')
 

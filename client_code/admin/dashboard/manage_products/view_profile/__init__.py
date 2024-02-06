@@ -35,7 +35,9 @@ class view_profile(view_profileTemplate):
     self.max_tenure_list = []
     self.emi_payment = []
     self.min_month_lst = []
-    self.first_emi = []
+    self.lapsed_lst = []
+    self.default_lst = []
+    self.npa_lst = []
     self.dis_cou = []
 
     a = -1
@@ -60,7 +62,9 @@ class view_profile(view_profileTemplate):
       self.max_tenure_list.append(i['max_tenure'])
       self.emi_payment.append(i['emi_payment'])
       self.min_month_lst.append(i['min_months'])
-      self.first_emi.append(i['first_emi_payment'])
+      self.lapsed_lst.append(i['lapsed_fee'])
+      self.default_lst.append(i['default_fee'])
+      self.npa_lst.append((i['npa']))
       self.dis_cou.append(i['discount_coupons'])
 
     if a == -1:
@@ -87,7 +91,9 @@ class view_profile(view_profileTemplate):
         self.label_10.text = self.roi[b]
         self.label_18.text = self.emi_payment[b]
         self.label_30.text = self.min_month_lst[b]
-        self.label_28.text = self.first_emi[b]
+        self.lapsed.text = self.lapsed_lst[b]
+        self.default.text = self.default_lst[b]
+        self.npa.text = self.npa_lst[b]
         self.label_12.text = self.dis_cou[b]
 
   def button_1_click(self, **event_args):
@@ -97,10 +103,6 @@ class view_profile(view_profileTemplate):
   def button_2_click(self, **event_args):
     """This method is called when the button is clicked"""
     open_form('admin.dashboard.manage_products.delete_form')
-
-  # def link_1_copy_click(self, **event_args):
-  #   """This method is called when the link is clicked"""
-  #   open_form('admin.dashboard.manage_products.view_product')
 
   def button_1_copy_3_click(self, **event_args):
     """This method is called when the button is clicked"""

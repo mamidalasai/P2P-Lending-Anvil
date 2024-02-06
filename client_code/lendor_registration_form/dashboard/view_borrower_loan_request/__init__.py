@@ -17,7 +17,12 @@ class view_borrower_loan_request(view_borrower_loan_requestTemplate):
     
     self.repeating_panel_1.items=app_tables.fin_loan_details.search(loan_updated_status="under process")
     #under process
-   # anvil.server.call('transfer_user_profile_to_loan_details', email) 
+    self.email = main_form_module.email
+    email = self.email
+    self.user_id=main_form_module.userId
+    user_id = self.user_id
+    
+    anvil.server.call('transfer_user_profile_to_loan_details', email,user_id) 
 
   def link_1_click(self, **event_args):
     """This method is called when the link is clicked"""

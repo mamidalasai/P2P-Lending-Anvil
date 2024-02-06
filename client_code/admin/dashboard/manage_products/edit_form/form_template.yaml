@@ -49,7 +49,7 @@ components:
           width: 648.4
         event_bindings: {click: button_1_copy_3_click}
       - type: XYPanel
-        properties: {height: 1419.86669921875}
+        properties: {height: 1473.86669921875}
         name: xy_panel_1
         layout_properties: {grid_position: 'EGBVNZ,LOMTOV'}
         components:
@@ -320,172 +320,6 @@ components:
           name: label_8
           layout_properties: {x: 3.203125, y: 818, width: 122}
           event_bindings: {show: label_8_show}
-        - type: Button
-          properties: {role: outlined-button, align: center, tooltip: '', border: '',
-            enabled: true, foreground: 'theme:On Primary', visible: true, text: SAVE,
-            font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
-            italic: false, background: '#00008B', bold: false, underline: false, icon: 'fa:save'}
-          name: button_1
-          layout_properties: {x: 38, y: 1372.96875, width: 720.375}
-          event_bindings: {click: button_1_click}
-        - type: Label
-          properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-            visible: true, text: 'First EMI Payment
-
-              (after dispersment in months)', font_size: null, font: '', spacing_above: small,
-            icon_align: left, spacing_below: small, italic: false, background: '',
-            bold: false, underline: false, icon: ''}
-          name: label_9
-          layout_properties: {x: 5.069450378417969, y: 870.388916015625, width: 190}
-        - type: TextBox
-          properties: {role: outlined, align: left, hide_text: false, tooltip: '',
-            placeholder: Enter first emi payment, border: '', enabled: true, foreground: '',
-            visible: true, text: '', font_size: null, font: '', spacing_above: small,
-            type: text, spacing_below: small, italic: false, background: '', bold: false,
-            underline: false}
-          name: first_emi_payment
-          layout_properties: {x: 205.06945037841797, y: 875.5555419921875, width: 230.13899999999998}
-        - type: DropDown
-          properties:
-            role: outlined
-            align: full
-            tooltip: ''
-            placeholder: Select foreclosure
-            border: ''
-            enabled: true
-            foreground: ''
-            items: [Eligible, Not Eligible]
-            visible: true
-            font_size: null
-            font: ''
-            spacing_above: small
-            spacing_below: small
-            italic: false
-            background: white
-            bold: false
-            underline: false
-            include_placeholder: true
-          name: foreclose_type
-          layout_properties: {x: 205.06945037841797, y: 934.9583740234375, width: 230.139}
-        - type: TextBox
-          properties: {role: outlined, align: left, hide_text: false, tooltip: '',
-            placeholder: Enter foreclosure fee, border: '', enabled: true, foreground: '',
-            visible: true, text: '', font_size: null, font: '', spacing_above: small,
-            type: text, spacing_below: small, italic: false, background: '', bold: false,
-            underline: false}
-          name: foreclosure_fee
-          layout_properties: {x: 205.06945037841797, y: 985.9583740234375, width: 230.139}
-        - type: Label
-          properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-            visible: true, text: ' Foreclosure_fee(%)', font_size: null, font: '',
-            spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-            background: '', bold: false, underline: false, icon: ''}
-          name: label_6
-          layout_properties: {x: 5.082999999999998, y: 991.736083984375, width: 160}
-        - type: Label
-          properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-            visible: true, text: ' Foreclosure Type', font_size: null, font: '', spacing_above: small,
-            icon_align: left, spacing_below: small, italic: false, background: '',
-            bold: false, underline: false, icon: ''}
-          name: label_6_copy_2
-          layout_properties: {x: 5.151999999999987, y: 936.388916015625, width: 159.931}
-        - type: Label
-          properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-            visible: true, text: ' Discount  Coupons', font_size: null, font: '',
-            spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-            background: '', bold: false, underline: false, icon: ''}
-          name: label_14_copy
-          layout_properties: {x: 10, y: 1289.015625, width: 145}
-        - type: RadioButton
-          properties: {role: null, selected: false, align: left, tooltip: '', border: '',
-            enabled: true, foreground: '', value: '', visible: true, text: 'Yes',
-            font_size: null, font: '', spacing_above: small, spacing_below: small,
-            italic: false, background: '', bold: false, group_name: radioGroup2, underline: false}
-          name: radio_button_3
-          layout_properties: {x: 203.640625, y: 1289.015625, width: 67}
-          event_bindings: {clicked: radio_button_3_clicked}
-        - type: RadioButton
-          properties: {role: null, selected: false, align: left, tooltip: '', border: '',
-            enabled: true, foreground: '', value: '', visible: true, text: 'No', font_size: null,
-            font: '', spacing_above: small, spacing_below: small, italic: false, background: '',
-            bold: false, group_name: radioGroup2, underline: false}
-          name: radio_button_4
-          layout_properties: {x: 290.9375, y: 1289.015625, width: 58}
-        - type: TextBox
-          properties: {role: outlined, align: left, hide_text: false, tooltip: '',
-            placeholder: Enter Extension fee, border: '', enabled: true, foreground: '',
-            visible: true, text: '', font_size: null, font: '', spacing_above: small,
-            type: text, spacing_below: small, italic: false, background: '', bold: false,
-            underline: false}
-          name: text_box_4
-          layout_properties: {x: 205.0625, y: 1237.015625, width: 232}
-        - type: Label
-          properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-            visible: true, text: ' Extension Fee(%)', font_size: null, font: '', spacing_above: small,
-            icon_align: left, spacing_below: small, italic: false, background: '',
-            bold: false, underline: false, icon: ''}
-          name: label_7_copy
-          layout_properties: {x: 10, y: 1243.015625, width: 160}
-        - type: Label
-          properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-            visible: true, text: ' Extension Allowed', font_size: null, font: '',
-            spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-            background: '', bold: false, underline: false, icon: ''}
-          name: label_7
-          layout_properties: {x: 5.1875, y: 1185.953125, width: 159.938}
-        - type: DropDown
-          properties:
-            role: outlined
-            align: full
-            tooltip: ''
-            placeholder: Select One
-            border: ''
-            enabled: true
-            foreground: ''
-            items: ['Yes', 'No']
-            visible: true
-            font_size: null
-            font: ''
-            spacing_above: small
-            spacing_below: small
-            italic: false
-            background: white
-            bold: false
-            underline: false
-            include_placeholder: true
-          name: extension_allowed
-          layout_properties: {x: 206.92162499999995, y: 1180.953125, width: 230.125}
-          event_bindings: {change: extension_allowed_copy_change}
-        - type: TextBox
-          properties: {role: outlined, align: left, hide_text: false, tooltip: '',
-            placeholder: Enter Processing fee, border: '', enabled: true, foreground: '',
-            visible: true, text: '', font_size: null, font: '', spacing_above: small,
-            type: text, spacing_below: small, italic: false, background: '', bold: false,
-            underline: false}
-          name: text_box_3
-          layout_properties: {x: 203.1875, y: 1116.171875, width: 232}
-        - type: Label
-          properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-            visible: true, text: ' Processing Fee(%)', font_size: null, font: '',
-            spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-            background: '', bold: false, underline: false, icon: ''}
-          name: label_6_copy
-          layout_properties: {x: 5.1875, y: 1116.171875, width: 160}
-        - type: Label
-          properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-            visible: true, text: ' Min Months', font_size: null, font: '', spacing_above: small,
-            icon_align: left, spacing_below: small, italic: false, background: '',
-            bold: false, underline: false, icon: ''}
-          name: label_10
-          layout_properties: {x: 5.1875, y: 1055, width: 160}
-        - type: TextBox
-          properties: {role: outlined, align: left, hide_text: false, tooltip: '',
-            placeholder: Enter min months, border: '', enabled: true, foreground: '',
-            visible: true, text: '', font_size: null, font: '', spacing_above: small,
-            type: text, spacing_below: small, italic: false, background: '', bold: false,
-            underline: false}
-          name: min_months
-          layout_properties: {x: 203.1875, y: 1055, width: 198}
         - type: CheckBox
           properties: {role: null, align: left, tooltip: '', border: '', enabled: true,
             foreground: '', allow_indeterminate: false, visible: true, text: Monthly,
@@ -515,6 +349,197 @@ components:
             italic: false, background: '', bold: false, checked: false, underline: false}
           name: check_box_3
           layout_properties: {x: 425, y: 818, width: 132}
+        - type: Label
+          properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+            visible: true, text: ' Foreclosure Type', font_size: null, font: '', spacing_above: small,
+            icon_align: left, spacing_below: small, italic: false, background: '',
+            bold: false, underline: false, icon: ''}
+          name: label_6_copy_2
+          layout_properties: {x: 3.1944427490234375, y: 881.3888549804688, width: 159.931}
+        - type: DropDown
+          properties:
+            role: outlined
+            align: full
+            tooltip: ''
+            placeholder: Select foreclosure
+            border: ''
+            enabled: true
+            foreground: ''
+            items: [Eligible, Not Eligible]
+            visible: true
+            font_size: null
+            font: ''
+            spacing_above: small
+            spacing_below: small
+            italic: false
+            background: white
+            bold: false
+            underline: false
+            include_placeholder: true
+          name: foreclose_type
+          layout_properties: {x: 169.9163282470703, y: 876.3750610351562, width: 230.139}
+        - type: Label
+          properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+            visible: true, text: ' Foreclosure_fee(%)', font_size: null, font: '',
+            spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+            background: '', bold: false, underline: false, icon: ''}
+          name: label_6
+          layout_properties: {x: 3.111557250976574, y: 939.9583129882812, width: 160}
+        - type: TextBox
+          properties: {role: outlined, align: left, hide_text: false, tooltip: '',
+            placeholder: Enter foreclosure fee, border: '', enabled: true, foreground: '',
+            visible: true, text: '', font_size: null, font: '', spacing_above: small,
+            type: text, spacing_below: small, italic: false, background: '', bold: false,
+            underline: false}
+          name: foreclosure_fee
+          layout_properties: {x: 170, y: 934.1805129882812, width: 230.139}
+        - type: Label
+          properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+            visible: true, text: ' Min Months', font_size: null, font: '', spacing_above: small,
+            icon_align: left, spacing_below: small, italic: false, background: '',
+            bold: false, underline: false, icon: ''}
+          name: label_10
+          layout_properties: {x: 5.1805572509765625, y: 993.0000610351562, width: 160}
+        - type: TextBox
+          properties: {role: outlined, align: left, hide_text: false, tooltip: '',
+            placeholder: Enter min months, border: '', enabled: true, foreground: '',
+            visible: true, text: '', font_size: null, font: '', spacing_above: small,
+            type: text, spacing_below: small, italic: false, background: '', bold: false,
+            underline: false}
+          name: min_months
+          layout_properties: {x: 171.99999237060547, y: 993.0000610351562, width: 228.15288549804689}
+        - type: Label
+          properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+            visible: true, text: ' Processing Fee(%)', font_size: null, font: '',
+            spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+            background: '', bold: false, underline: false, icon: ''}
+          name: label_6_copy
+          layout_properties: {x: 1.9861068725586222, y: 1050.5555709960938, width: 160}
+        - type: TextBox
+          properties: {role: outlined, align: left, hide_text: false, tooltip: '',
+            placeholder: Enter Processing fee, border: '', enabled: true, foreground: '',
+            visible: true, text: '', font_size: null, font: '', spacing_above: small,
+            type: text, spacing_below: small, italic: false, background: '', bold: false,
+            underline: false}
+          name: text_box_3
+          layout_properties: {x: 173.1111068725586, y: 1050.5556030273438, width: 232}
+        - type: Label
+          properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+            visible: true, text: ' Extension Allowed', font_size: null, font: '',
+            spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+            background: '', bold: false, underline: false, icon: ''}
+          name: label_7
+          layout_properties: {x: 2.0551068725586106, y: 1111.9443969726562, width: 159.931}
+        - type: DropDown
+          properties:
+            role: outlined
+            align: full
+            tooltip: ''
+            placeholder: Select One
+            border: ''
+            enabled: true
+            foreground: ''
+            items: ['Yes', 'No']
+            visible: true
+            font_size: null
+            font: ''
+            spacing_above: small
+            spacing_below: small
+            italic: false
+            background: white
+            bold: false
+            underline: false
+            include_placeholder: true
+          name: extension_allowed
+          layout_properties: {x: 173.1111068725586, y: 1106.9443969726562, width: 230.125}
+          event_bindings: {change: extension_allowed_copy_change}
+        - type: Label
+          properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+            visible: true, text: ' Extension Fee(%)', font_size: null, font: '', spacing_above: small,
+            icon_align: left, spacing_below: small, italic: false, background: '',
+            bold: false, underline: false, icon: ''}
+          name: label_7_copy
+          layout_properties: {x: 3.1944427490234375, y: 1165.0138549804688, width: 160}
+        - type: TextBox
+          properties: {role: outlined, align: left, hide_text: false, tooltip: '',
+            placeholder: Enter Extension fee, border: '', enabled: true, foreground: '',
+            visible: true, text: '', font_size: null, font: '', spacing_above: small,
+            type: text, spacing_below: small, italic: false, background: '', bold: false,
+            underline: false}
+          name: text_box_4
+          layout_properties: {x: 175.18055725097656, y: 1165.0138549804688, width: 232}
+        - type: Button
+          properties: {role: outlined-button, align: center, tooltip: '', border: '',
+            enabled: true, foreground: 'theme:On Primary', visible: true, text: SAVE,
+            font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
+            italic: false, background: '#00008B', bold: false, underline: false, icon: 'fa:save'}
+          name: button_1
+          layout_properties: {x: 38, y: 1436.9733, width: 720.375}
+          event_bindings: {click: button_1_click}
+        - type: Label
+          properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+            visible: true, text: ' NPA', font_size: null, font: '', spacing_above: small,
+            icon_align: left, spacing_below: small, italic: false, background: '',
+            bold: false, underline: false, icon: ''}
+          name: label_12
+          layout_properties: {x: 5.1805572509765625, y: 1344.1250610351562, width: 160}
+        - type: TextBox
+          properties: {role: outlined, align: left, hide_text: false, tooltip: '',
+            placeholder: '', border: '', enabled: true, foreground: '', visible: true,
+            text: '', font_size: null, font: '', spacing_above: small, type: text,
+            spacing_below: small, italic: false, background: '', bold: false, underline: false}
+          name: npa
+          layout_properties: {x: 175.18054962158203, y: 1338.3472610351562, width: 232}
+        - type: TextBox
+          properties: {role: outlined, align: left, hide_text: false, tooltip: '',
+            placeholder: '', border: '', enabled: true, foreground: '', visible: true,
+            text: '', font_size: null, font: '', spacing_above: small, type: text,
+            spacing_below: small, italic: false, background: '', bold: false, underline: false}
+          name: default
+          layout_properties: {x: 173.19444274902344, y: 1278.5693969726562, width: 232.097}
+        - type: Label
+          properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+            visible: true, text: Default Fee, font_size: null, font: '', spacing_above: small,
+            icon_align: left, spacing_below: small, italic: false, background: '',
+            bold: false, underline: false, icon: ''}
+          name: label_11
+          layout_properties: {x: 5.1805572509765625, y: 1284.3471969726563, width: 160}
+        - type: TextBox
+          properties: {role: outlined, align: left, hide_text: false, tooltip: '',
+            placeholder: '', border: '', enabled: true, foreground: '', visible: true,
+            text: '', font_size: null, font: '', spacing_above: small, type: text,
+            spacing_below: small, italic: false, background: '', bold: false, underline: false}
+          name: lapsed
+          layout_properties: {x: 173.19445037841797, y: 1226.7915969726562, width: 232.111}
+        - type: Label
+          properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+            visible: true, text: Lapsed Fee, font_size: null, font: '', spacing_above: small,
+            icon_align: left, spacing_below: small, italic: false, background: '',
+            bold: false, underline: false, icon: ''}
+          name: label_9
+          layout_properties: {x: 5.1805572509765625, y: 1226.7777709960938, width: 160}
+        - type: Label
+          properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+            visible: true, text: ' Discount  Coupons', font_size: null, font: '',
+            spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+            background: '', bold: false, underline: false, icon: ''}
+          name: label_14_copy
+          layout_properties: {x: 1.9722213745117188, y: 1396.9722290039062, width: 145}
+        - type: RadioButton
+          properties: {role: null, selected: false, align: left, tooltip: '', border: '',
+            enabled: true, foreground: '', value: '', visible: true, text: 'Yes',
+            font_size: null, font: '', spacing_above: small, spacing_below: small,
+            italic: false, background: '', bold: false, group_name: radioGroup2, underline: false}
+          name: radio_button_3
+          layout_properties: {x: 180, y: 1396.1250290039063, width: 67}
+          event_bindings: {clicked: radio_button_3_clicked}
+        - type: RadioButton
+          properties: {role: null, selected: false, align: left, tooltip: '', border: '',
+            enabled: true, foreground: '', value: '', visible: true, text: 'No', font_size: null,
+            font: '', spacing_above: small, spacing_below: small, italic: false, background: '',
+            bold: false, group_name: radioGroup2, underline: false}
+          name: radio_button_4
+          layout_properties: {x: 290.9305725097656, y: 1396.9722290039062, width: 58}
 - type: FlowPanel
   properties: {}
   name: navbar_links

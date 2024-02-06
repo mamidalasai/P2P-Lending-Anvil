@@ -32,12 +32,6 @@ components:
       properties: {}
       name: navigation_bar_lender_dashbord_1
       layout_properties: {grid_position: 'XCZMUS,UYCZFA'}
-    - name: button_1
-      properties: {text: 'Back   ', icon_align: right_edge, align: right, bold: true,
-        background: '#d62531', foreground: white}
-      type: Button
-      layout_properties: {grid_position: 'EULADB,YYVYRK'}
-      event_bindings: {click: button_1_click}
     - name: label_6
       properties: {align: center, background: '#083973', text: Foreclosure details,
         bold: false, foreground: White, underline: true, font_size: 18}

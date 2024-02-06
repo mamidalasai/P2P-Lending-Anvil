@@ -22,8 +22,12 @@ class dashboard(dashboardTemplate):
    
     self.email = main_form_module.email
     email = self.email
-    # Any code you write here will run before the form opens.
-
+    self.user_id=main_form_module.userId
+    user_id = self.user_id
+ 
+    # customer_id = 1000
+    
+    # anvil.server.call('fetch_profile_data_and_insert', email,user_id)
 
   def button_3_click(self, **event_args):
     """This method is called when the button is clicked"""
@@ -154,7 +158,5 @@ class dashboard(dashboardTemplate):
     
     open_form('wallet.wallet')
     
-    customer_id = 1000
-    email = self.email
-    anvil.server.call('fetch_profile_data_and_insert', email, customer_id)
+    
   
