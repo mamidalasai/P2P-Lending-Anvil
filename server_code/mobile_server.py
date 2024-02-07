@@ -41,18 +41,28 @@ def get_today_data():
   data=tables.app_tables.fin_emi_table.search()
   return data
 
+def get_foreclose_data():
+  data = tables.app_tables.fin_foreclosure.search()
+  return data
 
-
-email_user = []
 
 @anvil.server.callable
 def share_email(email):
-    global email_user
-    email_user.append(email)
+    # Get the existing email_user list from app_session or create a new one
+    email_user = anvil.server.session.get('email_user', None)
+    
+    # Append the new email
+    email_user = email
+    
+    # Save the updated email_user list to app_session
+    anvil.server.session['email_user'] = email_user
+    
     print(f"Received email: {email_user}, {email}")
     return email_user
 
 @anvil.server.callable
 def another_method():
-    # Use the global variable directly
+    # Get the email_user list from app_session
+    email_user = anvil.server.session.get('email_user', None)
     print(email_user)
+    return email_user
