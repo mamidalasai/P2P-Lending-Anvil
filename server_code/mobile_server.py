@@ -47,10 +47,10 @@ global_email = None
 
 @anvil.server.callable
 def login_email(email_value):
-    global global_email
-    global_email = email_value
-    return global_email
+  return email_value
 
+
+  
 @anvil.server.callable
 def another_method():
     global global_email
