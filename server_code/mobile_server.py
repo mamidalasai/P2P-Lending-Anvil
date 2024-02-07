@@ -41,10 +41,10 @@ def get_today_data():
   data=tables.app_tables.fin_emi_table.search()
   return data
 
-def get_foreclose_data():
+@anvil.server.callable
+def foreclosure_data():
   data = tables.app_tables.fin_foreclosure.search()
   return data
-
 
 @anvil.server.callable
 def share_email(email):
