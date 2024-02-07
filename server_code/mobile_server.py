@@ -40,8 +40,27 @@ def get_extension_data():
 def get_today_data():
   data=tables.app_tables.fin_emi_table.search()
   return data
-@anvil.server.callable
-def login_email(email):
-    # Your server-side logic here
-    print(f"Received email on server: {email}")
-    return f"Server response for {email}"
+import anvil.server
+
+class EmailHandler:
+    def __init__(self):
+        self.email = None
+
+    @anvil.server.callable
+    def login_email(self, email):
+        self.email = email
+        return f"Email set to {email}"
+
+    @anvil.server.callable
+    def another_method(self):
+        # Access the email without passing it as a parameter
+        if self.email:
+            print(f"Email in another_method: {self.email}")
+            return f"Server response for {self.email}"
+        else:
+            return "Email not set yet"
+
+# Instantiate the EmailHandler class
+email_handler = EmailHandler()
+
+
