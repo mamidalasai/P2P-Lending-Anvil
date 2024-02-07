@@ -40,27 +40,21 @@ def get_extension_data():
 def get_today_data():
   data=tables.app_tables.fin_emi_table.search()
   return data
-import anvil.server
 
-class EmailHandler:
-    def __init__(self):
-        self.email = None
+global_email = None
 
-    @anvil.server.callable
-    def login_email(self, email):
-        self.email = email
-        return f"Email set to {email}"
+@anvil.server.callable
+def login_email(email):
+    global global_email
+    global_email = email
+    return global_email
 
-    @anvil.server.callable
-    def another_method(self):
-        # Access the email without passing it as a parameter
-        if self.email:
-            print(f"Email in another_method: {self.email}")
-            return f"Server response for {self.email}"
-        else:
-            return "Email not set yet"
-
-# Instantiate the EmailHandler class
-email_handler = EmailHandler()
-
-
+@anvil.server.callable
+def another_method():
+    global global_email  # Use global keyword to access the global variable
+    # Access the email without passing it as a parameter
+    if global_email:
+        print(f"Email in another_method: {global_email}")
+        return global_email
+    else:
+        return "Email not set yet"
