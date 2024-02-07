@@ -55,5 +55,4 @@ def share_email(email):
 @anvil.server.callable
 def another_method():
     # Use the global variable directly
-    global email_user
     print(email_user)
