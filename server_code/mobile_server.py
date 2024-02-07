@@ -41,7 +41,19 @@ def get_today_data():
   data=tables.app_tables.fin_emi_table.search()
   return data
 
+
+
+email_user = []
+
 @anvil.server.callable
 def share_email(email):
-    # Do something with the email, for example, save it to a database
+    global email_user
+    email_user.append(email)
     print(f"Received email: {email}")
+    return email_user
+
+@anvil.server.callable
+def another_method():
+    # Use the global variable directly
+    global email_user
+    priint(email_user)
