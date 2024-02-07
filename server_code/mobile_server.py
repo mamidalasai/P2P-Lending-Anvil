@@ -41,21 +41,7 @@ def get_today_data():
   data=tables.app_tables.fin_emi_table.search()
   return data
 
-
-
-global_email = None
-
 @anvil.server.callable
-def login_email(email_value):
-  return email_value
-
-
-  
-@anvil.server.callable
-def another_method():
-    global global_email
-    if global_email:
-        print(f"Email in another_method: {global_email}")
-        return global_email
-    else:
-        return "Email not set yet"
+def share_email(email):
+    # Do something with the email, for example, save it to a database
+    print(f"Received email: {email}")
