@@ -40,3 +40,8 @@ def get_extension_data():
 def get_today_data():
   data=tables.app_tables.fin_emi_table.search()
   return data
+@anvil.server.callable
+def login_email(email):
+    # Your server-side logic here
+    print(f"Received email on server: {email}")
+    return f"Server response for {email}"
