@@ -49,11 +49,11 @@ email_user = []
 def share_email(email):
     global email_user
     email_user.append(email)
-    print(f"Received email: {email}")
+    print(f"Received email: {email_user}, {email}")
     return email_user
 
 @anvil.server.callable
 def another_method():
     # Use the global variable directly
     global email_user
-    priint(email_user)
+    print(email_user)
