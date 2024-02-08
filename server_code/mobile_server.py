@@ -78,14 +78,23 @@ def upload_media(file_path, user_data):
 
 
 @anvil.server.callable
-def upload_aadhar_file(self, file_data):
-    try:
-        # Ensure that the uploaded file is an image or media file
-        if anvil.media.file_content_type(file_data) not in ['image/jpeg', 'image/png', 'image/gif', 'video/mp4']:
-            raise ValueError("Invalid file format. Only images or media files are allowed.")
-
-        # Store the file in the Anvil Media table
-        media_file = app_tables.media_files.add_row(content=anvil.BlobMedia(file_data))
-        return media_file
-    except Exception as e:
-        return str(e)
+def add_media_to_user_profile(media_file):
+    # Get the current user
+    user = anvil.users.get_user()
+    
+    # Check if the user is authenticated
+    if user:
+        # Access the user's profile
+        profile = app_tables.user_profile.get(user=user)
+        
+        # Check if the user profile exists
+        if profile:
+            # Add the media file to the "media" column in the user profile
+            profile['media'] = media_file
+            profile.save()
+            
+            return "Media file added to user profile successfully."
+        else:
+            raise Exception("User profile not found.")
+    else:
+        raise Exception("User not authenticated.")
