@@ -66,3 +66,12 @@ def another_method():
     email_user = anvil.server.session.get('email_user', None)
     print(email_user)
     return email_user
+
+@anvil.server.callable
+def upload_media(file_path, user_data):
+    # Upload media and update user data
+    data = tables.app_tables.fin_user_profile.search()
+    with open(file_path, 'rb') as file:
+        # Upload media to Anvil's media storage
+        media_url = anvil.server._anvil_designer_media_upload(file.read(), 'image/jpeg')
+    data[user_data]['aadhaar_photo'] = media_url
