@@ -75,3 +75,17 @@ def upload_media(file_path, user_data):
         # Upload media to Anvil's media storage
         media_url = anvil.server._anvil_designer_media_upload(file.read(), 'image/jpeg')
     data[user_data]['aadhaar_photo'] = media_url
+
+
+@anvil.server.callable
+def upload_aadhar_file(self, file_data):
+    try:
+        # Ensure that the uploaded file is an image or media file
+        if anvil.media.file_content_type(file_data) not in ['image/jpeg', 'image/png', 'image/gif', 'video/mp4']:
+            raise ValueError("Invalid file format. Only images or media files are allowed.")
+
+        # Store the file in the Anvil Media table
+        media_file = app_tables.media_files.add_row(content=anvil.BlobMedia(file_data))
+        return media_file
+    except Exception as e:
+        return str(e)
