@@ -68,33 +68,14 @@ def another_method():
     return email_user
 
 @anvil.server.callable
-def upload_media(file_path, user_data):
+def upload_media(file_path):
     # Upload media and update user data
     data = tables.app_tables.fin_user_profile.search()
-    with open(file_path, 'rb') as file:
-        # Upload media to Anvil's media storage
-        media_url = anvil.server._anvil_designer_media_upload(file.read(), 'image/jpeg')
-    data[user_data]['aadhaar_photo'] = media_url
-
-
-@anvil.server.callable
-def add_media_to_user_profile(media_file):
-    # Get the current user
-    user = anvil.users.get_user()
-    
-    # Check if the user is authenticated
-    if user:
-        # Access the user's profile
-        profile = app_tables.user_profile.get(user=user)
-        
-        # Check if the user profile exists
-        if profile:
-            # Add the media file to the "media" column in the user profile
-            profile['media'] = media_file
-            profile.save()
-            
-            return "Media file added to user profile successfully."
-        else:
-            raise Exception("User profile not found.")
-    else:
-        raise Exception("User not authenticated.")
+    with open(file_path, "rb") as file:
+      file_content = file.read()
+  
+# Encode the file content in base64
+    encoded_content = base64.b64encode(file_content).decode("utf-8")
+    print(encoded_content, file_path)
+    data[0]['aadhaar_photo'] = encoded_content
+  
