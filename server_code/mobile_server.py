@@ -72,10 +72,21 @@ def another_method():
     return email_user
 
 
-import anvil.server
+@anvil.server.callable
+def convert_path_to_media(file_path):
+    try:
+        # Read the file content
+        with open(file_path, 'rb') as file:
+            file_content = file.read()
+
+        # Create a Media object
+        media = anvil.server.Media(file_content)
+        print(media)
+        return media
+    except Exception as e:
+        return f"Error converting file path to media: {str(e)}"
+
 
 @anvil.server.callable
-def save_file_to_database(file_path):
-  media = anvil.Media(file_path)
-  file_bytes = media.get_bytes()
-  print(file_bytes, file_path)
+def get_foreclose_data(outstading_amount, forecloser_fee, forecloser_amount):
+    tables.app_tables.fin_foreclosure.add_row(outstanding_amount=outstading_amount,foreclose_fee=forecloser_fee,foreclose_amount=forecloser_amount)
