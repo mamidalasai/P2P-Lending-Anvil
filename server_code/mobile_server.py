@@ -75,7 +75,8 @@ def another_method():
 @anvil.server.callable
 def upload_aadhar_file(file_path, record_id):
     # Assuming you have a table named 'YourTable' with a column 'aadhar_file'
-    table_row = tables.app_tables.fin_user_profile.get(email_user=record_id)
+    data = anvil.server.call('another_method')
+    table_row = data[record_id]
     
     with open(file_path, 'rb') as file:
         file_content = file.read()
