@@ -6,6 +6,10 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.server
+import anvil.tables as tables
+import anvil.tables.query as q
+import base64
+import os  # Import the os module for file existence check
 
 
 @anvil.server.callable()
@@ -71,11 +75,24 @@ def another_method():
 def upload_media(file_path):
     # Upload media and update user data
     data = tables.app_tables.fin_user_profile.search()
-    with open(file_path, "rb") as file:
-      file_content = file.read()
-  
-# Encode the file content in base64
-    encoded_content = base64.b64encode(file_content).decode("utf-8")
-    print(encoded_content, file_path)
-    data[0]['aadhaar_photo'] = encoded_content
-  
+    
+    try:
+        # Check if the file exists
+        if os.path.exists(file_path):
+            with open(file_path, "rb") as file:
+                file_content = file.read()
+
+            # Encode the file content in base64
+            encoded_content = base64.b64encode(file_content).decode("utf-8")
+
+            # Update user data in Anvil table
+            with anvil.server.transaction():
+                data[0]['aadhaar_photo'] = encoded_content
+
+            print("Media uploaded successfully:", file_path)
+        else:
+            print("Error: File not found:", file_path)
+
+    except Exception as e:
+        print(f"Error: {e}")
+        print("Failed to upload media:", file_path)
