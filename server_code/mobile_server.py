@@ -72,16 +72,25 @@ def another_method():
     return email_user
 
 
+import anvil.server
+
 @anvil.server.callable
 def save_file_to_database(file_path):
-    try:
-        # Open the file in binary mode and read its contents
-        with open(file_path, 'rb') as file:
-            file_content = file.read()
+    with open(file_path, 'rb') as file:
+        file_content = file.read()
 
-        # Save the file content to the Anvil database
-        app_tables.fin_user_profile.add_row(aadhaar_photo=file_content)
+    # Create an Anvil Media object
+    media_object = anvil.server.Media(content_type="image/png", content=file_content)
 
-        return "File saved successfully to the database!"
-    except Exception as e:
-        return f"Error: {str(e)}"
+    # Get the reference to your Anvil Data Table
+    my_data_table = app_tables.fin_user_profile
+
+    # Create a new row in the data table and set the media column
+    new_row = my_data_table.add_row(aadhaar_photo=media_object)
+
+    # Save the changes to the database
+    anvil.server.session_data.tables.save_all()
+
+    return new_row
+
+
