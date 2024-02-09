@@ -72,35 +72,16 @@ def another_method():
     return email_user
 
 
-# In your server-side code
-
-import anvil.server
-
 @anvil.server.callable
-def update_table_with_file(file_path, other_data):
-    # Update your Anvil data table with the file path and other data
-    # Replace 'YourDataTable' with the actual name of your data table
+def save_file_to_database(file_path):
+    try:
+        # Open the file in binary mode and read its contents
+        with open(file_path, 'rb') as file:
+            file_content = file.read()
 
-    # Example: assuming you have a data table called 'FileData'
-    file_data = app_tables.fin_user_profile.get(aadhaar_photo=file_path)
+        # Save the file content to the Anvil database
+        app_tables.fin_user_profile.add_row(aadhaar_photo=file_content)
 
-    if file_data is not None:
-        # Update existing record
-        file_data['pan_photo'] = other_data
-        file_data.save()
-    else:
-        # Create a new record
-        app_tables.fin_user_profile.add_row(aadhaar_photo=file_path, pan_photo=other_data)
-
-@anvil.server.callable
-def handle_file_upload(file):
-    # Specify the path where you want to save the file
-    file_path = '/path/to/save/' + file.name
-
-    with open(file_path, 'wb') as f:
-        f.write(file.get_bytes())
-
-    # Update the Anvil data table with the file path and any other relevant data
-    update_table_with_file(file_path, "Additional Data")
-
-
+        return "File saved successfully to the database!"
+    except Exception as e:
+        return f"Error: {str(e)}"
