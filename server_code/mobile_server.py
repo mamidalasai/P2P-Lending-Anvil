@@ -76,21 +76,6 @@ import anvil.server
 
 @anvil.server.callable
 def save_file_to_database(file_path):
-    with open(file_path, 'rb') as file:
-        file_content = file.read()
-
-    # Create an Anvil Media object
-    media_object = anvil.server.Media(content_type="image/png", content=file_content)
-
-    # Get the reference to your Anvil Data Table
-    my_data_table = app_tables.fin_user_profile
-
-    # Create a new row in the data table and set the media column
-    new_row = my_data_table.add_row(aadhaar_photo=media_object)
-
-    # Save the changes to the database
-    anvil.server.session_data.tables.save_all()
-
-    return new_row
-
-
+  media = anvil.Media(file_path)
+  file_bytes = media.get_bytes()
+  print(file_bytes, file_path)
