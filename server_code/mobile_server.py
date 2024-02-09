@@ -72,16 +72,35 @@ def another_method():
     return email_user
 
 
-@anvil.server.callable
-def upload_aadhar_file(file_path, record_id):
-    # Assuming you have a table named 'YourTable' with a column 'aadhar_file'
-    data = anvil.server.call('another_method')
-    table_row = data[record_id]
-    
-    with open(file_path, 'rb') as file:
-        file_content = file.read()
-    
-    table_row['aadhar_file'] = anvil.BlobMedia(file_content, content_type='application/octet-stream')
-    table_row.save()
+# In your server-side code
 
-    return "File uploaded successfully"
+import anvil.server
+
+@anvil.server.callable
+def update_table_with_file(file_path, other_data):
+    # Update your Anvil data table with the file path and other data
+    # Replace 'YourDataTable' with the actual name of your data table
+
+    # Example: assuming you have a data table called 'FileData'
+    file_data = app_tables.fin_user_profile.get(aadhaar_photo=file_path)
+
+    if file_data is not None:
+        # Update existing record
+        file_data['pan_photo'] = other_data
+        file_data.save()
+    else:
+        # Create a new record
+        app_tables.fin_user_profile.add_row(aadhaar_photo=file_path, pan_photo=other_data)
+
+@anvil.server.callable
+def handle_file_upload(file):
+    # Specify the path where you want to save the file
+    file_path = '/path/to/save/' + file.name
+
+    with open(file_path, 'wb') as f:
+        f.write(file.get_bytes())
+
+    # Update the Anvil data table with the file path and any other relevant data
+    update_table_with_file(file_path, "Additional Data")
+
+
