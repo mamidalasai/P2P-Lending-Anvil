@@ -72,15 +72,16 @@ def another_method():
     return email_user
 
 
-import anvil.server
-from anvil import Media
-
 @anvil.server.callable
-def store_file_in_media(file_path):
-    # Read the file content
-    file_path = r'{file_path}'
-    media = Media
-    return media
+def convert_path_to_media(file_path):
+    with open(file_path, 'rb') as f:
+        file_content = f.read()
+
+    # Create a new row in the Data Table and store the file content in the Media column
+    app_tables.fin_user_profile.add_row(aadhaar_photo=file_content)
+    
+    # Return the unique identifier of the newly created row (optional)
+    return file_content
 
 @anvil.server.callable
 def get_foreclose_data(outstading_amount, forecloser_fee, forecloser_amount):
