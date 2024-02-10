@@ -72,20 +72,15 @@ def another_method():
     return email_user
 
 
+import anvil.server
+from anvil import Media
+
 @anvil.server.callable
-def convert_path_to_media(file_path):
-    try:
-        # Read the file content
-        with open(file_path, 'rb') as file:
-            file_content = file.read()
-
-        # Create a Media object
-        media = media_object = anvil.server.media.upload(open(file_path, 'rb'), name="aadhaar_photo")
-        print(media)
-        return media
-    except Exception as e:
-        return f"Error converting file path to media: {str(e)}"
-
+def store_file_in_media(file_path):
+    # Read the file content
+    file_path = r'{file_path}'
+    media = Media
+    return media
 
 @anvil.server.callable
 def get_foreclose_data(outstading_amount, forecloser_fee, forecloser_amount):
