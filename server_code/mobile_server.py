@@ -80,7 +80,7 @@ def convert_path_to_media(file_path):
             file_content = file.read()
 
         # Create a Media object
-        media = anvil.server.
+        media = media_object = anvil.server.media.upload(open(file_path, 'rb'), name="aadhaar_photo")
         print(media)
         return media
     except Exception as e:
