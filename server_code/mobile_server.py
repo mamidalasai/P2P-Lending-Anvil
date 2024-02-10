@@ -80,7 +80,7 @@ def convert_path_to_media(file_path):
             file_content = file.read()
 
         # Create a Media object
-        media = anvil.server.Media.u
+        media = anvil.server.
         print(media)
         return media
     except Exception as e:
