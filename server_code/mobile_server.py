@@ -73,16 +73,14 @@ def another_method():
 
 @anvil.server.callable
 def convert_path_to_media(file_path):
-    corrected_path = file_path.replace('\\', '/')
+    corrected_path = file_path.replace('/', '\\')
 
     # Create a BlobMedia object from the file
     try:
-        with open(corrected_path, 'rb') as file:
-            blob_media = BlobMedia(file.read(), content_type='image/jpeg')
-        
-        # Create a LazyMedia object from the BlobMedia
-        lazy_media = anvil.server.LazyMedia(blob_media)
-        return lazy_media
+        with open(corrected_path, "rb") as file:
+            media_object = anvil.media.from_file(file)
+            app_tables.fin_user_profile.add_row(aadhaar_photo=media_object)
+        return media_object
     except Exception as e:
         return f"Error: {e}"
 
