@@ -72,12 +72,18 @@ def another_method():
 
 @anvil.server.callable
 def convert_path_to_media(file_path):
-    normalized_path = file_path.replace('\\', '/')
-    
-    # Create a LazyMedia object using the normalized file path
-    lazy_media_object = anvil.BlobMedia(file_path)
-    
-    return lazy_media_object
+    corrected_path = file_path.replace('\\', '/')
+
+    # Create a BlobMedia object from the file
+    try:
+        with open(corrected_path, 'rb') as file:
+            blob_media = BlobMedia(file.read(), content_type='image/jpeg')
+        
+        # Create a LazyMedia object from the BlobMedia
+        lazy_media = anvil.server.LazyMedia(blob_media)
+        return lazy_media
+    except Exception as e:
+        return f"Error: {e}"
 
 @anvil.server.callable
 def get_foreclose_data(loan_id, outstading_amount, forecloser_fee, forecloser_amount, requested_on, status):
