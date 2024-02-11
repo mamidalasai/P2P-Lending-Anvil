@@ -85,6 +85,5 @@ def convert_path_to_media(file_path):
         return f"Error: {e}"
 
 @anvil.server.callable
-def get_foreclose_data(loan_id, outstading_amount, forecloser_fee, forecloser_amount, requested_on, status):
-    tables.app_tables.fin_foreclosure.add_row(loan_id=loan_id,outstanding_amount=outstading_amount,foreclose_fee=forecloser_fee,foreclose_amount=forecloser_amount
-                                             , requested_on=requested_on, status=status)
+def get_foreclose_data( outstading_amount, forecloser_fee, forecloser_amount):
+    tables.app_tables.fin_foreclosure.add_row(outstanding_amount=outstading_amount,foreclose_fee=forecloser_fee,foreclose_amount=forecloser_amount)
