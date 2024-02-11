@@ -10,7 +10,8 @@ import anvil.tables as tables
 import anvil.tables.query as q
 import base64
 import os  # Import the os module for file existence che
-
+from anvil import *
+import anvil.media
 
 @anvil.server.callable()
 def get_table_data():
