@@ -75,14 +75,13 @@ def another_method():
 def convert_path_to_media(file_path):
     corrected_path = file_path.replace('/', '\\')
 
-    # Create a BlobMedia object from the file
-    try:
-        with open(corrected_path, "rb") as file:
-            media_object = anvil.media.from_file(file)
-            app_tables.fin_user_profile.add_row(aadhaar_photo=media_object)
-        return media_object
-    except Exception as e:
-        return f"Error: {e}"
+    with open(corrected_path, 'rb') as file:
+        binary_data = file.read()
+
+    # Create a BlobMedia object from the binary data
+    media_object = anvil.media.from_blob(binary_data)
+
+    return media_object
 
 @anvil.server.callable
 def get_foreclose_data( outstading_amount, forecloser_fee, forecloser_amount):
