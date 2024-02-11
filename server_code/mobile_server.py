@@ -73,17 +73,15 @@ def another_method():
 
 @anvil.server.callable
 def convert_path_to_media(file_path):
-    # Get the absolute path
-    absolute_path = os.path.abspath(file_path)
+    corrected_path = file_path.replace('/', '//')
 
-    with open(absolute_path, 'rb') as file:
+    with open(corrected_path, 'rb') as file:
         binary_data = file.read()
 
     # Create a BlobMedia object from the binary data
     media_object = anvil.media.from_blob(binary_data)
 
     return media_object
-
 
 @anvil.server.callable
 def get_foreclose_data( outstading_amount, forecloser_fee, forecloser_amount):
