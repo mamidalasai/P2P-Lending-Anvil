@@ -61,28 +61,21 @@ def share_email(email):
     # Save the updated email_user list to app_session
     anvil.server.session['email_user'] = email_user
     
-    print(f"Received email: {email_user}, {email}")
     return email_user
 
 @anvil.server.callable
 def another_method():
     # Get the email_user list from app_session
     email_user = anvil.server.session.get('email_user', None)
-    print(email_user)
     return email_user
 
 
 @anvil.server.callable
 def convert_path_to_media(file_path):
-    with open(file_path, 'rb') as f:
-        file_content = f.read()
-
-    # Create a new row in the Data Table and store the file content in the Media column
-    app_tables.fin_user_profile.add_row(aadhaar_photo=file_content)
-    
-    # Return the unique identifier of the newly created row (optional)
+    data = tables.app_tables.fin_user_profile.search()
     return file_content
 
 @anvil.server.callable
-def get_foreclose_data(outstading_amount, forecloser_fee, forecloser_amount):
-    tables.app_tables.fin_foreclosure.add_row(outstanding_amount=outstading_amount,foreclose_fee=forecloser_fee,foreclose_amount=forecloser_amount)
+def get_foreclose_data(loan_id, outstading_amount, forecloser_fee, forecloser_amount, requested_on, status):
+    tables.app_tables.fin_foreclosure.add_row(loan_id=loan_id,outstanding_amount=outstading_amount,foreclose_fee=forecloser_fee,foreclose_amount=forecloser_amount
+                                             , requested_on=requested_on, status=status)
