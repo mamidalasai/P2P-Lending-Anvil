@@ -12,6 +12,7 @@ import base64
 import os  # Import the os module for file existence che
 from anvil import *
 import anvil.media
+from anvil import Media
 
 @anvil.server.callable()
 def get_table_data():
@@ -77,19 +78,8 @@ def convert_path_to_media(file_path):
     path = file_path.replace('/', '\\\\')
     file_path = r'C:\kivymd\images\deal.png'
 
-    try:
-        # Open the file in binary mode and read its content
-        with open(file_path, 'rb') as file:
-            # Upload the file to Anvil media storage
-            media_object = anvil.server.media.upload(file)
-            return media_object
-        app_tables.fin_user_profile.add_row(aadhaar_photo=Media(file))
-    except FileNotFoundError as e:
-        raise FileNotFoundError(f"File not found at path: {media_object, file_path}") from e
-    except Exception as e:
-        raise Exception(f"Error uploading file: {str(e)}") from e
-
-
+    media_object = anvil.server.Media(file_path)
+    return media_object
 @anvil.server.callable
 def get_foreclose_data( outstading_amount, forecloser_fee, forecloser_amount):
     tables.app_tables.fin_foreclosure.add_row(outstanding_amount=outstading_amount,foreclose_fee=forecloser_fee,foreclose_amount=forecloser_amount)
