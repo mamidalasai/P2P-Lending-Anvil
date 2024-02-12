@@ -73,10 +73,18 @@ def another_method():
 
 
 @anvil.server.callable
-def save_file_to_database(file_data):
-    # Assuming 'media_column' is the name of the Media column in your table
-    row = app_tables.fin_user_profile.add_row(pan_photo=file_data)
-    return row
+def save_media_content(file_content, file_name):
+    # Access the MediaTable Data Table
+    media_table = anvil.server.get_table('fin_user_profile')
+    
+    # Create a new row in the Data Table
+    new_row = media_table.add_row()
+    
+    # Set the value of the media column to the file content and file name
+    new_row['pan_photo'] = Media(file_content, file_name)
+    
+    # Return the ID of the new row
+    return new_row['fin_user_profile']
   
 @anvil.server.callable
 def get_foreclose_data( outstading_amount, forecloser_fee, forecloser_amount):
