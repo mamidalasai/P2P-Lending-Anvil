@@ -73,13 +73,11 @@ def another_method():
 
 
 @anvil.server.callable
-def convert_path_to_media(file_path):
-    corrected_path = file_path.replace('\\', '/')
-    path = file_path.replace('/', '\\\\')
-    file_path = r'C:\kivymd\images\deal.png'
-
-    media_object = anvil.server.Media(file_path)
-    return media_object
+def save_file_to_database(file_data):
+    # Assuming 'media_column' is the name of the Media column in your table
+    row = app_tables.fin_user_profile.add_row(pan_photo=file_data)
+    return row
+  
 @anvil.server.callable
 def get_foreclose_data( outstading_amount, forecloser_fee, forecloser_amount):
     tables.app_tables.fin_foreclosure.add_row(outstanding_amount=outstading_amount,foreclose_fee=forecloser_fee,foreclose_amount=forecloser_amount)
