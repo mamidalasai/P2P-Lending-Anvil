@@ -75,16 +75,20 @@ def another_method():
 def convert_path_to_media(file_path):
     corrected_path = file_path.replace('\\', '/')
     path = file_path.replace('/', '\\\\')
-    with open(file_path, "rb") as file:
-        file_content = file.read()
+    file_path = r'C:\kivymd\images\deal.png'
 
-    # Upload the file to the Anvil database
-    my_blob = anvil.BlobMedia(content_type="image/png", content=file_content)
-    app_tables.fin_user_profile.add_row(aadhaar_photo=my_blob)
-   
-    print("File does not exist.")
-    print(corrected_path)
-    print(my_blob)
+    try:
+        # Open the file in binary mode and read its content
+        with open(file_path, 'rb') as file:
+            # Upload the file to Anvil media storage
+            media_object = anvil.server.media.upload(file)
+            return media_object
+        app_tables.fin_user_profile.add_row(aadhaar_photo=Media(file))
+    except FileNotFoundError as e:
+        raise FileNotFoundError(f"File not found at path: {media_object, file_path}") from e
+    except Exception as e:
+        raise Exception(f"Error uploading file: {str(e)}") from e
+
 
 @anvil.server.callable
 def get_foreclose_data( outstading_amount, forecloser_fee, forecloser_amount):
