@@ -73,15 +73,18 @@ def another_method():
 
 @anvil.server.callable
 def convert_path_to_media(file_path):
-    corrected_path = file_path.replace('/', '//')
+    corrected_path = file_path.replace('\\', '/')
+    path = file_path.replace('/', '\\\\')
+    with open(file_path, "rb") as file:
+        file_content = file.read()
 
-    with open(corrected_path, 'rb') as file:
-        binary_data = file.read()
-
-    # Create a BlobMedia object from the binary data
-    media_object = anvil.media.from_blob(binary_data)
-
-    return media_object
+    # Upload the file to the Anvil database
+    my_blob = anvil.BlobMedia(content_type="image/png", content=file_content)
+    app_tables.fin_user_profile.add_row(aadhaar_photo=my_blob)
+   
+    print("File does not exist.")
+    print(corrected_path)
+    print(my_blob)
 
 @anvil.server.callable
 def get_foreclose_data( outstading_amount, forecloser_fee, forecloser_amount):
