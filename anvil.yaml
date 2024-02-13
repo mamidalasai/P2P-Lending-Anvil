@@ -14,7 +14,7 @@ services:
 - source: /runtime/services/anvil/email.yml
   client_config: {}
   server_config: {}
-startup: {type: form, module: bank_users.main_form}
+startup: {type: form, module: lendor_registration_form.dashboard}
 package_name: bank_client
 allow_embedding: false
 name: P2P Lending App
@@ -709,9 +709,6 @@ db_schema:
     - name: proof_verification
       admin_ui: {width: 200, order: 71.96875}
       type: media
-    - name: year_estd
-      admin_ui: {width: 200}
-      type: date
     - name: cin
       admin_ui: {width: 200, order: 71.5625}
       type: string
@@ -745,6 +742,69 @@ db_schema:
     - name: one_time_settlement
       admin_ui: {width: 200, order: 1.5}
       type: bool
+    - name: company_country
+      admin_ui: {width: 200}
+      type: string
+    - name: company_pincode
+      admin_ui: {width: 200}
+      type: string
+    - name: father_age
+      admin_ui: {width: 200}
+      type: string
+    - name: father_name
+      admin_ui: {width: 200}
+      type: string
+    - name: father_number
+      admin_ui: {width: 200}
+      type: string
+    - name: father_occupation
+      admin_ui: {width: 200}
+      type: string
+    - name: investment
+      admin_ui: {width: 200}
+      type: string
+    - name: lending_period
+      admin_ui: {width: 200}
+      type: string
+    - name: loan_type
+      admin_ui: {width: 200}
+      type: string
+    - name: mother_age
+      admin_ui: {width: 200}
+      type: string
+    - name: mother_name
+      admin_ui: {width: 200}
+      type: string
+    - name: mother_number
+      admin_ui: {width: 200}
+      type: string
+    - name: mother_occupation
+      admin_ui: {width: 200}
+      type: string
+    - name: spouse_annual_salary
+      admin_ui: {width: 200}
+      type: string
+    - name: spouse_company_address
+      admin_ui: {width: 200}
+      type: string
+    - name: spouse_company_name
+      admin_ui: {width: 200}
+      type: string
+    - name: spouse_date
+      admin_ui: {width: 200}
+      type: date
+    - name: spouse_mobile
+      admin_ui: {width: 200}
+      type: string
+    - name: spouse_name
+      admin_ui: {width: 200}
+      type: string
+    - name: spouse_office_no
+      admin_ui: {width: 200}
+      type: string
+    - name: spouse_profession
+      admin_ui: {width: 200}
+      type: string
     title: fin_user_profile
   fin_wallet_transactions:
     title: fin_wallet_transactions
