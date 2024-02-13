@@ -46,7 +46,7 @@ components:
       wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{"ZWPHOA":25,"ONLKVG":25,"NHDUVG":15,"BFUQZJ":10,"HWTNHE":55,"XAOABS":5}',
       spacing_below: small, background: white}
     name: outlined_card_1
-    layout_properties: {grid_position: 'AHZRTF,ITHSJG'}
+    layout_properties: {grid_position: 'AHZRTF,STRXVG'}
     components:
     - type: Label
       properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
@@ -58,7 +58,7 @@ components:
     - type: GridPanel
       properties: {}
       name: grid_panel_1
-      layout_properties: {grid_position: 'RMYYPD,ENJZKF'}
+      layout_properties: {grid_position: 'WZGXKQ,HATVBX'}
       components:
       - type: Label
         properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
