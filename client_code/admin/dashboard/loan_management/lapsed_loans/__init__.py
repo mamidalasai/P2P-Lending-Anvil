@@ -14,6 +14,7 @@ class lapsed_loans(lapsed_loansTemplate):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
 
+    # Any code you write here will run before the form opens.
     self.data = tables.app_tables.fin_loan_details.search()
 
     a = -1
@@ -29,7 +30,7 @@ class lapsed_loans(lapsed_loansTemplate):
       self.list_2.append(i['borrower_customer_id'])
       self.list_3.append(i['borrower_full_name'])
       self.list_4.append(i['loan_updated_status'])
-
+    print(a)
 
     self.result = []
     self.index = []

@@ -24,6 +24,7 @@ class Borr_loan_request(Borr_loan_requestTemplate):
         self.email=main_form_module.email
         email = self.email
 
+        # self.entered_loan_id = entered_loan_id
         
         
         # Populate labels with the selected row details
@@ -36,7 +37,7 @@ class Borr_loan_request(Borr_loan_requestTemplate):
         self.label_credit_limit.text = f"{selected_row['credit_limit']}"
         self.label_interest_rate.text = f"{selected_row['interest_rate']}"
         self.update_ui_based_on_status()
-
+        
         # Fetch additional details from the 'borrower' table
         try:
             user_request = app_tables.fin_borrower.get(customer_id=str(selected_row['borrower_customer_id']))
@@ -68,7 +69,11 @@ class Borr_loan_request(Borr_loan_requestTemplate):
         except anvil.tables.TableError as e:
             self.label_bank_acc_details.text = f"Error fetching user details: {e}"
            
-     
+        loan_id = self.label_loan_id.text
+        self.entered_loan_id = loan_id
+        borrower_customer_id = self.label_user_id.text
+        self.entered_borrower_customer_id = borrower_customer_id
+      
     def calculate_rom(self, interest_rate, min_amount_text):
         # Calculate ROM based on your business logic
         try:
@@ -191,7 +196,9 @@ class Borr_loan_request(Borr_loan_requestTemplate):
         # Assuming 'selected_row' is the selected row from the loan_details table
         selected_row = self.selected_row  
         email = main_form_module.email
-
+        entered_loan_id = self.entered_loan_id
+        entered_borrower_customer_id = self.entered_borrower_customer_id
+      
         tenure = selected_row['tenure']
       
         # Call the server-side function
@@ -200,7 +207,7 @@ class Borr_loan_request(Borr_loan_requestTemplate):
         # Check the signal and perform actions accordingly
         if signal == "insufficient_balance":
             alert("Warning: Your account balance is insufficient. Please deposit amount into your wallet. If not done within the next 2 minutes, the opportunity may be lost")
-            open_form("wallet.wallet")
+            open_form("wallet.wallet_deposit", entered_loan_id=entered_loan_id,entered_borrower_customer_id=entered_borrower_customer_id)
         elif signal == "Time_out":
             alert("The designated time has passed. The loan has moved to the 'Lost Opportunities' status.")
             open_form("wallet.wallet") 
@@ -215,12 +222,34 @@ class Borr_loan_request(Borr_loan_requestTemplate):
             
             self.selected_row['first_emi_payment_due_date'] = first_emi_due_date
 
-            # Update 'loan_updated_status' column
-            selected_row['loan_updated_status'] = 'disbursed loan'
-            selected_row.update()
+            entered_borrower_customer_id = self.entered_borrower_customer_id
+            # Convert entered_borrower_customer_id to integer
+            try:
+              entered_borrower_customer_id = int(entered_borrower_customer_id)
+            except ValueError:
+              alert("Please enter a valid customer ID.")
+              return
+            # Search for the row in fin_wallet table
+            wallet_add = app_tables.fin_wallet.get(customer_id=entered_borrower_customer_id)
+            if wallet_add:
+              entered_loan_id = self.entered_loan_id
+              loan_row = app_tables.fin_loan_details.get(loan_id=entered_loan_id)
+              if loan_row:
+                loan_amount = loan_row['loan_amount']
+              wallet_add['wallet_amount'] += loan_amount
+              wallet_add.update()
+
+              # You may want to update the loan_updated_status here if needed
+              updated_loan_status = 'disbursed loan'
+              loan_row['loan_updated_status'] = updated_loan_status
+              # Save the changes to the loan_row
+              loan_row.update()
+
+            # # Update 'loan_updated_status' column
+            # selected_row['loan_updated_status'] = 'disbursed loan'
+            # selected_row.update()
 
             open_form("wallet.wallet")
 
     def link_1_click(self, **event_args):
       open_form('lendor_registration_form.dashboard.view_borrower_loan_request.payment_details_view_loan_request', selected_row=self.selected_row)
-

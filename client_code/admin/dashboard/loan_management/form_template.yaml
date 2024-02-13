@@ -8,7 +8,7 @@ components:
   name: navbar_links
   layout_properties: {slot: nav-right}
 - type: ColumnPanel
-  properties: {col_widths: '{}'}
+  properties: {col_widths: '{"SIXGCT":20,"VXAFWJ":20,"JIRTYY":20,"VISKEZ":20,"UDGJOQ":40}'}
   name: content_panel_copy
   layout_properties:
     col_widths: {}
@@ -99,9 +99,22 @@ components:
     layout_properties: {grid_position: 'YSIPNY,VXAFWJ'}
     event_bindings: {click: button_8_click}
   - type: Button
-    properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
-      foreground: '', visible: true, text: '', font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-      underline: false, icon: ''}
-    name: button_9
-    layout_properties: {grid_position: 'YSIPNY,RUWJTJ'}
+    properties: {role: outlined-button, align: center, tooltip: '', border: '', enabled: true,
+      foreground: 'theme:On Primary', visible: true, text: 'Not Payable Amount       ',
+      font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
+      italic: false, background: '#00008B', bold: false, underline: false, icon: ''}
+    name: button_6_copy
+    layout_properties: {grid_position: 'YSIPNY,JIRTYY'}
+    event_bindings: {click: button_6_copy_click}
+  - type: Button
+    properties: {role: outlined-button, align: center, tooltip: '', border: '', enabled: true,
+      foreground: 'theme:On Primary', visible: true, text: One Time Settlement, font_size: null,
+      font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+      background: '#00008B', bold: false, underline: false, icon: ''}
+    name: button_6_copy_2
+    layout_properties: {grid_position: 'CZYROF,VISKEZ'}
+    event_bindings: {click: button_6_copy_2_click}
+  - type: Spacer
+    properties: {height: 32}
+    name: spacer_1
+    layout_properties: {grid_position: 'CZYROF,UDGJOQ'}

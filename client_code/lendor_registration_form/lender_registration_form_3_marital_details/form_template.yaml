@@ -62,7 +62,7 @@ components:
     spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '#00008B',
     bold: true, underline: false, icon: 'fa:angle-double-left'}
   type: Button
-  layout_properties: {grid_position: 'ESLEHZ,LBIZMK'}
+  layout_properties: {grid_position: 'ESLEHZ,NDIXRU'}
   event_bindings: {click: button_1_click}
 - name: button_next
   properties: {role: elevated-button, align: left, tooltip: '', border: '', enabled: true,
@@ -70,6 +70,6 @@ components:
     font: '', spacing_above: small, icon_align: right, spacing_below: small, italic: false,
     background: '#00008B', bold: true, underline: false, icon: 'fa:angle-double-right'}
   type: Button
-  layout_properties: {grid_position: 'ESLEHZ,OEKJZI'}
+  layout_properties: {grid_position: 'ESLEHZ,USJZEC'}
   event_bindings: {click: button_next_click}
 is_package: true

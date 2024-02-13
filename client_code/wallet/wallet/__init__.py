@@ -46,23 +46,6 @@ class wallet(walletTemplate):
     else:
         open_form("borrower_registration_form.dashboard")
 
-  # def home_main_form_link_click(self, **event_args):
-  #   """This method is called when the link is clicked"""
-  #   print("Before getting user_type - user_id:", self.user_id)
-    
-  #   user_request = app_tables.fin_user_profile.get(customer_id=self.user_id)
-    
-  #   if user_request:
-  #       self.user_type = user_request['usertype']
-  #       print("User type retrieved:", self.user_type)
-  #   else:
-  #       print("No user request found for user_id:", self.user_id)
-    
-  #   if self.user_type == "lendor":
-  #       open_form("lendor_registration_form.dashboard")
-  #   else:
-  #       open_form("borrower_registration_form.dashboard")
-
   def about_main_form_link_click(self, **event_args):
     """This method is called when the link is clicked"""
     open_form("lendor_registration_form.dashboard.dasboard_about")

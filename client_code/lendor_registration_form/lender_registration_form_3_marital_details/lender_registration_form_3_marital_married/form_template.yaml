@@ -66,16 +66,8 @@ components:
     spacing_above: small, icon_align: left, spacing_below: small, italic: false, background: '#00008B',
     bold: true, underline: false, icon: 'fa:angle-double-left'}
   type: Button
-  layout_properties: {grid_position: 'YWNRYR,GXKLRF'}
+  layout_properties: {grid_position: 'YWNRYR,JNXUQM'}
   event_bindings: {click: button_1_click}
-- name: button_submit
-  properties: {role: elevated-button, align: left, tooltip: '', border: '', enabled: true,
-    foreground: 'theme:On Primary', visible: false, text: Submit, font_size: null,
-    font: '', spacing_above: small, icon_align: right, spacing_below: small, italic: false,
-    background: '#00008B', bold: true, underline: false, icon: 'fa:angle-double-right'}
-  type: Button
-  layout_properties: {grid_position: 'YWNRYR,MEICZB'}
-  event_bindings: {click: button_submit_click}
 - name: spacer_1_copy_1_copy
   properties: {height: 51.666656494140625}
   type: Spacer
@@ -195,13 +187,21 @@ components:
       background: 'theme:On Primary', bold: false, underline: false}
     type: TextBox
     layout_properties: {row: LXOCUU, width_xs: 5, col_xs: 6}
+- name: button_submit
+  properties: {role: elevated-button, align: right, tooltip: '', border: '', enabled: true,
+    foreground: 'theme:On Primary', visible: false, text: Submit, font_size: null,
+    font: '', spacing_above: small, icon_align: right, spacing_below: small, italic: false,
+    background: '#00008B', bold: true, underline: false, icon: 'fa:angle-double-right'}
+  type: Button
+  layout_properties: {grid_position: 'JFBPSA,XGFVFG'}
+  event_bindings: {click: button_submit_click}
 - name: spacer_1_copy_1_copy_copy_copy
   properties: {height: 11.22222900390625}
   type: Spacer
   layout_properties: {grid_position: 'REPVXT,QUUABK'}
 - name: grid_panel_2
   properties: {spacing_above: small, spacing_below: small, background: '', foreground: '',
-    border: '', visible: true, role: outlined-card, tooltip: ''}
+    border: '', visible: false, role: outlined-card, tooltip: ''}
   type: GridPanel
   layout_properties: {grid_position: 'QUOEES,LISRCW'}
   components:
@@ -318,13 +318,23 @@ components:
       background: 'theme:On Primary', bold: false, underline: false}
     type: TextBox
     layout_properties: {row: RTVADP, width_xs: 5, col_xs: 6}
+- name: button_submit_copy
+  properties: {role: elevated-button, align: right, tooltip: '', border: '', enabled: true,
+    foreground: 'theme:On Primary', visible: false, text: Submit, font_size: null,
+    font: '', spacing_above: small, icon_align: right, spacing_below: small, italic: false,
+    background: '#00008B', bold: true, underline: false, icon: 'fa:angle-double-right'}
+  type: Button
+  layout_properties:
+    col_widths: {}
+    grid_position: EMEXYY,UCHKRA
+  event_bindings: {click: button_submit_copy_click}
 - name: spacer_1_copy_1_copy_copy
   properties: {height: 16.22222900390625}
   type: Spacer
   layout_properties: {grid_position: 'EEKIEM,FRDQPL'}
 - name: grid_panel_3
   properties: {spacing_above: small, spacing_below: small, background: '', foreground: '',
-    border: '', visible: true, role: outlined-card, tooltip: ''}
+    border: '', visible: false, role: outlined-card, tooltip: ''}
   type: GridPanel
   layout_properties: {grid_position: 'FHPXPN,JQSDDW'}
   components:
@@ -425,13 +435,22 @@ components:
       background: 'theme:On Primary', bold: false, underline: false}
     type: TextBox
     layout_properties: {row: HXYACP, width_xs: 5, col_xs: 6}
+- name: button_submit_copy_2
+  properties: {role: elevated-button, align: right, tooltip: '', border: '', enabled: true,
+    foreground: 'theme:On Primary', visible: false, text: Submit, font_size: null,
+    font: '', spacing_above: small, icon_align: right, spacing_below: small, italic: false,
+    background: '#00008B', bold: true, underline: false, icon: 'fa:angle-double-right'}
+  type: Button
+  layout_properties:
+    col_widths: {}
+    grid_position: ODQFKS,WPJYQE
 - name: spacer_1_copy_1_copy_copy_copy_2
   properties: {height: 16.22222900390625}
   type: Spacer
   layout_properties: {grid_position: 'BTWKPO,TNFIIN'}
 - name: grid_panel_4
   properties: {spacing_above: small, spacing_below: small, background: '', foreground: '',
-    border: '', visible: true, role: outlined-card, tooltip: ''}
+    border: '', visible: false, role: outlined-card, tooltip: ''}
   type: GridPanel
   layout_properties: {grid_position: 'EGFEKN,QRWTEP'}
   components:
@@ -546,4 +565,14 @@ components:
       background: 'theme:On Primary', bold: false, underline: false}
     type: TextBox
     layout_properties: {row: FIWZBG, width_xs: 5, col_xs: 6}
+- name: button_submit_copy_3
+  properties: {role: elevated-button, align: right, tooltip: '', border: '', enabled: true,
+    foreground: 'theme:On Primary', visible: false, text: Submit, font_size: null,
+    font: '', spacing_above: small, icon_align: right, spacing_below: small, italic: false,
+    background: '#00008B', bold: true, underline: false, icon: 'fa:angle-double-right'}
+  type: Button
+  layout_properties:
+    col_widths: {}
+    grid_position: JGVMON,FCSSEX
+  event_bindings: {click: button_submit_copy_3_click}
 is_package: true

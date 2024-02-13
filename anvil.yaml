@@ -23,8 +23,21 @@ runtime_options: {version: 2, client_version: '3', server_version: python3-sandb
 metadata: {title: 'P2P Bank ', description: this app provide services to person who are ready to invest and ready to give loan}
 startup_form: null
 db_schema:
+  fin_gender:
+    client: full
+    server: full
+    columns:
+    - name: gender
+      admin_ui: {order: 0, width: 200}
+      type: string
+    title: fin_gender
+  wallet_notification:
+    title: fin_wallet_notification
+    client: full
+    server: full
+    columns: []
   fin_lendor_business_type:
-    client: none
+    client: full
     server: full
     columns:
     - name: lendor_business_type
@@ -32,13 +45,13 @@ db_schema:
       type: string
     title: fin_lendor_business_type
   fin_lendor_salary_type:
+    title: fin_lendor_salary_type
     client: none
     server: full
     columns:
     - name: lendor_salary_type
-      admin_ui: {width: 200, order: 0}
+      admin_ui: {width: 200}
       type: string
-    title: fin_lendor_salary_type
   fin_product_categories:
     title: fin_product_categories
     client: full
@@ -51,7 +64,7 @@ db_schema:
       admin_ui: {width: 200}
       type: string
   fin_lendor_no_of_employees:
-    client: none
+    client: full
     server: full
     columns:
     - name: lendor_no_of_employees
@@ -66,6 +79,14 @@ db_schema:
       admin_ui: {width: 200, order: 0}
       type: string
     title: fin_borrower_no_of_employees
+  fin_lendor_marrital_status:
+    title: fin_lendor_marrital_status
+    client: full
+    server: full
+    columns:
+    - name: lendor_marrital_status
+      admin_ui: {width: 200}
+      type: string
   fin_wallet:
     client: full
     server: full
@@ -94,6 +115,9 @@ db_schema:
     - name: customer_id
       admin_ui: {width: 200, order: 0.5}
       type: number
+    - name: loan_id
+      admin_ui: {width: 200, order: 8}
+      type: string
     title: fin_wallet
   fin_lendor_manage_dropdown:
     title: fin_lendor_manage_dropdown
@@ -108,9 +132,6 @@ db_schema:
       type: string
     - name: no_of_employees
       admin_ui: {width: 200}
-      type: string
-    - name: organization_type
-      admin_ui: {order: 3, width: 230}
       type: string
     - name: employment_type
       admin_ui: {width: 200}
@@ -130,8 +151,11 @@ db_schema:
     - name: lending_period
       admin_ui: {width: 200}
       type: string
+    - name: organization_type
+      admin_ui: {width: 230}
+      type: string
   fin_lendor_lending_type:
-    client: none
+    client: full
     server: full
     columns:
     - name: lendor_lending_type
@@ -225,13 +249,13 @@ db_schema:
       type: number
     title: fin_product_details
   fin_lendor_gender:
+    title: fin_lendor_gender
     client: full
     server: full
     columns:
     - name: lendor_gender
-      admin_ui: {width: 200, order: 0}
+      admin_ui: {width: 200}
       type: string
-    title: fin_lendor_gender
   fin_borrower_organization_type:
     client: full
     server: full
@@ -286,6 +310,14 @@ db_schema:
       admin_ui: {width: 200, order: 0}
       type: string
     title: fin_borrower_account_type
+  fin_borrower_qualification:
+    title: fin_borrower_qualification
+    client: full
+    server: full
+    columns:
+    - name: borrower_qualification
+      admin_ui: {width: 200}
+      type: string
   fin_foreclosure:
     title: fin_foreclosure
     client: full
@@ -371,7 +403,7 @@ db_schema:
       type: string
     title: Users
   fin_lendor_employee_type:
-    client: none
+    client: full
     server: full
     columns:
     - name: lendor_employee_type
@@ -428,13 +460,13 @@ db_schema:
       admin_ui: {width: 200, order: 11}
       type: string
   fin_borrower_salary_type:
+    title: fin_borrower_salary_type
     client: full
     server: full
     columns:
     - name: borrower_salary_type
-      admin_ui: {width: 200, order: 0}
+      admin_ui: {width: 200}
       type: string
-    title: fin_borrower_salary_type
   fin_borrower_profession:
     client: full
     server: full
@@ -504,7 +536,7 @@ db_schema:
       admin_ui: {order: 40, width: 200}
       type: string
     - name: usertype
-      admin_ui: {order: 3.5, width: 200}
+      admin_ui: {order: 22.5, width: 200}
       type: string
     - name: aadhaar_no
       admin_ui: {order: 14, width: 200}
@@ -710,8 +742,10 @@ db_schema:
     - name: phd
       admin_ui: {width: 200, order: 100}
       type: media
+    - name: one_time_settlement
+      admin_ui: {width: 200, order: 1.5}
+      type: bool
     title: fin_user_profile
-  fin_wallet_notification: {}
   fin_wallet_transactions:
     title: fin_wallet_transactions
     client: full
@@ -756,16 +790,16 @@ db_schema:
       admin_ui: {width: 200, order: 0}
       type: string
     - name: borrower_customer_id
-      admin_ui: {width: 200, order: 1}
+      admin_ui: {order: 1.75, width: 200}
       type: number
     - name: borrower_email
-      admin_ui: {width: 200, order: 2}
+      admin_ui: {order: 1.9375, width: 200}
       type: string
     - name: payment_number
-      admin_ui: {width: 200, order: 4}
+      admin_ui: {order: 7.5, width: 200}
       type: number
     - name: payment_date
-      admin_ui: {width: 200, order: 5}
+      admin_ui: {order: 7.75, width: 200}
       type: date
     - name: lender_customer_id
       admin_ui: {width: 200, order: 6}
@@ -774,22 +808,22 @@ db_schema:
       admin_ui: {width: 200, order: 7}
       type: string
     - name: loan_id
-      admin_ui: {width: 200, order: 8}
+      admin_ui: {order: 1.5, width: 200}
       type: string
     - name: scheduled_payment_made
-      admin_ui: {width: 200, order: 9}
+      admin_ui: {order: 1.625, width: 200}
       type: datetime
     - name: emi_number
-      admin_ui: {width: 200, order: 10}
+      admin_ui: {order: 1.6875, width: 200}
       type: number
     - name: account_number
-      admin_ui: {width: 200, order: 11}
+      admin_ui: {order: 1.875, width: 200}
       type: string
     - name: next_payment
-      admin_ui: {width: 200}
+      admin_ui: {order: 10.5, width: 200}
       type: date
     - name: scheduled_payment
-      admin_ui: {width: 200}
+      admin_ui: {order: -1, width: 200}
       type: date
   fin_borrower_business_type:
     client: full
@@ -857,6 +891,9 @@ db_schema:
     - name: extension_request_date
       admin_ui: {width: 200}
       type: datetime
+    - name: emi_number
+      admin_ui: {width: 200, order: 18}
+      type: number
     title: fin_extends_loan
   fin_lendor_gender_2:
     title: fin_lendor_gender
@@ -980,13 +1017,22 @@ db_schema:
     - name: guarantor_annual_earning
       admin_ui: {width: 200, order: 6}
       type: string
+    - name: customer_id
+      admin_ui: {order: -1, width: 200}
+      type: number
+    - name: guarantor_person_relation
+      admin_ui: {width: 200, order: 8}
+      type: string
+    - name: another_person
+      admin_ui: {width: 200, order: 9}
+      type: string
     title: fin_guarantor_details
   fin_loan_details:
     client: full
     server: full
     columns:
     - name: borrower_email_id
-      admin_ui: {order: -0.25, width: 200}
+      admin_ui: {order: 2.5, width: 200}
       type: string
     - name: borrower_full_name
       admin_ui: {order: -0.75, width: 200}
@@ -998,7 +1044,7 @@ db_schema:
       admin_ui: {order: 19, width: 200}
       type: bool
     - name: application_status
-      admin_ui: {order: 0.75, width: 200}
+      admin_ui: {order: 16, width: 200}
       type: bool
     - name: total_repayment_amount
       admin_ui: {order: 0.5, width: 200}
@@ -1013,7 +1059,7 @@ db_schema:
       admin_ui: {order: 0.625, width: 200}
       type: string
     - name: lender_full_name
-      admin_ui: {order: 4.5, width: 200}
+      admin_ui: {order: 5.375, width: 200}
       type: string
     - name: member_since
       admin_ui: {order: 16, width: 200}
@@ -1025,7 +1071,7 @@ db_schema:
       admin_ui: {order: 20, width: 277}
       type: number
     - name: lender_email_id
-      admin_ui: {order: 5.5, width: 200}
+      admin_ui: {order: 5.4375, width: 200}
       type: string
     - name: days_left
       admin_ui: {width: 200, order: 21}
@@ -1037,7 +1083,7 @@ db_schema:
       admin_ui: {order: 23, width: 200}
       type: date
     - name: lender_customer_id
-      admin_ui: {order: -0.125, width: 200}
+      admin_ui: {order: 5.25, width: 200}
       type: number
     - name: beseem_score
       admin_ui: {order: 6.5, width: 200}
@@ -1055,13 +1101,13 @@ db_schema:
       admin_ui: {width: 200, order: 27}
       type: date
     - name: borrower_last_payment_done
-      admin_ui: {order: 1, width: 244}
+      admin_ui: {order: 15.5, width: 244}
       type: date
     - name: total_payments_made
       admin_ui: {width: 200, order: 29}
       type: number
     - name: membership_type
-      admin_ui: {order: 15.5, width: 200}
+      admin_ui: {order: 15.375, width: 200}
       type: string
     - name: tenure
       admin_ui: {width: 200, order: 1}
@@ -1070,22 +1116,22 @@ db_schema:
       admin_ui: {width: 200, order: 2}
       type: number
     - name: lender_accepted_timestamp
-      admin_ui: {order: 8, width: 241}
+      admin_ui: {order: 15.25, width: 241}
       type: datetime
     - name: credit_limit
-      admin_ui: {width: 200, order: 16}
+      admin_ui: {order: 15.484375, width: 200}
       type: number
     - name: loan_disbursed_timestamp
-      admin_ui: {order: 17.5, width: 200}
+      admin_ui: {order: 15.4375, width: 228}
       type: datetime
     - name: loan_extension_months
       admin_ui: {width: 200, order: 31}
       type: number
     - name: first_emi_payment_due_date
-      admin_ui: {order: 18.875, width: 280}
+      admin_ui: {order: 15.46875, width: 280}
       type: date
     - name: emi_payment_type
-      admin_ui: {width: 200}
+      admin_ui: {order: 15.453125, width: 200}
       type: string
     title: fin_loan_details
   fin_user_issues_bugreports:
@@ -1115,15 +1161,15 @@ db_schema:
       admin_ui: {order: 5, width: 200}
       type: string
   fin_borrower_gender:
+    title: fin_borrower_gender
     client: full
     server: full
     columns:
     - name: borrower_gender
-      admin_ui: {width: 200, order: 0}
+      admin_ui: {width: 200}
       type: string
-    title: fin_borrower_gender
   fin_lendor_qualification:
-    client: none
+    client: full
     server: full
     columns:
     - name: lendor_qualification
@@ -1131,7 +1177,7 @@ db_schema:
       type: string
     title: fin_lendor_qualification
   fin_lendor_lending_period:
-    client: none
+    client: full
     server: full
     columns:
     - name: lendor_lending_period
@@ -1139,7 +1185,7 @@ db_schema:
       type: string
     title: fin_lendor_lending_period
   fin_lendor_account_type:
-    client: none
+    client: full
     server: full
     columns:
     - name: lendor_account_type

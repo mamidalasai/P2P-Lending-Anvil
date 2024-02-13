@@ -39,12 +39,12 @@ class lender_registration_Institutional_form_2(lender_registration_Institutional
     if self.year:
            self.date_picker_1.date = self.year
 
-    options = app_tables.fin_lendor_manage_dropdown.search()
-    options_string = [str(option['business_type']) for option in options]
+    options = app_tables.fin_lendor_business_type.search()
+    options_string = [str(option['lendor_business_type']) for option in options]
     self.drop_down_1.items = options_string
 
-    options = app_tables.fin_lendor_manage_dropdown.search()
-    options_string = [str(option['no_of_employees']) for option in options]
+    options = app_tables.fin_lendor_no_of_employees.search()
+    options_string = [str(option['lendor_no_of_employees']) for option in options]
     self.drop_down_2.items = options_string
 
 

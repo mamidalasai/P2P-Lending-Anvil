@@ -15,8 +15,8 @@ class star_1_borrower_registration_form_1_education(star_1_borrower_registration
     self.init_components(**properties)
     user_data = anvil.server.call('get_user_data', user_id)
 
-    options = app_tables.fin_lendor_manage_dropdown.search()
-    options_string = [str(option['qualification']) for option in options]
+    options = app_tables.fin_borrower_qualification.search()
+    options_string = [str(option['borrower_qualification']) for option in options]
     self.drop_down_1.items = options_string
 
 
@@ -46,3 +46,4 @@ class star_1_borrower_registration_form_1_education(star_1_borrower_registration
   def button_3_click(self, **event_args):
     """This method is called when the button is clicked"""
     open_form("bank_users.user_form")
+

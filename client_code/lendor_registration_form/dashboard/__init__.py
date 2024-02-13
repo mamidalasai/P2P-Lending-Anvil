@@ -24,6 +24,7 @@ class dashboard(dashboardTemplate):
     email = self.email
     self.user_id=main_form_module.userId
     user_id = self.user_id
+    
  
     # customer_id = 1000
     

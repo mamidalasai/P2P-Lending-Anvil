@@ -14,21 +14,21 @@ class edit_gender(edit_genderTemplate):
     self.init_components(**properties)
 
     # Any code you write here will run before the form opens.
-    self.text_box_1.text = selected_row['lendor_gender']
+    self.text_box_1.text = selected_row['gender']
         # Store the selected row for later use
     self.selected_row = selected_row
     
   def button_1_click(self, **event_args):
     """This method is called when the button is clicked"""
     # Get the updated gender from the textbox
-    updated_gender = self.text_box_1.text
+    updated_gender = self.text_box_01.text
 
         # Update the 'borrower_gender' field in the database
-    self.selected_row['lendor_gender'] = updated_gender
+    self.selected_row['gender'] = updated_gender
     self.selected_row.update()
         # Close the form
     alert("Changes saved successfully!")
-    open_form('admin.dashboard.manage_cms.add_lender_dropdown_details')
+    open_form('admin.dashboard.manage_cms.manage_dropdowns')
 
   def delete_button(self, **event_args):
     """This method is called when the button is clicked"""
@@ -39,15 +39,11 @@ class edit_gender(edit_genderTemplate):
         )
     if confirmation:
             # Get the name of the group to be deleted
-            group_name = self.selected_row['lendor_gender']
+            group_name = self.selected_row['gender']
 
             # Delete the rows from the product_group table
             self.selected_row.delete()
-            open_form('admin.dashboard.manage_cms.add_lender_dropdown_details')
-
-  # def button_2_click(self, **event_args):
-  #   """This method is called when the button is clicked"""
-  #   open_form('admin.dashboard.manage_cms.add_lender_dropdown_details')
+            open_form('admin.dashboard.manage_cms.manage_dropdowns')
 
   def home_button(self, **event_args):
     """This method is called when the button is clicked"""
@@ -55,4 +51,4 @@ class edit_gender(edit_genderTemplate):
 
   def button_1_copy_3_click(self, **event_args):
     """This method is called when the button is clicked"""
-    open_form('admin.dashboard.manage_cms.add_lender_dropdown_details')
+    open_form('admin.dashboard.manage_cms.manage_dropdowns')

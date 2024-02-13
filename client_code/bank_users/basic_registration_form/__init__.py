@@ -39,8 +39,8 @@ class basic_registration_form(basic_registration_formTemplate):
           self.text_box_6.text=user_data['country']
           user_data.update()
       
-          options = app_tables.fin_borrower_gender.search()
-          option_strings = [str(option['borrower_gender']) for option in options]
+          options = app_tables.fin_gender.search()
+          option_strings = [str(option['gender']) for option in options]
           self.gender_dd.items = option_strings
           
 

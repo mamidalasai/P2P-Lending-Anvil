@@ -234,6 +234,8 @@ components:
         name: label_34
         layout_properties: {grid_position: 'FMEYUG,BVXSTI', row: ZQICJW, width_xs: 4,
           col_xs: 6}
+        data_bindings:
+        - {property: text, code: 'self.item[''user_type'']'}
       - type: Button
         properties: {role: elevated-button, align: center, tooltip: '', border: '',
           enabled: true, foreground: white, visible: true, text: Back, font_size: 16,

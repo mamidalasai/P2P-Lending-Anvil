@@ -35,12 +35,12 @@ class lender_registration_individual_form_1(lender_registration_individual_form_
     if self.company_name:
             self.text_box_1.text= self.company_name
 
-    options = app_tables.fin_lendor_manage_dropdown.search()
-    options_string = [str(option['employment_type']) for option in options]
+    options = app_tables.fin_lendor_employee_type.search()
+    options_string = [str(option['lendor_employee_type']) for option in options]
     self.drop_down_1.items = options_string
 
-    options = app_tables.fin_lendor_manage_dropdown.search()
-    options_string = [str(option['organization_type']) for option in options]
+    options = app_tables.fin_lendor_organization_type.search()
+    options_string = [str(option['lendor_organization_type']) for option in options]
     self.drop_down_2.items = options_string
     # Any code you write here will run before the form opens.
 

@@ -9,6 +9,8 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 from datetime import datetime, timedelta
 
+
+
 class borrower_extension(borrower_extensionTemplate):
     def __init__(self, selected_row, **properties):
         # Set Form properties and Data Bindings.

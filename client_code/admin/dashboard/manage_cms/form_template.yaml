@@ -48,10 +48,10 @@ components:
       components:
       - name: button_2
         properties: {role: outlined-button, align: full, tooltip: '', border: '',
-          enabled: true, foreground: 'theme:Tertiary Container', visible: true, text: '   MANAGE
+          enabled: true, foreground: 'theme:On Primary', visible: true, text: '   MANAGE
             DROPDOWNS', font_size: null, font: '', spacing_above: small, icon_align: left,
           spacing_below: small, italic: false, background: '#00008B', bold: true,
           underline: false, icon: 'fa:cube'}
         type: Button
-        layout_properties: {x: 134.0375213623047, y: 27.550003051757812, width: 482.688}
+        layout_properties: {x: 252.125, y: 20.640625, width: 482.688}
         event_bindings: {click: button_2_click}

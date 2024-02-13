@@ -13,7 +13,7 @@ components:
   name: label_2
   layout_properties: {grid_position: 'PNONTE,YCUIVI'}
   data_bindings:
-  - {property: text, code: 'self.item[''customer'']', writeback: false}
+  - {property: text, code: 'self.item[''coustmer_id'']', writeback: false}
 - type: Label
   properties: {}
   name: label_3

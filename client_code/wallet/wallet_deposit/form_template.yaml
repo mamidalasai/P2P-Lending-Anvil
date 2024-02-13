@@ -113,6 +113,7 @@ components:
   properties: {}
   type: Timer
   layout_properties: {grid_position: 'YMJQIZ,KXQLST TJPARL,HZRRVO'}
+  event_bindings: {tick: timer_1_tick}
 - name: outlined_card_3
   properties: {role: outlined-card, tooltip: '', border: '', foreground: '', visible: true,
     wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{"XKSLOU":20,"NWDEAB":25,"ZFTXOO":15,"BRHTGJ":20,"ZNLSNN":30,"MHDFOH":30}',

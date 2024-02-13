@@ -11,6 +11,7 @@ class RowTemplate10(RowTemplate10Template):
     def __init__(self, **properties):
         # Set Form properties and Data Bindings.
         self.init_components(**properties)
+        
 
     # Any code you write here will run before the form opens.
 
@@ -18,6 +19,7 @@ class RowTemplate10(RowTemplate10Template):
       """This method is called when the button is clicked"""
       # Get the selected row data
       selected_row = self.item
+      
 
         # Open the Borr_loan_request form with the selected row data
       open_form("lendor_registration_form.dashboard.view_borrower_loan_request.Borr_loan_request", selected_row=selected_row)

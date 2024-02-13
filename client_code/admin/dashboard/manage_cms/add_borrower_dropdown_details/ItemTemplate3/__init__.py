@@ -13,8 +13,8 @@ class ItemTemplate3(ItemTemplate3Template):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
 
-  def link_1_click(self, **event_args):
+  def link_01_click(self, **event_args):
     """This method is called when the link is clicked"""
     item_data = self.item
-    open_form('admin.dashboard.manage_cms.add_borrower_dropdown_details.edit_gender', selected_row=item_data)
+    open_form('admin.dashboard.manage_cms.manage_dropdowns.edit_gender', selected_row=item_data)
     

@@ -132,12 +132,4 @@ components:
       name: button_13
       layout_properties: {x: 317, y: 281.390625, width: 255}
       event_bindings: {click: button_13_click}
-    - name: button_1_copy
-      properties: {role: tonal-button, align: full, tooltip: '', border: '', enabled: true,
-        foreground: 'theme:Tertiary Container', visible: true, text: Manage Dropdowns,
-        font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
-        italic: false, background: '#00008B', bold: true, underline: false, icon: 'fa:archive'}
-      type: Button
-      layout_properties: {x: 623.3034994900227, y: 283.00444412231445, width: 232.37945556640625}
-      event_bindings: {click: button_1_copy_click}
 is_package: true

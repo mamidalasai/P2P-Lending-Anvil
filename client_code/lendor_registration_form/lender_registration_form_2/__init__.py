@@ -35,12 +35,12 @@ class lender_registration_form_2(lender_registration_form_2Template):
         if lending_period:
             self.drop_down_2.selected_value = lending_period
 
-        options = app_tables.fin_lendor_manage_dropdown.search()
-        options_string = [str(option['lending_type']) for option in options]
+        options = app_tables.fin_lendor_lending_type.search()
+        options_string = [str(option['lendor_lending_type']) for option in options]
         self.lending_type_dropdown.items = options_string
 
-        options = app_tables.fin_lendor_manage_dropdown.search()
-        options_string =[str(option['lending_period']) for option in options]
+        options = app_tables.fin_lendor_lending_period.search()
+        options_string =[str(option['lendor_lending_period']) for option in options]
         self.drop_down_2.items = options_string
         # Any code you write here will run before the form opens.
 

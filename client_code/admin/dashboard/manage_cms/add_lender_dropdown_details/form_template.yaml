@@ -21,7 +21,7 @@ components:
 - name: xy_panel_1
   properties: {height: 289.9285888671875}
   type: XYPanel
-  layout_properties: {grid_position: 'MUZPPA,FHHRAL'}
+  layout_properties: {grid_position: 'QMGIUR,OJEJIB'}
   components:
   - name: button_1_copy_2
     properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
@@ -32,79 +32,6 @@ components:
     layout_properties: {grid_position: 'JHFMCI,HYXZID', x: 346.8482131958008, y: 23.607131958007812,
       width: 95.2634}
     event_bindings: {click: button_1_click}
-  - name: outlined_card_2
-    properties: {role: outlined-card, tooltip: '', border: '', foreground: '', visible: true,
-      wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
-      spacing_below: small, background: '#00008B'}
-    type: ColumnPanel
-    layout_properties: {x: 564.5937042236328, y: 20.348158349609378, width: 151.152}
-    components:
-    - name: button_2
-      properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
-        foreground: 'theme:On Primary', visible: true, text: "No of \nemployees",
-        font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
-        italic: false, background: '', bold: false, underline: false, icon: ''}
-      type: Button
-      layout_properties: {grid_position: 'FNHLVB,MEZQLN'}
-      event_bindings: {click: No_of_emp_click}
-  - name: outlined_card_1_copy_5
-    properties: {role: outlined-card, tooltip: '', border: '', foreground: '', visible: true,
-      wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
-      spacing_below: small, background: '#00008B'}
-    type: ColumnPanel
-    layout_properties:
-      col_widths: {}
-      grid_position: REVWPJ,XJEEVK
-      x: 375.8303375244141
-      y: 23.59821319580078
-      width: 161.978
-    components:
-    - name: button_1_copy_4
-      properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
-        foreground: 'theme:On Primary', visible: true, text: 'Business
-
-          Type', font_size: null, font: '', spacing_above: small, icon_align: left,
-        spacing_below: small, italic: false, background: '', bold: false, underline: false,
-        icon: ''}
-      type: Button
-      layout_properties: {grid_position: 'JHOYUM,RXDVOZ'}
-      event_bindings: {click: business_click}
-  - name: outlined_card_1_copy_4
-    properties: {role: outlined-card, tooltip: '', border: '', foreground: '', visible: true,
-      wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
-      spacing_below: small, background: '#00008B'}
-    type: ColumnPanel
-    layout_properties: {grid_position: 'NLMVZE,NDTUKL', x: 199.21873474121094, y: 23.59821319580078,
-      width: 158.6288666992188}
-    components:
-    - name: marrital_button
-      properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
-        foreground: 'theme:On Primary', visible: true, text: 'Qualification
-
-
-          ', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
-        italic: false, background: '', bold: false, underline: false, icon: ''}
-      type: Button
-      layout_properties: {grid_position: 'ZFWKHG,FNBPFP'}
-      event_bindings: {click: qualification_click}
-  - name: outlined_card_1_copy_2
-    properties: {role: outlined-card, tooltip: '', border: '', foreground: '', visible: true,
-      wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '',
-      spacing_below: small, background: '#00008B'}
-    type: ColumnPanel
-    layout_properties: {grid_position: 'NLMVZE,NDTUKL', x: 25.982139587402344, y: 23.59821319580078,
-      width: 151.27238958740233}
-    components:
-    - name: button_1_copy
-      properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
-        foreground: 'theme:On Primary', visible: true, text: 'Gender
-
-
-          ', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
-        italic: false, background: '', bold: false, underline: false, icon: ''}
-      type: Button
-      layout_properties: {grid_position: 'YUTUEO,ZDKIXA'}
-      event_bindings: {click: gender_click}
   - name: outlined_card_1_copy_3
     properties: {role: outlined-card, tooltip: '', border: '', foreground: '', visible: true,
       wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '',
@@ -161,39 +88,58 @@ components:
       wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '',
       spacing_below: small, background: '#00008B'}
     type: ColumnPanel
-    layout_properties: {x: 568.8616659939289, y: 132.8035605251789, width: 145.2455291748047}
+    layout_properties: {x: 399.3000495918095, y: 27.249989319592714, width: 145.2375030517578}
     components:
-    - name: button_1_copy_8
+    - name: marital
       properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
-        foreground: 'theme:On Primary', visible: true, text: 'Salary
+        foreground: 'theme:On Primary', visible: true, text: 'Marrital
+
+          status', font_size: null, font: '', spacing_above: small, icon_align: left,
+        spacing_below: small, italic: false, background: '', bold: false, underline: false,
+        icon: ''}
+      type: Button
+      layout_properties: {grid_position: 'YUTUEO,ZDKIXA'}
+      event_bindings: {click: marital_click}
+  - name: outlined_card_1_copy_4
+    properties: {role: outlined-card, tooltip: '', border: '', foreground: '', visible: true,
+      wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+      spacing_below: small, background: '#00008B'}
+    type: ColumnPanel
+    layout_properties: {x: 25.9499977119267, y: 27.875004578381777, width: 158.625}
+    components:
+    - name: marrital_button
+      properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
+        foreground: 'theme:On Primary', visible: true, text: 'Qualification
+
+
+          ', font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
+        italic: false, background: '', bold: false, underline: false, icon: ''}
+      type: Button
+      layout_properties: {grid_position: 'XTFRHI,USZYWM'}
+      event_bindings: {click: qualification_click}
+  - name: outlined_card_1_copy_5
+    properties: {role: outlined-card, tooltip: '', border: '', foreground: '', visible: true,
+      wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+      spacing_below: small, background: '#00008B'}
+    type: ColumnPanel
+    layout_properties: {x: 205.8125007636845, y: 24.72499542310834, width: 161.97500610351562}
+    components:
+    - name: button_1_copy_4
+      properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
+        foreground: 'theme:On Primary', visible: true, text: 'Business
 
           Type', font_size: null, font: '', spacing_above: small, icon_align: left,
         spacing_below: small, italic: false, background: '', bold: false, underline: false,
         icon: ''}
       type: Button
-      layout_properties: {grid_position: 'YUTUEO,ZDKIXA'}
-      event_bindings: {click: salary_click}
-  - name: outlined_card_1
-    properties: {role: outlined-card, tooltip: '', border: '', foreground: '', visible: true,
-      wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '',
-      spacing_below: small, background: '#00008B'}
-    type: ColumnPanel
-    layout_properties: {x: 747.7632162868977, y: 21.883936196565628, width: 151.2455291748047}
-    components:
-    - name: button_1
-      properties: {role: null, align: left, tooltip: '', border: '', enabled: true,
-        foreground: 'theme:On Primary', visible: true, text: "Lending \nType", font_size: null,
-        font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-        background: '', bold: false, underline: false, icon: ''}
-      type: Button
-      layout_properties: {grid_position: 'YUTUEO,ZDKIXA'}
-      event_bindings: {click: professioon_click}
+      layout_properties: {grid_position: 'JHOYUM,RXDVOZ'}
+      event_bindings: {click: business_click}
   - name: outlined_card_1_copy_3_copy
     properties: {role: outlined-card, tooltip: '', border: '', foreground: '', visible: true,
       wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '',
       spacing_below: small, background: '#00008B'}
     type: ColumnPanel
-    layout_properties: {x: 746.8527548611164, y: 133.16514804959297, width: 162.46873474121094}
+    layout_properties: {x: 573.3500373847783, y: 140.46249847486615, width: 162.46250915527344}
     components:
     - name: button_1_copy_6_copy
       properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
@@ -205,6 +151,36 @@ components:
       type: Button
       layout_properties: {grid_position: 'EHJCRU,GOZINO'}
       event_bindings: {click: lending_period_button}
+  - name: outlined_card_2
+    properties: {role: outlined-card, tooltip: '', border: '', foreground: '', visible: true,
+      wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+      spacing_below: small, background: '#00008B'}
+    type: ColumnPanel
+    layout_properties: {x: 581.4874885566533, y: 23.625004578381777, width: 151.15000915527344}
+    components:
+    - name: button_2
+      properties: {role: null, align: center, tooltip: '', border: '', enabled: true,
+        foreground: 'theme:On Primary', visible: true, text: "No of \nemployees",
+        font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
+        italic: false, background: '', bold: false, underline: false, icon: ''}
+      type: Button
+      layout_properties: {grid_position: 'FNHLVB,MEZQLN'}
+      event_bindings: {click: No_of_emp_click}
+  - name: outlined_card_1
+    properties: {role: outlined-card, tooltip: '', border: '', foreground: '', visible: true,
+      wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '',
+      spacing_below: small, background: '#00008B'}
+    type: ColumnPanel
+    layout_properties: {x: 763.8125007636845, y: 21.925000000745058, width: 151.2375030517578}
+    components:
+    - name: button_1
+      properties: {role: null, align: left, tooltip: '', border: '', enabled: true,
+        foreground: 'theme:On Primary', visible: true, text: "Lending \nType", font_size: null,
+        font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false, icon: ''}
+      type: Button
+      layout_properties: {grid_position: 'YUTUEO,ZDKIXA'}
+      event_bindings: {click: professioon_click}
 - name: column_panel_1
   properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
     wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
@@ -212,55 +188,6 @@ components:
   type: ColumnPanel
   layout_properties: {grid_position: 'RZKPKS,JTWTHB'}
   components:
-  - name: column_panel_2
-    properties: {role: null, tooltip: '', border: '', foreground: '', visible: false,
-      wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{"ZHKMCK":10,"ZVWPOF":10,"SUKCJD":35,"CSNNJQ":15}',
-      spacing_below: small, background: ''}
-    type: ColumnPanel
-    layout_properties: {grid_position: 'ELNWPR,IMWSYW'}
-    components:
-    - name: label_10
-      properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
-        visible: true, text: Add Gender details, font_size: 18, font: '', spacing_above: small,
-        icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
-        underline: false, icon: ''}
-      type: Label
-      layout_properties: {grid_position: 'HDLRVE,NMTFRV'}
-    - name: label_1
-      properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
-        visible: true, text: Gender, font_size: null, font: '', spacing_above: small,
-        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-        underline: false, icon: ''}
-      type: Label
-      layout_properties:
-        col_widths: {}
-        grid_position: JDKCYC,ZVWPOF
-    - name: text_box_1
-      properties: {role: outlined, align: left, hide_text: false, tooltip: '', placeholder: '',
-        border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
-        font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
-        background: '', bold: false, underline: false}
-      type: TextBox
-      layout_properties: {grid_position: 'JDKCYC,SUKCJD'}
-      event_bindings: {pressed_enter: text_box_1_pressed_enter}
-    - name: gender_button
-      properties: {role: null, align: left, tooltip: '', border: '', enabled: true,
-        foreground: 'theme:Tertiary Container', visible: true, text: ADD, font_size: null,
-        font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-        background: '#00008B', bold: true, underline: false, icon: ''}
-      type: Button
-      layout_properties:
-        col_widths: {}
-        grid_position: JDKCYC,CSNNJQ
-      event_bindings: {click: gender_button_click}
-    - name: spacer_2
-      properties: {height: 160}
-      type: Spacer
-      layout_properties: {grid_position: 'YHLACU,ZHKMCK'}
-    - type: RepeatingPanel
-      properties: {item_template: admin.dashboard.manage_cms.add_lender_dropdown_details.ItemTemplate12}
-      name: repeating_panel_1
-      layout_properties: {grid_position: 'YHLACU,IZIAQS'}
   - name: column_panel_3
     properties: {role: null, tooltip: '', border: '', foreground: '', visible: false,
       wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{"MYRYSU":10,"FMAEVI":35,"RJJXSS":15,"PXEDFC":10}',
@@ -292,9 +219,9 @@ components:
       type: TextBox
       layout_properties: {grid_position: 'TCPJKI,FMAEVI'}
       event_bindings: {}
-    - name: marital_button
+    - name: qualification_button
       properties: {role: null, align: left, tooltip: '', border: '', enabled: true,
-        foreground: 'theme:Tertiary Container', visible: true, text: ADD, font_size: null,
+        foreground: 'theme:On Primary', visible: true, text: ADD, font_size: null,
         font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
         background: '#00008B', bold: true, underline: false, icon: ''}
       type: Button
@@ -340,7 +267,7 @@ components:
       layout_properties: {grid_position: 'VUQPZH,KGGDXI'}
     - name: business_button
       properties: {role: null, align: left, tooltip: '', border: '', enabled: true,
-        foreground: 'theme:Tertiary Container', visible: true, text: ADD, font_size: null,
+        foreground: 'theme:On Primary', visible: true, text: ADD, font_size: null,
         font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
         background: '#00008B', bold: true, underline: false, icon: ''}
       type: Button
@@ -384,7 +311,7 @@ components:
       event_bindings: {pressed_enter: text_box_4_pressed_enter}
     - name: no_of_employee_button
       properties: {role: null, align: left, tooltip: '', border: '', enabled: true,
-        foreground: 'theme:Tertiary Container', visible: true, text: ADD, font_size: null,
+        foreground: 'theme:On Primary', visible: true, text: ADD, font_size: null,
         font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
         background: '#00008B', bold: true, underline: false, icon: ''}
       type: Button
@@ -430,7 +357,7 @@ components:
       layout_properties: {grid_position: 'KBWQKY,EYVNEL'}
     - name: profession_button
       properties: {role: null, align: left, tooltip: '', border: '', enabled: true,
-        foreground: 'theme:Tertiary Container', visible: true, text: ADD, font_size: null,
+        foreground: 'theme:On Primary', visible: true, text: ADD, font_size: null,
         font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
         background: '#00008B', bold: true, underline: false, icon: ''}
       type: Button
@@ -473,7 +400,7 @@ components:
       layout_properties: {grid_position: 'AKZUJT,UVMZPY'}
     - name: emp_type_button
       properties: {role: null, align: left, tooltip: '', border: '', enabled: true,
-        foreground: 'theme:Tertiary Container', visible: true, text: ADD, font_size: null,
+        foreground: 'theme:On Primary', visible: true, text: ADD, font_size: null,
         font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
         background: '#00008B', bold: true, underline: false, icon: ''}
       type: Button
@@ -516,7 +443,7 @@ components:
       layout_properties: {grid_position: 'PZTFHW,YKSZRZ'}
     - name: organization_button
       properties: {role: null, align: left, tooltip: '', border: '', enabled: true,
-        foreground: 'theme:Tertiary Container', visible: true, text: ADD, font_size: null,
+        foreground: 'theme:On Primary', visible: true, text: ADD, font_size: null,
         font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
         background: '#00008B', bold: true, underline: false, icon: ''}
       type: Button
@@ -559,7 +486,7 @@ components:
       layout_properties: {grid_position: 'NZLWLF,SIQPBN'}
     - name: accountbutton
       properties: {role: null, align: left, tooltip: '', border: '', enabled: true,
-        foreground: 'theme:Tertiary Container', visible: true, text: ADD, font_size: null,
+        foreground: 'theme:On Primary', visible: true, text: ADD, font_size: null,
         font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
         background: '#00008B', bold: true, underline: false, icon: ''}
       type: Button
@@ -584,13 +511,13 @@ components:
     components:
     - name: label_14
       properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
-        visible: true, text: Add Salary Type details, font_size: 18, font: '', spacing_above: small,
-        icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
-        underline: false, icon: ''}
+        visible: true, text: Add Marrital Status details, font_size: 18, font: '',
+        spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+        background: '', bold: true, underline: false, icon: ''}
       type: Label
       layout_properties: {grid_position: 'TPHGGJ,ZEPRGQ'}
     - name: label_9
-      properties: {text: Salary Type, align: center}
+      properties: {text: Marrital status, align: center}
       type: Label
       layout_properties: {grid_position: 'LOSRQA,ACRDSD'}
     - name: text_box_9
@@ -600,16 +527,16 @@ components:
         background: '', bold: false, underline: false}
       type: TextBox
       layout_properties: {grid_position: 'LOSRQA,OXEFAE'}
-    - name: salary_button
+    - name: marital_button_1
       properties: {role: null, align: left, tooltip: '', border: '', enabled: true,
-        foreground: 'theme:Tertiary Container', visible: true, text: ADD, font_size: null,
+        foreground: 'theme:On Primary', visible: true, text: ADD, font_size: null,
         font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
         background: '#00008B', bold: true, underline: false, icon: ''}
       type: Button
       layout_properties:
         col_widths: {}
         grid_position: LOSRQA,OZGSCX
-      event_bindings: {click: salary_type_click}
+      event_bindings: {click: marital_button_1_click}
     - name: spacer_10
       properties: {height: 139.5714111328125}
       type: Spacer
@@ -649,7 +576,7 @@ components:
       layout_properties: {grid_position: 'ZQLBHW,JXNKQC'}
     - name: salary_button_copy
       properties: {role: null, align: left, tooltip: '', border: '', enabled: true,
-        foreground: 'theme:Tertiary Container', visible: true, text: ADD, font_size: null,
+        foreground: 'theme:On Primary', visible: true, text: ADD, font_size: null,
         font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
         background: '#00008B', bold: true, underline: false, icon: ''}
       type: Button

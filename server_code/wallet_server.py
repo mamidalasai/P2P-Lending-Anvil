@@ -263,3 +263,4 @@ def fetch_profile_data_and_insert(email, customer_id):
     except Exception as e:
         print(f"Error occurred: {e}")
         return False
+      

@@ -35,9 +35,9 @@ class star_1_borrower_registration_form_3_marital(star_1_borrower_registration_f
     else:
       anvil.server.call('add_borrower_step4',marital_status,user_id)
       if marital_status == 'Not Married':
-        open_form('borrower_registration_form.star_1_borrower_registration_form_3_marital.star_1_borrower_registration_form_3_marital_parent',user_id = user_id)
+        open_form('borrower_registration_form.star_1_borrower_registration_form_3_marital.star_1_borrower_registration_form_3_marital_married',user_id = user_id)
       elif marital_status == 'Married':
-        open_form('borrower_registration_form.star_1_borrower_registration_form_3_marital.star_1_borrower_registration_form_3_marital_spouse_1',user_id = user_id)
+        open_form('borrower_registration_form.star_1_borrower_registration_form_3_marital.star_1_borrower_registration_form_3_marital_married',user_id = user_id)
       else:
         open_form('borrower_registration_form.star_1_borrower_registration_form_4_loan',user_id = user_id)
 

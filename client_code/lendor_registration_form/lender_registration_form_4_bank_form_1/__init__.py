@@ -37,8 +37,8 @@ class lender_registration_form_4_bank_form_1(lender_registration_form_4_bank_for
     if self.bank_name:
            self.text_box_3.text = self.bank_name
       
-    options = app_tables.fin_lendor_manage_dropdown.search()
-    options_string =[str(option['account_type']) for option in options]
+    options = app_tables.fin_lendor_account_type.search()
+    options_string =[str(option['lendor_account_type']) for option in options]
     self.drop_down_1.items = options_string
     # Any code you write here will run before the form opens.
 

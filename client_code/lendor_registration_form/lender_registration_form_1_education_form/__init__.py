@@ -15,10 +15,9 @@ class lender_registration_form_1_education_form(lender_registration_form_1_educa
     self.init_components(**properties)
     user_data = anvil.server.call('get_user_data', user_id)
     
-    options = app_tables.fin_lendor_manage_dropdown.search()
-    options_string = [str(option['qualification']) for option in options]
+    options = app_tables.fin_lendor_qualification.search()
+    options_string = [str(option['lendor_qualification']) for option in options]
     self.drop_down_1.items = options_string
-    
 
     # Any code you write here will run before the form opens.
 
