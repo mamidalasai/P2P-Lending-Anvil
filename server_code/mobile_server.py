@@ -228,7 +228,7 @@ def calculate_total_repayment(selected_category, loan_amount, loan_tenure):
 
 
 @anvil.server.callable
-def add_loan_data(loan_amount, loan_tenure, roi, total_repayment,loan_updated_status ):
+def add_loan_data(loan_amount, loan_tenure, roi, total_repayment):
     try:
         # Assuming 'fin_loan_details' is the name of your Anvil table
         loan_id = generate_loan_id()
