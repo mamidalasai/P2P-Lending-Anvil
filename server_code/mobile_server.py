@@ -226,6 +226,21 @@ def calculate_total_repayment(selected_category, loan_amount, loan_tenure):
         print(f"An error occurred in calculate_total_repayment: {e}")
         return "Error calculating Total Repayment"
 
+@anvil.server.callable
+def generate_loan_id():
+    # Query the latest loan ID from the data table
+    latest_loan = app_tables.fin_loan_details.search(tables.order_by("loan_id", ascending=False))
+
+    if latest_loan and len(latest_loan) > 0:
+        # If there are existing loans, increment the last loan ID
+        last_loan_id = latest_loan[0]['loan_id']
+        counter = int(last_loan_id[2:]) + 1
+    else:
+        # If there are no existing loans, start the counter at 100001
+        counter = 1000001
+
+    # Return the new loan ID
+    return f"LA{counter}"
 
 @anvil.server.callable
 def add_loan_data(loan_amount, loan_tenure, roi, total_repayment):
@@ -246,3 +261,5 @@ def add_loan_data(loan_amount, loan_tenure, roi, total_repayment):
     except Exception as e:
         # Handle exceptions appropriately
         raise anvil.server.NoServerFunctionError(f"Anvil error: {e}")
+
+
