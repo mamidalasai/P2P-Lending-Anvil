@@ -89,3 +89,160 @@ def save_media_content(file_content, file_name):
 @anvil.server.callable
 def get_foreclose_data( outstading_amount, forecloser_fee, forecloser_amount):
     tables.app_tables.fin_foreclosure.add_row(outstanding_amount=outstading_amount,foreclose_fee=forecloser_fee,foreclose_amount=forecloser_amount)
+
+
+
+@anvil.server.callable
+def get_credit_limit(customer_id):
+    try:
+        # Fetch all rows with the specified customer_id
+        data = app_tables.fin_borrower.search(customer_id=customer_id)
+
+        # If there is data for the specified customer_id, extract the 'credit_limit'
+        credit_limit = data[0]['credit_limit'] if data else None
+
+        return credit_limit
+    except Exception as e:
+        # Handle exceptions gracefully (log or print the error)
+        print(f"An error occurred in get_credit_limit: {e}")
+        return None
+
+@anvil.server.callable
+def get_max_tenure(selected_category):
+    try:
+        # Fetch all rows with the specified product_categories
+        data = app_tables.fin_product_details.search(product_categories=selected_category)
+
+        if data and len(data) > 0:
+            # 'selected_category' is present in the 'product_categories' column
+            max_tenure = data[0]['max_tenure']
+            
+            return max_tenure
+        else:
+            # 'selected_category' is not present in the 'product_categories' column
+            
+            return None
+    except Exception as e:
+        # Handle exceptions gracefully (log or print the error)
+        print(f"An error occurred in get_max_tenure: {e}")
+        return None
+
+@anvil.server.callable
+def get_details(selected_category):
+    try:
+        # Fetch all rows with the specified product_categories
+        data = app_tables.fin_product_details.search(product_categories=selected_category)
+
+        if data and len(data) > 0:
+            # 'selected_category' is present in the 'product_categories' column
+            processing_fee = data[0]['processing_fee']
+            roi = data[0]['roi']
+            
+            return {'processing_fee':processing_fee, 'roi': roi}
+        else:
+            # 'selected_category' is not present in the 'product_categories' column
+            
+            return None
+    except Exception as e:
+        # Handle exceptions gracefully (log or print the error)
+        print(f"An error occurred in get_details: {e}")
+        return None
+
+@anvil.server.callable
+def calculate_emi(selected_category, loan_amount, loan_tenure):
+    try:
+        # Retrieve roi from the Anvil database
+        fin_product_details = app_tables.fin_product_details.search(product_categories=selected_category)
+        if fin_product_details:
+            roi = fin_product_details[0]['roi']
+            roi = float(roi)
+        else:
+            return "ROI not found for the selected category"
+
+        # Convert loan_amount and loan_tenure to float
+        loan_amount = float(loan_amount)
+        loan_tenure=float(loan_tenure)
+       
+
+        if loan_tenure > 0:
+            # Monthly Interest Rate
+            monthly_interest_rate = (roi / 100) / 12
+
+            # Number of Monthly Installments
+            num_installments = loan_tenure
+
+            # Calculate EMI using the formula
+            emi = (loan_amount * monthly_interest_rate * pow(1 + monthly_interest_rate, num_installments)) / \
+                  (pow(1 + monthly_interest_rate, num_installments) - 1)
+
+            # Return the calculated EMI
+            return emi
+
+        else:
+            return "Invalid tenure"
+
+    except ValueError as e:
+        print(f"An error occurred in calculate_emi: {e}")
+        return "Error calculating EMI"
+
+@anvil.server.callable
+def calculate_total_repayment(selected_category, loan_amount, loan_tenure):
+    try:
+        # Retrieve roi from the Anvil database
+        fin_product_details = app_tables.fin_product_details.search(product_categories=selected_category)
+        if fin_product_details:
+            roi = fin_product_details[0]['roi']
+            roi = float(roi)
+        else:
+            return "ROI not found for the selected category"
+
+        # Convert loan_amount and loan_tenure to float
+        loan_amount = float(loan_amount)
+        loan_tenure = float(loan_tenure)
+
+       
+
+        if loan_tenure > 0:
+            # Monthly Interest Rate
+            monthly_interest_rate = (roi / 100) / 12
+
+            # Number of Monthly Installments
+            num_installments = loan_tenure
+
+            # Calculate EMI using the formula
+            emi = (loan_amount * monthly_interest_rate * pow(1 + monthly_interest_rate, num_installments)) / \
+                  (pow(1 + monthly_interest_rate, num_installments) - 1)
+
+            # Calculate Total Repayment
+            total_repayment = emi * num_installments
+
+            # Return the calculated Total Repayment
+            return total_repayment
+
+        else:
+            return "Invalid tenure"
+
+    except ValueError as e:
+        print(f"An error occurred in calculate_total_repayment: {e}")
+        return "Error calculating Total Repayment"
+
+
+@anvil.server.callable
+def add_loan_data(loan_amount, loan_tenure, roi, total_repayment,loan_updated_status ):
+    try:
+        # Assuming 'fin_loan_details' is the name of your Anvil table
+        loan_id = generate_loan_id()
+        app_tables.fin_loan_details.add_row(
+            loan_id=loan_id,
+            loan_amount=float(loan_amount),
+            tenure=float(loan_tenure),
+            loan_updated_status = "under process",
+            total_repayment_amount=float(total_repayment),
+            interest_rate=float(roi),
+        )
+
+        # You can also return the loan ID if needed
+        return loan_id
+    except Exception as e:
+        # Handle exceptions appropriately
+        raise anvil.server.NoServerFunctionError(f"Anvil error: {e}")
