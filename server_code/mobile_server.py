@@ -13,7 +13,7 @@ import os  # Import the os module for file existence che
 from anvil import *
 import anvil.media
 from anvil import Media
-
+from datetime import datetime
 @anvil.server.callable()
 def get_table_data():
     data = tables.app_tables.fin_loan_details.search()
@@ -251,6 +251,7 @@ def add_loan_data(loan_amount, loan_tenure, roi, total_repayment, date_of_apply)
         email_list = []
         customer_id_list = []
         borrower_name_list = []
+        date_of_apply = datetime.now().date()
         for i in data:
           email_list.append(i['email_user'])
           customer_id_list.append(i['customer_id'])
@@ -272,6 +273,7 @@ def add_loan_data(loan_amount, loan_tenure, roi, total_repayment, date_of_apply)
             loan_updated_status = "under process",
             total_repayment_amount=float(total_repayment),
             interest_rate=float(roi),
+            borrower_loan_created_timestamp=date_of_apply
         )
 
         # You can also return the loan ID if needed
