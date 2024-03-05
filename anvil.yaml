@@ -17,7 +17,7 @@ services:
 - source: /runtime/services/anvil/secrets.yml
   client_config: {}
   server_config: {}
-startup: {type: form, module: bank_users.main_form}
+startup: {type: form, module: admin.dashboard}
 package_name: bank_client
 allow_embedding: false
 name: P2P Lending App
@@ -34,6 +34,11 @@ db_schema:
       admin_ui: {order: 0, width: 200}
       type: string
     title: fin_gender
+  wallet_notification:
+    title: fin_wallet_notification
+    client: full
+    server: full
+    columns: []
   fin_lendor_business_type:
     client: full
     server: full
@@ -283,20 +288,20 @@ db_schema:
       admin_ui: {width: 200}
       type: string
   fin_admin_beseem_groups:
-    client: none
+    client: full
     server: full
     columns:
     - name: Group Id
-      admin_ui: {width: 200, order: 0}
+      admin_ui: {order: 6, width: 200}
       type: number
-    - name: Group Name
-      admin_ui: {width: 200, order: 1}
+    - name: group_name
+      admin_ui: {order: 1, width: 200}
       type: string
-    - name: Min Points
-      admin_ui: {width: 200, order: 2}
+    - name: min_points
+      admin_ui: {order: 2, width: 200}
       type: number
-    - name: Max Points
-      admin_ui: {width: 200, order: 3}
+    - name: max_points
+      admin_ui: {order: 3, width: 200}
       type: number
     - name: status
       admin_ui: {order: 4, width: 200}
@@ -304,6 +309,9 @@ db_schema:
     - name: Modify Date
       admin_ui: {width: 200, order: 5}
       type: date
+    - name: sub_category
+      admin_ui: {width: 200, order: 1.5}
+      type: string
     title: fin_admin_beseem_groups
   fin_borrower_employee_type:
     client: full
@@ -397,7 +405,7 @@ db_schema:
       admin_ui: {order: 3.5, width: 200}
       type: number
     - name: borrower_since
-      admin_ui: {order: 9, width: 200}
+      admin_ui: {order: 5.5, width: 200}
       type: date
   fin_borrower_salary_type:
     client: full
@@ -749,11 +757,6 @@ db_schema:
       admin_ui: {width: 200}
       type: string
     title: fin_user_profile
-  fin_wallet_notification:
-    title: fin_wallet_notification
-    client: full
-    server: full
-    columns: []
   fin_wallet_transactions:
     title: fin_wallet_transactions
     client: full
@@ -982,9 +985,6 @@ db_schema:
       type: string
     - name: account_type
       admin_ui: {width: 200, order: 8}
-      type: string
-    - name: ifsc_code
-      admin_ui: {width: 200}
       type: string
     title: fin_wallet_bank_account_table
   fin_product_group:
