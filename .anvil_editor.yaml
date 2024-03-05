@@ -22,8 +22,6 @@ unique_ids:
     admin.dashboard.manage_cms.add_borrower_dropdown_details.ItemTemplate8: '1706093214277747565915590.0005'
     borrower_registration_form.star_1_borrower_registration_form_3_marital.star_1_borrower_registration_form_3_marital_married: '1706804611456403853788462.94586'
     borrower_registration_form.borrower_registration_last_check_out_form: '1699374444060167172815541.79663'
-    ? borrower_registration_form.star_1_borrower_registration_form_2_employment.star_1_borrower_registration_form_2_employment_business_4
-    : '1700571978274780031857795.3887'
     admin.dashboard.manage_bessem.add_subcategory.ItemTemplate39: '1709541962560913219390819.0338'
     admin.dashboard.manage_cms.add_borrower_dropdown_details.edit_business: '170612001569349532041523.716156'
     admin.dashboard.loan_management.under_process.view_profile_3: '1700822875100967931908520.7759'
