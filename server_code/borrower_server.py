@@ -9,6 +9,7 @@ from anvil.tables import app_tables
 import anvil.server
 from datetime import datetime
 from . import bessem as bessemfunctions
+from . import wallet
 
 
 @anvil.server.callable
@@ -72,6 +73,8 @@ def add_borrower_step6(bank_id, bank_branch, user_id):
         row[0]['usertype'] = 'borrower'
         row[0]['last_confirm'] = True
         row[0]['bessem_value'] = bessemfunctions.final_points_update_bessem_table(user_id)
+        wallet.find_user_update_type(user_id,row[0]['full_name'],"borrower")
+        
 
         # Search for an existing row with the same email_id in fin_borrower table
         existing_borrower_row = app_tables.fin_borrower.get(email_id=row[0]['email_user'])

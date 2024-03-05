@@ -1,4 +1,4 @@
-from ._anvil_designer import RowTemplate40Template
+from ._anvil_designer import ItemTemplate70Template
 from anvil import *
 import anvil.server
 import anvil.google.auth, anvil.google.drive
@@ -8,14 +8,13 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 
-class RowTemplate40(RowTemplate40Template):
+class ItemTemplate70(ItemTemplate70Template):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
 
     # Any code you write here will run before the form opens.
 
-  def link_1_click(self, **event_args):
-    value_to_pass = self.label_1.text
-    open_form('borrower_registration_form.ots_dashboard.my_loans.view_profile', value_to_pass)
-
+  def outlined_button_1_click(self, **event_args):
+    """This method is called when the button is clicked"""
+    pass

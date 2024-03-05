@@ -26,9 +26,9 @@ def create_wallet_id():
 
 
 
-def find_user_update_type(user_id, user_name):
+def find_user_update_type(user_id, user_name, user_type):
   user = app_tables.fin_wallet.search(customer_id=user_id)
   if user:
     user[0]['user_name'] = user_name
-    user[0]['user_type'] = 'lender'
+    user[0]['user_type'] = user_type
     user[0]['status'] = True

@@ -342,6 +342,31 @@ components:
         background: ''}
       name: repeating_panel
       layout_properties: {}
+  - name: repeating_panel_5
+    properties: {item_template: lendor_registration_form.dashboard.view_loan_foreclosure_Requests.ItemTemplate60,
+      visible: false}
+    type: RepeatingPanel
+    layout_properties: {grid_position: 'UETLRE,HWEGEB'}
+  - name: repeating_panel_6
+    properties: {item_template: lendor_registration_form.dashboard.view_loan_foreclosure_Requests.ItemTemplate61,
+      visible: false}
+    type: RepeatingPanel
+    layout_properties: {grid_position: 'RGHLMY,GRATBI'}
+  - name: repeating_panel_7
+    properties: {item_template: lendor_registration_form.dashboard.view_loan_foreclosure_Requests.ItemTemplate65,
+      visible: false}
+    type: RepeatingPanel
+    layout_properties: {grid_position: 'SKVERV,BLEMQK'}
+  - name: repeating_panel_8
+    properties: {item_template: lendor_registration_form.dashboard.view_loan_foreclosure_Requests.ItemTemplate66,
+      visible: false}
+    type: RepeatingPanel
+    layout_properties: {grid_position: 'YLXCBL,EYSOXB'}
+  - name: repeating_panel_9
+    properties: {item_template: lendor_registration_form.dashboard.view_loan_foreclosure_Requests.ItemTemplate67,
+      visible: false}
+    type: RepeatingPanel
+    layout_properties: {grid_position: 'YITWLB,WNCFIW'}
 - type: FlowPanel
   properties: {}
   name: navbar_links

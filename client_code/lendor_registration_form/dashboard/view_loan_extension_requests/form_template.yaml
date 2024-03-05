@@ -352,6 +352,31 @@ components:
       properties: {spacing_above: none, spacing_below: none, item_template: lendor_registration_form.dashboard.view_loan_extension_requests.RowTemplate38}
       name: repeating_panel
       layout_properties: {}
+  - name: repeating_panel_5
+    properties: {item_template: lendor_registration_form.dashboard.view_loan_extension_requests.ItemTemplate55,
+      visible: false}
+    type: RepeatingPanel
+    layout_properties: {grid_position: 'HYLLDX,WCNYRO'}
+  - name: repeating_panel_6
+    properties: {item_template: lendor_registration_form.dashboard.view_loan_extension_requests.ItemTemplate56,
+      visible: false}
+    type: RepeatingPanel
+    layout_properties: {grid_position: 'IHGLYR,CFLUZB'}
+  - name: repeating_panel_7
+    properties: {item_template: lendor_registration_form.dashboard.view_loan_extension_requests.ItemTemplate62,
+      visible: false}
+    type: RepeatingPanel
+    layout_properties: {grid_position: 'SOWZWQ,NOMEUR'}
+  - name: repeating_panel_8
+    properties: {item_template: lendor_registration_form.dashboard.view_loan_extension_requests.ItemTemplate63,
+      visible: false}
+    type: RepeatingPanel
+    layout_properties: {grid_position: 'JEDXHN,ZYDQVM'}
+  - name: repeating_panel_9
+    properties: {item_template: lendor_registration_form.dashboard.view_loan_extension_requests.ItemTemplate64,
+      visible: false}
+    type: RepeatingPanel
+    layout_properties: {grid_position: 'ESYWTB,AXMYRD'}
 - type: FlowPanel
   properties: {}
   name: navbar_links

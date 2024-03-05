@@ -79,22 +79,31 @@ components:
   properties: {height: 19}
   name: spacer_1
   layout_properties: {grid_position: 'OWLMHH,ELQRMM'}
-- name: button_4
-  properties: {role: outlined-button, align: right, tooltip: '', border: '', enabled: true,
-    foreground: 'theme:On Primary', visible: true, text: 'My Loans                          ',
-    font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
-    italic: false, background: '#0b2547', bold: false, underline: false, icon: ''}
-  type: Button
-  layout_properties: {grid_position: 'ECSZQJ,XDVLVH'}
-  event_bindings: {click: button_4_click}
-- name: button_4_copy
-  properties: {role: outlined-button, align: left, tooltip: '', border: '', enabled: true,
-    foreground: 'theme:On Primary', visible: true, text: 'One Time Settlement                    ',
-    font_size: null, font: '', spacing_above: small, icon_align: left, spacing_below: small,
-    italic: false, background: '#0b2547', bold: false, underline: false, icon: ''}
-  type: Button
-  layout_properties:
-    col_widths: {}
-    grid_position: ECSZQJ,RYYDNE
-  event_bindings: {click: button_4_copy_click}
+- name: data_grid_1
+  properties:
+    role: null
+    columns:
+    - {id: EPCWQG, title: Loan ID, data_key: column_1, $$hashKey: 'object:53723'}
+    - {id: WMIWXU, title: Customer ID, data_key: column_2, $$hashKey: 'object:53724'}
+    - {id: PVBYZX, title: Full Name, data_key: column_3, $$hashKey: 'object:53725'}
+    - {id: HCAQYD, title: Loan Status, data_key: column_4, $$hashKey: 'object:53773'}
+    - {id: DBUUUO, title: '', data_key: column_5, $$hashKey: 'object:53775'}
+    auto_header: true
+    tooltip: ''
+    border: ''
+    foreground: ''
+    rows_per_page: 20
+    visible: true
+    wrap_on: never
+    show_page_controls: true
+    spacing_above: large
+    spacing_below: small
+    background: ''
+  type: DataGrid
+  layout_properties: {grid_position: 'EGYAUI,ZAGXNS'}
+  components:
+  - name: repeating_panel_1
+    properties: {spacing_above: none, spacing_below: none, item_template: borrower_registration_form.ots_dashboard.RowTemplate40}
+    type: RepeatingPanel
+    layout_properties: {}
 is_package: true

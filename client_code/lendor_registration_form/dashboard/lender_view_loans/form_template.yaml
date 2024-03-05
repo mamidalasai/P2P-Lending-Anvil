@@ -153,10 +153,6 @@ components:
           underline: false, icon: ''}
         type: Label
         layout_properties: {grid_position: 'WXCULQ,LTJFAT'}
-    - name: repeating_panel_6
-      properties: {item_template: bank_users.repeating_panels.lendor, visible: false}
-      type: RepeatingPanel
-      layout_properties: {grid_position: 'QDCYIC,GXOYKF'}
     - name: data_grid_1
       properties:
         role: null
@@ -317,4 +313,29 @@ components:
         properties: {spacing_above: none, spacing_below: none, item_template: lendor_registration_form.dashboard.lender_view_loans.RowTemplate23}
         name: repeating_panel_5
         layout_properties: {}
+    - name: repeating_panel_6
+      properties: {item_template: lendor_registration_form.dashboard.lender_view_loans.ItemTemplate50,
+        visible: false}
+      type: RepeatingPanel
+      layout_properties: {grid_position: 'KIGAQK,TAGLFZ'}
+    - name: repeating_panel_7
+      properties: {item_template: lendor_registration_form.dashboard.lender_view_loans.ItemTemplate51,
+        visible: false}
+      type: RepeatingPanel
+      layout_properties: {grid_position: 'AGBVEL,SHNSVE'}
+    - name: repeating_panel_8
+      properties: {item_template: lendor_registration_form.dashboard.lender_view_loans.ItemTemplate52,
+        visible: false}
+      type: RepeatingPanel
+      layout_properties: {grid_position: 'OIEBHW,SIBFFX'}
+    - name: repeating_panel_9
+      properties: {item_template: lendor_registration_form.dashboard.lender_view_loans.ItemTemplate53,
+        visible: false}
+      type: RepeatingPanel
+      layout_properties: {grid_position: 'NSBBJI,JPVUQU'}
+    - name: repeating_panel_10
+      properties: {item_template: lendor_registration_form.dashboard.lender_view_loans.ItemTemplate54,
+        visible: false}
+      type: RepeatingPanel
+      layout_properties: {grid_position: 'ENOKWK,DVJSVI'}
 is_package: true

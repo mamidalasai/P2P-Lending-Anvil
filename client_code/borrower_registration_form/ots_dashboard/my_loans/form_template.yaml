@@ -57,7 +57,7 @@ components:
     layout_properties: {grid_position: 'SYHKHY,ODSIUS'}
     components:
     - type: RepeatingPanel
-      properties: {spacing_above: none, spacing_below: none, item_template: borrower_registration_form.ots_dashboard.my_loans.RowTemplate40}
+      properties: {spacing_above: none, spacing_below: none, item_template: borrower_registration_form.ots_dashboard.RowTemplate40}
       name: repeating_panel_1
       layout_properties: {}
 - type: Button

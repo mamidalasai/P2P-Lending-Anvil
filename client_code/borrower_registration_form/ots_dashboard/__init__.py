@@ -12,6 +12,43 @@ class ots_dashboard(ots_dashboardTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+    self.data = tables.app_tables.fin_loan_details.search()
+
+    a = -1
+    self.list_1 = []
+    self.list_2 = []
+    self.list_3 = []
+    self.list_4 = []
+    
+    
+    for i in self.data:
+      a+=1
+      self.list_1.append(i['loan_id'])
+      self.list_2.append(i['borrower_customer_id'])
+      self.list_3.append(i['borrower_full_name'])
+      self.list_4.append(i['loan_updated_status'])
+    print(a)
+
+    self.result = []
+    self.index = []
+    if a == -1:
+      alert("No Data Available Here!")
+    else:
+      b = -1
+      for i in self.list_4:
+        b+=1
+        if i == "OTS" or i == "Approved" or i == 'approved' or i == 'disbursed loan' or i == 'Disbursed loan' or i == 'default loan' or i == 'under process' or i == 'NPA' or i == 'lapsed loan':
+          self.index.append(b)
+          
+      for i in self.index:
+        self.result.append({'loan_id' : self.list_1[i], 'coustmer_id' : self.list_2[i], 'full_name' : self.list_3[i], 'loan_status' : self.list_4[i]})
+
+      self.repeating_panel_1.items = self.result
+
+      print(self.list_1, self.list_2, self.list_3)
+      print(self.result)
+      print(a)
+
 
     # Any code you write here will run before the form opens.
 

@@ -45,4 +45,4 @@ class view_profile(view_profileTemplate):
     #   open_form('borrower_registration_form.ots_dashboard.my_loans')
 
     def button_2_click(self, **event_args):
-      open_form('borrower_registration_form.ots_dashboard.my_loans')
+      open_form('borrower_registration_form.ots_dashboard')

@@ -518,3 +518,56 @@ def calculate_foreclosure(loan_amount, tenure, interest_rate, total_payments_mad
         "foreclosure_fee_str": foreclosure_fee_str,
         "total_due_amount": total_due_amount
     }
+
+
+# this method is use for calulating the loan 
+@anvil.server.callable
+def calculate_extension_details(loan_id, loan_extension_months):
+    loan_row = app_tables.fin_loan_details.get(loan_id=loan_id)
+
+    if loan_row is not None:
+        total_loan_amount = loan_row['total_repayment_amount']
+        loan_amount = loan_row['loan_amount']
+        tenure = loan_row['tenure']
+        interest_rate = loan_row['interest_rate']
+        product_id = loan_row['product_id']
+        loan_disbursed_timestamp = loan_row['loan_disbursed_timestamp']
+
+        last_emi_rows = app_tables.fin_emi_table.search(loan_id=loan_id)
+        total_payments_made = 0
+
+        if last_emi_rows:
+            last_emi_list = list(last_emi_rows)
+            last_emi_list.sort(key=lambda x: x['emi_number'], reverse=True)
+            total_payments_made = last_emi_list[0]['emi_number']
+
+        monthly_interest_rate = interest_rate / (12 * 100)
+
+        factor = (1 + monthly_interest_rate) ** tenure
+        emi = loan_amount * monthly_interest_rate * factor / (factor - 1)
+        extension_fee = 0
+        product_data = tables.app_tables.fin_product_details.search(product_id=product_id)
+        for row in product_data:
+            extension_fee = row['extension_fee']
+        extension_amount = (extension_fee * loan_amount) / 100
+        emi_paid = total_payments_made * emi
+        remaining_loan_amount = total_loan_amount - emi_paid
+        total_extension_months = tenure + loan_extension_months
+        payment_schedule = []
+        for month in range(1, total_extension_months + 1):
+           
+            payment_date = loan_disbursed_timestamp + timedelta(days=30 * month)
+
+            payment_schedule.append(payment_date)
+        
+        return {
+            'total_extension_months': total_extension_months,
+            'extension_fee_comp_value': extension_fee,
+            'remaining_loan_amount': remaining_loan_amount,
+            'extension_amount': extension_amount,
+            'emi_paid': emi_paid,
+            'emi': emi,
+            'payment_schedule': payment_schedule
+        }
+    else:
+        return "Loan details not found"

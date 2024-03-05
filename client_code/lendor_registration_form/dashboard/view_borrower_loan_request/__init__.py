@@ -20,7 +20,7 @@ class view_borrower_loan_request(view_borrower_loan_requestTemplate):
     email = self.email
     
     
-    self.repeating_panel_1.items=app_tables.fin_loan_details.search(loan_updated_status="under process")
+    self.repeating_panel_2.items=app_tables.fin_loan_details.search(loan_updated_status="under process")
     
     anvil.server.call('transfer_user_profile_to_loan_details', email,self.user_id) 
 

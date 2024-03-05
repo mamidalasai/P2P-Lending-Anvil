@@ -17,4 +17,6 @@ class lendor(lendorTemplate):
 
   def outlined_button_1_click(self, **event_args):
     """This method is called when the button is clicked"""
-    pass
+    selcted_row=self.item
+    open_form('lendor_registration_form.dashboard.lender_view_loans.view_details_1',selected_row=selcted_row)
+
