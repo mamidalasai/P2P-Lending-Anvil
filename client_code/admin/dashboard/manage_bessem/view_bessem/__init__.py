@@ -14,14 +14,13 @@ class view_bessem(view_bessemTemplate):
     self.fetch_data()
 
   def fetch_data(self):
-    self.data = app_tables.fin_admin_beseem_groups.search()
+    self.data = app_tables.fin_admin_beseem_categories.search()
     if not self.data:
         Notification("No Data Available Here!").show()
     else:
         self.result = [{'group_name': i['group_name'],
                         'sub_category': i['sub_category'],
-                        'min_points': i['min_points'],
-                        'max_points': i['max_points']}
+                        'min_points': i['min_points']}
                        for i in self.data]
         self.repeating_panel_1.items = self.result
 

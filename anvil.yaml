@@ -292,26 +292,23 @@ db_schema:
     server: full
     columns:
     - name: Group Id
-      admin_ui: {order: 6, width: 200}
+      admin_ui: {width: 200}
       type: number
-    - name: group_name
-      admin_ui: {order: 1, width: 200}
+    - name: Group Name
+      admin_ui: {width: 200}
       type: string
-    - name: min_points
-      admin_ui: {order: 2, width: 200}
+    - name: Max Points
+      admin_ui: {width: 200}
       type: number
-    - name: max_points
-      admin_ui: {order: 3, width: 200}
+    - name: Min Points
+      admin_ui: {width: 200}
       type: number
-    - name: status
-      admin_ui: {order: 4, width: 200}
-      type: bool
     - name: Modify Date
-      admin_ui: {width: 200, order: 5}
+      admin_ui: {width: 200}
       type: date
-    - name: sub_category
-      admin_ui: {width: 200, order: 1.5}
-      type: string
+    - name: status
+      admin_ui: {width: 200}
+      type: bool
     title: fin_admin_beseem_groups
   fin_borrower_employee_type:
     client: full
@@ -757,6 +754,29 @@ db_schema:
       admin_ui: {width: 200}
       type: string
     title: fin_user_profile
+  fin_admin_beseem_categories:
+    client: full
+    server: full
+    columns:
+    - name: Group Id
+      admin_ui: {order: 6, width: 200}
+      type: number
+    - name: group_name
+      admin_ui: {order: 1, width: 200}
+      type: string
+    - name: min_points
+      admin_ui: {order: 2, width: 200}
+      type: number
+    - name: status
+      admin_ui: {order: 4, width: 200}
+      type: bool
+    - name: Modify Date
+      admin_ui: {width: 200, order: 5}
+      type: date
+    - name: sub_category
+      admin_ui: {width: 200, order: 1.5}
+      type: string
+    title: fin_admin_beseem_categories
   fin_wallet_transactions:
     title: fin_wallet_transactions
     client: full
@@ -956,7 +976,7 @@ db_schema:
       admin_ui: {order: 12, width: 200}
       type: string
   fin_wallet_bank_account_table:
-    client: none
+    client: full
     server: full
     columns:
     - name: account_id
@@ -1145,6 +1165,9 @@ db_schema:
     - name: total_processing_fee_amount
       admin_ui: {width: 200}
       type: number
+    - name: product_description
+      admin_ui: {width: 200, order: 37}
+      type: string
     title: fin_loan_details
   fin_beseem_score_users:
     client: full

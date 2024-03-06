@@ -21,36 +21,20 @@ components:
     properties: {}
     type: form:admin.dashboard.home_button_admin
     layout_properties: {grid_position: 'KRXBYS,NEMBPD'}
-  - type: DataGrid
+  - name: data_grid_1
     properties:
-      role: null
       columns:
-      - {id: MLIRND, title: 'SL.No ', data_key: column_1, $$hashKey: 'object:2245',
-        width: 132.79998779296875, expand: false}
-      - {id: ZEMFJV, title: Group Names, data_key: column_2, $$hashKey: 'object:2246',
-        width: 217.5999755859375, expand: false}
-      - {id: KICZSB, title: Sub Category, data_key: column_3, $$hashKey: 'object:2247',
-        width: 237.199951171875, expand: false}
-      - {id: AHLIAF, title: Min Points, data_key: column_5, $$hashKey: 'object:2297',
-        width: 179.7999267578125, expand: false}
-      - {id: WREVWD, title: Max Points, data_key: column_4, $$hashKey: 'object:2295'}
-      auto_header: true
-      tooltip: ''
-      border: ''
-      foreground: ''
-      rows_per_page: 20
-      visible: true
-      wrap_on: never
-      show_page_controls: true
-      spacing_above: small
-      spacing_below: small
-      background: ''
-    name: data_grid_1
-    layout_properties: {grid_position: 'POSQKM,AJXXVP'}
+      - {id: JKSDUP, title: 'SL.No ', data_key: column_1, width: 129, expand: false}
+      - {id: VJQQOR, title: Group Names, data_key: column_2, width: 278.20001220703125,
+        expand: false}
+      - {id: OJLQEN, title: Sub Category, data_key: column_3}
+      - {id: UWQTPT, data_key: column_4, title: Min Points}
+    type: DataGrid
     components:
     - name: repeating_panel_1
       properties: {item_template: admin.dashboard.manage_bessem.view_bessem.ItemTemplate38}
       type: RepeatingPanel
+    layout_properties: {grid_position: 'PCZEDG,SNPCKJ'}
   - type: Button
     properties: {role: elevated-button, align: center, tooltip: '', border: '', enabled: true,
       foreground: white, visible: true, text: Back, font_size: null, font: '16', spacing_above: small,

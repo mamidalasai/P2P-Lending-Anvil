@@ -1,27 +1,22 @@
 is_package: true
 container:
   type: ColumnPanel
-  properties: {col_widths: '{"XPDOBX":20,"CTFZCE":15,"UAEJNS":15,"DEPLSL":10}'}
+  properties: {col_widths: '{"XPDOBX":20,"CTFZCE":19,"DEPLSL":12}'}
 components:
 - name: label_1
-  properties: {}
+  properties: {align: center}
   type: Label
   layout_properties: {grid_position: 'FELXKW,XPDOBX'}
   data_bindings:
   - {property: text, code: 'self.item[''sub_category'']'}
 - name: label_2
-  properties: {}
+  properties: {align: center}
   type: Label
   layout_properties: {grid_position: 'FELXKW,CTFZCE'}
   data_bindings:
   - {property: text, code: 'self.item[''min_points'']'}
-- name: label_3
-  properties: {}
-  type: Label
-  layout_properties: {grid_position: 'FELXKW,UAEJNS'}
-  data_bindings:
-  - {property: text, code: 'self.item[''max_points'']'}
 - name: link_1
-  properties: {text: Edit Details}
+  properties: {text: Edit Details, align: left}
   type: Link
   layout_properties: {grid_position: 'FELXKW,DEPLSL'}
+  event_bindings: {click: link_1_click}
