@@ -288,27 +288,15 @@ db_schema:
       admin_ui: {width: 200}
       type: string
   fin_admin_beseem_groups:
-    client: none
+    client: full
     server: full
     columns:
-    - name: Group Id
-      admin_ui: {width: 200}
-      type: number
-    - name: Group Name
-      admin_ui: {width: 200}
+    - name: group_name
+      admin_ui: {order: 1, width: 200}
       type: string
-    - name: Max Points
-      admin_ui: {width: 200}
+    - name: max_points
+      admin_ui: {width: 200, order: 2}
       type: number
-    - name: Min Points
-      admin_ui: {width: 200}
-      type: number
-    - name: Modify Date
-      admin_ui: {width: 200}
-      type: date
-    - name: status
-      admin_ui: {width: 200}
-      type: bool
     title: fin_admin_beseem_groups
   fin_borrower_employee_type:
     client: full
