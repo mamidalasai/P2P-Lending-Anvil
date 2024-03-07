@@ -21,20 +21,8 @@ def get_table_data():
 
 @anvil.server.callable
 def add_data(customer_id, email, password, name, number, enable):
-  wallet = tables.app_tables.fin_wallet.search()
-  wallet_amount = 0
-  id_w = []
-  for i in wallet:
-      id_w.append(i['wallet_id'])
-
-  if len(id_w) >= 1:
-      wallet_id = 'WI' + str(int(id_w[-1][2:]) + 1)
-  else:
-      wallet_id = 'WI' + str(1000)
-  print(wallet_id)
   tables.app_tables.users.add_row(email=email, password_hash=password, enabled=enable)
   tables.app_tables.fin_user_profile.add_row(customer_id=customer_id, email_user=email, full_name=name, mobile=number)
-  tables.app_tables.fin_wallet.add_row(customer_id=customer_id, user_email=email, user_name=name, wallet_id=wallet_id, wallet_amount=wallet_amount)
 
 @anvil.server.callable
 def wallet_data():
@@ -376,3 +364,57 @@ def get_credit_limit():
         # Handle exceptions gracefully (log or print the error)
         print(f"An error occurred in get_credit_limit: {e}")
         return None
+
+
+@anvil.server.callable
+def add_wallet_data():
+  wallet = tables.app_tables.fin_wallet.search()
+  wallet_amount = 0
+  id_w = []
+  acc_id = []
+  for i in wallet:
+      id_w.append(i['wallet_id'])
+      acc_id.append(i['account_id'])
+
+  if len(id_w) >= 1:
+      wallet_id = 'WA' + str(int(id_w[-1][2:]) + 1)
+  else:
+      wallet_id = 'WA' + str(1000)
+    
+  if len(acc_id) >= 1:
+      account_id = 'AC' + str(int(id_w[-1][2:]) + 1)
+  else:
+      account_id = 'AC' + str(1000)
+  email_user = another_method()
+  data = profile()
+  name = []
+  email = []
+  customer_id = []
+  acc_number = []
+  acc_name = []
+  acc_type = []
+  branch_name = []
+  bank_name = []
+  user_type = []
+  for i in data:
+    name.append(i['full_name'])
+    email.append(i['email_user'])
+    customer_id.append(i['customer_id'])
+    acc_number.append(i['account_number'])
+    acc_name.append(i['account_name'])
+    acc_type.append(i['account_type'])
+    branch_name.append(i['account_bank_branch'])
+    bank_name.append(i['bank_name'])
+    user_type.append(i['usertype'])
+
+  if email_user in email:
+    index = email.index(email_user)
+    tables.app_tables.fin_wallet.add_row(account_id=account_id, wallet_id=wallet_id, wallet_amount=wallet_amount, customer_id=customer_id[index], user_name=name[index], user_email=email[index], user_type=user_type[index])
+    tables.app_tables.fin_wallet_bank_account_table.add_row(account_id=account_id, wallet_id=wallet_id, user_email=email[index], account_name=acc_name[index], account_number=int(acc_number[index]), account_type=acc_type[index],
+                                                            bank_name=bank_name[index], branch_name=branch_name[index]
+                                                           )
+  else:
+    print("email not defined")
+  
+
+  
