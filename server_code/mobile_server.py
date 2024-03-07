@@ -13,7 +13,7 @@ import os  # Import the os module for file existence che
 from anvil import *
 import anvil.media
 from anvil import Media
-from datetime import datetime
+
 @anvil.server.callable()
 def get_table_data():
     data = tables.app_tables.fin_loan_details.search()
@@ -23,6 +23,11 @@ def get_table_data():
 def add_data(customer_id, email, password, name, number, enable):
   tables.app_tables.users.add_row(email=email, password_hash=password, enabled=enable)
   tables.app_tables.fin_user_profile.add_row(customer_id=customer_id, email_user=email, full_name=name, mobile=number)
+
+@anvil.server.callable
+def wallet_data():
+  data = tables.app_tables.fin_wallet.search()
+  return data
 
 @anvil.server.callable
 def lender(name, gender, date_of_birth):
@@ -90,22 +95,6 @@ def save_media_content(file_content, file_name):
 def get_foreclose_data( outstading_amount, forecloser_fee, forecloser_amount):
     tables.app_tables.fin_foreclosure.add_row(outstanding_amount=outstading_amount,foreclose_fee=forecloser_fee,foreclose_amount=forecloser_amount)
 
-
-
-@anvil.server.callable
-def get_credit_limit(customer_id):
-    try:
-        # Fetch all rows with the specified customer_id
-        data = app_tables.fin_borrower.search(customer_id=customer_id)
-
-        # If there is data for the specified customer_id, extract the 'credit_limit'
-        credit_limit = data[0]['credit_limit'] if data else None
-
-        return credit_limit
-    except Exception as e:
-        # Handle exceptions gracefully (log or print the error)
-        print(f"An error occurred in get_credit_limit: {e}")
-        return None
 
 @anvil.server.callable
 def get_max_tenure(selected_category):
@@ -226,21 +215,6 @@ def calculate_total_repayment(selected_category, loan_amount, loan_tenure):
         print(f"An error occurred in calculate_total_repayment: {e}")
         return "Error calculating Total Repayment"
 
-@anvil.server.callable
-def generate_loan_id():
-    # Query the latest loan ID from the data table
-    latest_loan = app_tables.fin_loan_details.search(tables.order_by("loan_id", ascending=False))
-
-    if latest_loan and len(latest_loan) > 0:
-        # If there are existing loans, increment the last loan ID
-        last_loan_id = latest_loan[0]['loan_id']
-        counter = int(last_loan_id[2:]) + 1
-    else:
-        # If there are no existing loans, start the counter at 100001
-        counter = 1000001
-
-    # Return the new loan ID
-    return f"LA{counter}"
 
 @anvil.server.callable
 def add_loan_data(loan_amount, loan_tenure, roi, total_repayment, date_of_apply):
@@ -251,7 +225,6 @@ def add_loan_data(loan_amount, loan_tenure, roi, total_repayment, date_of_apply)
         email_list = []
         customer_id_list = []
         borrower_name_list = []
-        date_of_apply = datetime.now().date()
         for i in data:
           email_list.append(i['email_user'])
           customer_id_list.append(i['customer_id'])
@@ -266,14 +239,15 @@ def add_loan_data(loan_amount, loan_tenure, roi, total_repayment, date_of_apply)
         loan_id = generate_loan_id()
         app_tables.fin_loan_details.add_row(
             borrower_customer_id=customer_id,
-            borrower_full_name=borrower_name,
+            borrower_full_name=customer_name,
             loan_id=loan_id,
             loan_amount=float(loan_amount),
             tenure=float(loan_tenure),
             loan_updated_status = "under process",
             total_repayment_amount=float(total_repayment),
             interest_rate=float(roi),
-            borrower_loan_created_timestamp=date_of_apply
+            borrower_loan_created_timestamp=date_of_apply,
+            borrower_email_id=email
         )
 
         # You can also return the loan ID if needed
@@ -282,4 +256,165 @@ def add_loan_data(loan_amount, loan_tenure, roi, total_repayment, date_of_apply)
         # Handle exceptions appropriately
         raise anvil.server.NoServerFunctionError(f"Anvil error: {e}")
 
+@anvil.server.callable
+def generate_loan_id():
+    # Query the latest loan ID from the data table
+    latest_loan = app_tables.fin_loan_details.search(tables.order_by("loan_id", ascending=False))
 
+    if latest_loan and len(latest_loan) > 0:
+        # If there are existing loans, increment the last loan ID
+        last_loan_id = latest_loan[0]['loan_id']
+        counter = int(last_loan_id[2:]) + 1
+    else:
+        # If there are no existing loans, start the counter at 100001
+        counter = 1000
+
+    # Return the new loan ID
+    return f"LA{counter}"
+
+
+@anvil.server.callable
+def get_product_groups():
+    try:
+        product_groups = [product['product_group'] for product in app_tables.fin_product_details.search()]
+        return product_groups
+    except Exception as e:
+        print(f"Error in get_product_groups: {e}")
+        return []
+
+@anvil.server.callable
+def get_product_categories(product_group):
+    try:
+        # Check if the provided product_group is empty or invalid
+        if not product_group or product_group not in {entry['product_group'] for entry in app_tables.fin_product_details.search()}:
+            raise ValueError("Empty or invalid product_group")
+
+        # Fetch product categories for the selected product group
+        categories = [entry['product_categories'] for entry in app_tables.fin_product_details.search() if entry['product_group'] == product_group]
+
+        # Return the result as a dictionary
+        return {'product_categories': categories}
+
+    except Exception as e:
+        # Log the error and return an appropriate response
+        print(f"Error in get_product_categories: {e}")
+        return {'error': str(e)}
+
+@anvil.server.callable
+def get_product_names(product_group, product_category):
+    try:
+        # Check if the provided product_group and product_category are valid
+        if not product_group or not product_category:
+            raise ValueError("Empty or invalid product_group or product_category")
+
+        # Fetch product names for the selected product group and category
+        names = [entry['product_name'] for entry in app_tables.fin_product_details.search(
+            product_group=product_group,
+            product_categories=product_category
+        )]
+
+        # Return the result as a dictionary
+        return {'product_name': names}
+
+    except Exception as e:
+        # Log the error and return an appropriate response
+        print(f"Error in get_product_names: {e}")
+        return {'error': str(e)}
+
+@anvil.server.callable
+def add_loan(product_id, product_name):
+    try:
+        # Assuming 'fin_loan_details' is the name of your Anvil table
+        data = app_tables.fin_loan_details.add_row(
+            product_id=str(product_id),
+            product_name=product_name
+        )
+
+        # You can also return the loan ID if needed
+        return data
+        
+            
+    except Exception as e:
+        # Handle other exceptions appropriately
+        raise anvil.server.NoServerFunctionError(f"Anvil error: {e}")
+@anvil.server.callable
+def get_product():
+    try:
+        # Fetch all rows with the specified customer_id
+        data = app_tables.fin_product_details.search()
+
+        # If there is data for the specified product_id
+        product = data[0]['product_id'] if data else None
+        return product
+    except Exception as e:
+        # Handle exceptions gracefully (log or print the error)
+        print(f"An error occurred in get_credit_limit: {e}")
+        return None
+      
+@anvil.server.callable
+def get_credit_limit():
+    try:
+        data = app_tables.fin_borrower.search()
+
+        # If there is data for the specified product_id
+        product = data[0]['credit_limit'] if data else None
+        
+        return product
+    except Exception as e:
+        # Handle exceptions gracefully (log or print the error)
+        print(f"An error occurred in get_credit_limit: {e}")
+        return None
+
+
+@anvil.server.callable
+def add_wallet_data():
+  wallet = tables.app_tables.fin_wallet.search()
+  wallet_amount = 0
+  id_w = []
+  acc_id = []
+  for i in wallet:
+      id_w.append(i['wallet_id'])
+      acc_id.append(i['account_id'])
+
+  if len(id_w) >= 1:
+      wallet_id = 'WA' + str(int(id_w[-1][2:]) + 1)
+  else:
+      wallet_id = 'WA' + str(1000)
+    
+  if len(acc_id) >= 1:
+      account_id = 'AC' + str(int(id_w[-1][2:]) + 1)
+  else:
+      account_id = 'AC' + str(1000)
+  email_user = another_method()
+  data = profile()
+  name = []
+  email = []
+  customer_id = []
+  acc_number = []
+  acc_name = []
+  acc_type = []
+  branch_name = []
+  bank_name = []
+  user_type = []
+  for i in data:
+    name.append(i['full_name'])
+    email.append(i['email_user'])
+    customer_id.append(i['customer_id'])
+    acc_number.append(i['account_number'])
+    acc_name.append(i['account_name'])
+    acc_type.append(i['account_type'])
+    branch_name.append(i['account_bank_branch'])
+    bank_name.append(i['bank_name'])
+    user_type.append(i['usertype'])
+
+  if email_user in email:
+    index = email.index(email_user)
+    tables.app_tables.fin_wallet.add_row(account_id=account_id, wallet_id=wallet_id, wallet_amount=wallet_amount, customer_id=customer_id[index], user_name=name[index], user_email=email[index], user_type=user_type[index])
+    tables.app_tables.fin_wallet_bank_account_table.add_row(account_id=account_id, wallet_id=wallet_id, user_email=email[index], account_name=acc_name[index], account_number=int(acc_number[index]), account_type=acc_type[index],
+                                                            bank_name=bank_name[index], branch_name=branch_name[index]
+                                                           )
+  else:
+    print("email not defined")
+  
+
+  
