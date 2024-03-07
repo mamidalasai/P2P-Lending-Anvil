@@ -53,7 +53,7 @@ class ots_dashboard(ots_dashboardTemplate):
     # Any code you write here will run before the form opens.
 
   def home_main_form_link_click(self, **event_args):
-    open_form("borrower_registration_form.dashboard")
+    open_form("borrower_registration_form.ots_dashboard")
 
   def about_main_form_link_click(self, **event_args):
     open_form('borrower_registration_form.dashboard.dashboard_about')

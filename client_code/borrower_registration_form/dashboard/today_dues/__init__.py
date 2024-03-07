@@ -145,7 +145,7 @@ class today_dues(today_duesTemplate):
                   # 'first_payment_due_date': first_payment_due_date
                   'total_processing_fee_amount':total_processing_fee_amount
               })
-        self.repeating_panel_1.items = loan_details
+        self.repeating_panel_2.items = loan_details
         for loan_detail in loan_details:
             print("Processing loan:", loan_detail)
             if loan_detail['days_left'] >= 6 and loan_detail['days_left'] < 8:

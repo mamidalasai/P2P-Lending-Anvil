@@ -50,8 +50,8 @@ components:
         properties: {role: outlined-button, align: full, tooltip: '', border: '',
           enabled: true, foreground: 'theme:On Primary', visible: true, text: '   MANAGE
             DROPDOWNS', font_size: null, font: '', spacing_above: small, icon_align: left,
-          spacing_below: small, italic: false, background: '#00008B', bold: true,
+          spacing_below: small, italic: false, background: '#0b2547', bold: true,
           underline: false, icon: 'fa:cube'}
         type: Button
-        layout_properties: {x: 252.12501525878906, y: 20.625, width: 482.679}
+        layout_properties: {x: 252.12501525878906, y: 20.625, width: 482.667}
         event_bindings: {click: button_2_click}

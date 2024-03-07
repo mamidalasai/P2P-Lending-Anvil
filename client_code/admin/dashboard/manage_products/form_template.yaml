@@ -29,8 +29,10 @@ components:
         col_widths: {}
         grid_position: YBYCGC,WLHNNP
     - name: button_2
-      properties: {text: Home, background: '#0770e8', foreground: white, icon: 'fa:home',
-        bold: true, align: right}
+      properties: {role: null, align: right, tooltip: '', border: '', enabled: true,
+        foreground: white, visible: true, text: Home, font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '#0b2547',
+        bold: true, underline: false, icon: 'fa:home'}
       type: Button
       layout_properties: {grid_position: 'YBYCGC,MJBOIF'}
       event_bindings: {click: button_2_click}

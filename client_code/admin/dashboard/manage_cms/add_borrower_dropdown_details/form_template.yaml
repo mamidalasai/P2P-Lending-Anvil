@@ -362,7 +362,7 @@ components:
       properties: {role: null, align: left, tooltip: '', border: '', enabled: true,
         foreground: 'theme:On Primary', visible: true, text: ADD, font_size: null,
         font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-        background: '#00008B', bold: true, underline: false, icon: ''}
+        background: '#0b2547', bold: true, underline: false, icon: ''}
       type: Button
       layout_properties:
         col_widths: {}

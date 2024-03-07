@@ -40,20 +40,6 @@ components:
     background: 'theme:On Primary', bold: false, underline: false}
   type: TextBox
   layout_properties: {grid_position: 'TBSTAV,GRNRYA'}
-- name: label_3_copy_1
-  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
-    text: Business Location, font_size: null, font: '', spacing_above: small, icon_align: left,
-    spacing_below: small, italic: false, background: '', bold: true, underline: false,
-    icon: ''}
-  type: Label
-  layout_properties: {grid_position: 'SVFFWR,QVELHO'}
-- name: text_box_2
-  properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: '',
-    border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
-    font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
-    background: 'theme:On Primary', bold: false, underline: false}
-  type: TextBox
-  layout_properties: {grid_position: 'SVFFWR,LEDSGO'}
 - name: label_1
   properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
     text: Business Address, font_size: null, font: '', spacing_above: small, icon_align: left,

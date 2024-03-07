@@ -87,6 +87,8 @@ class main_form(main_formTemplate):
     """This method is called when the button is clicked"""
     self.login_signup_button_click()
 
+  
+
 
 
 

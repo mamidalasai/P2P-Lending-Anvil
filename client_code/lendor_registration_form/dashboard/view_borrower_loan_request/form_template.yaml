@@ -84,6 +84,6 @@ components:
         name: repeating_panel_1
         layout_properties: {}
   - name: repeating_panel_2
-    properties: {item_template: lendor_registration_form.dashboard.view_borrower_loan_request.ItemTemplate48}
+    properties: {item_template: lendor_registration_form.dashboard.view_borrower_loan_request.ItemTemplate47}
     type: RepeatingPanel
-    layout_properties: {grid_position: 'MCRNSI,XLGCFA'}
+    layout_properties: {grid_position: 'RAEAKV,PPBFGC'}

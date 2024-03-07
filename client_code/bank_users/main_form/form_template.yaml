@@ -332,6 +332,7 @@ components:
       underline: false, icon: 'fa:instagram'}
     type: Link
     layout_properties: {row: JUWDTC, width_xs: 1, col_xs: 10, width: 93.6875}
+    event_bindings: {click: link_4_click}
   - name: link_3
     properties: {role: null, url: 'https://twitter.com/i/flow/login?input_flow_data=%7B%22requested_variant%22%3A%22eyJsYW5nIjoiZW4ifQ%3D%3D%22%7D',
       align: left, tooltip: '', border: '', foreground: white, visible: true, text: '',

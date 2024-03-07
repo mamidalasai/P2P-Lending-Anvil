@@ -1,0 +1,18 @@
+is_package: true
+container:
+  type: ColumnPanel
+  properties: {col_widths: '{"SJKBEE":25,"DPGQZE":20,"YKAVHI":15}'}
+components:
+- name: label_1
+  properties: {align: center}
+  type: Label
+  layout_properties: {grid_position: 'YNGSBB,SJKBEE'}
+- name: label_2
+  properties: {align: center}
+  type: Label
+  layout_properties: {grid_position: 'YNGSBB,DPGQZE'}
+- name: link_1
+  properties: {text: Edit Details}
+  type: Link
+  layout_properties: {grid_position: 'YNGSBB,YKAVHI'}
+  event_bindings: {click: link_1_click}

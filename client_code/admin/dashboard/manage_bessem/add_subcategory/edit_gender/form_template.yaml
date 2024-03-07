@@ -46,15 +46,15 @@ components:
     data_bindings:
     - {property: text, code: 'self.item[''name_categories'']', writeback: true}
     event_bindings: {pressed_enter: text_box_2_pressed_enter}
-  - name: button_1
+  - name: save
     properties: {role: tonal-button, align: full, tooltip: '', border: '', enabled: true,
       foreground: 'theme:On Primary', visible: true, text: SAVE, font_size: null,
       font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
       background: '#0b2547', bold: false, underline: false, icon: ''}
     type: Button
     layout_properties: {grid_position: 'FAYIQN,UCDNIP'}
-    event_bindings: {click: button_1_click}
-  - name: button_1_copy
+    event_bindings: {click: save_click}
+  - name: delete
     properties: {role: tonal-button, align: full, tooltip: '', border: '', enabled: true,
       foreground: 'theme:On Primary', visible: true, text: DELETE, font_size: null,
       font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,

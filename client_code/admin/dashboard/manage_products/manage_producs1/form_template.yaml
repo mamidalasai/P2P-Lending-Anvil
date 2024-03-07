@@ -32,8 +32,10 @@ components:
           col_widths: {}
           grid_position: CXRQEH,GXLQYB
       - name: button_2
-        properties: {text: 'Home ', background: '#0770e8', foreground: white, bold: false,
-          align: right, icon: 'fa:home'}
+        properties: {role: null, align: right, tooltip: '', border: '', enabled: true,
+          foreground: white, visible: true, text: 'Home ', font_size: null, font: '',
+          spacing_above: small, icon_align: left, spacing_below: small, italic: false,
+          background: '#0b2547', bold: false, underline: false, icon: 'fa:home'}
         type: Button
         layout_properties: {grid_position: 'CXRQEH,GEXMEA'}
         event_bindings: {click: button_2_click}
@@ -329,13 +331,6 @@ components:
           layout_properties: {x: 252.5999877937138, y: 476.20001220703125, width: 112.0625}
         - type: CheckBox
           properties: {role: null, align: left, tooltip: '', border: '', enabled: true,
-            foreground: '', allow_indeterminate: false, visible: true, text: Three Month,
-            font_size: null, font: '', spacing_above: small, spacing_below: small,
-            italic: false, background: '', bold: false, checked: false, underline: false}
-          name: three_month
-          layout_properties: {x: 643.7500427253544, y: 473.3500099182129, width: 123.0625}
-        - type: CheckBox
-          properties: {role: null, align: left, tooltip: '', border: '', enabled: true,
             foreground: '', allow_indeterminate: false, visible: true, text: Monthly,
             font_size: null, font: '', spacing_above: small, spacing_below: small,
             italic: false, background: '', bold: false, checked: false, underline: false}
@@ -350,11 +345,18 @@ components:
           layout_properties: {x: 428.62504272535443, y: 473.3500099182129, width: 104.6624984741211}
         - type: CheckBox
           properties: {role: null, align: left, tooltip: '', border: '', enabled: true,
-            foreground: '', allow_indeterminate: false, visible: true, text: Six Month,
+            foreground: '', allow_indeterminate: false, visible: true, text: Three Months,
+            font_size: null, font: '', spacing_above: small, spacing_below: small,
+            italic: false, background: '', bold: false, checked: false, underline: false}
+          name: three_month
+          layout_properties: {x: 651.7499923706055, y: 471.12480000000005, width: 137.056}
+        - type: CheckBox
+          properties: {role: null, align: left, tooltip: '', border: '', enabled: true,
+            foreground: '', allow_indeterminate: false, visible: true, text: Six Months,
             font_size: null, font: '', spacing_above: small, spacing_below: small,
             italic: false, background: '', bold: false, checked: false, underline: false}
           name: six_month
-          layout_properties: {x: 773.2499816901982, y: 473.3500099182129, width: 100}
+          layout_properties: {x: 798.8059923706055, y: 473.3333740234375, width: 114}
       - name: grid_panel_2
         properties: {}
         type: GridPanel

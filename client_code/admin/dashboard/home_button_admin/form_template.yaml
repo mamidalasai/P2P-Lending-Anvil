@@ -5,7 +5,7 @@ components:
 - type: Button
   properties: {role: null, align: right, tooltip: Home, border: '', enabled: true,
     foreground: white, visible: true, text: Home, font_size: 15, font: '', spacing_above: small,
-    icon_align: left, spacing_below: small, italic: false, background: '#0770e8',
+    icon_align: left, spacing_below: small, italic: false, background: '#0b2547',
     bold: true, underline: false, icon: 'fa:home'}
   name: button_1
   layout_properties: {grid_position: 'DDYCKB,NVBHEI'}

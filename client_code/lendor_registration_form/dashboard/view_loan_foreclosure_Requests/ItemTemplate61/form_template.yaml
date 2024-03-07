@@ -15,7 +15,7 @@ components:
     type: Label
     layout_properties: {x: 78.48750000074506, y: 0, width: 200}
     data_bindings:
-    - {property: text, code: 'self.item[''borrower_full_name'']', writeback: false}
+    - {property: text, code: 'self.item[''borrower_name'']', writeback: false}
   - name: mobile
     properties: {}
     type: Label
@@ -38,13 +38,19 @@ components:
     data_bindings:
     - {property: text, code: 'self.item[''product_id'']', writeback: false}
   - name: label_6
-    properties: {text: Loan_id}
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: 'Loan_id :', font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
     type: Label
-    layout_properties: {x: 12.150006104260683, y: 94.35000305250287, width: 200}
+    layout_properties: {x: 12.142868041992188, y: 94.33935546875, width: 200}
   - name: label_8
-    properties: {text: 'Principal Amount :'}
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: 'Loan Amount :', font_size: null, font: '', spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+      underline: false, icon: ''}
     type: Label
-    layout_properties: {x: 12.650006104260683, y: 158.2500122077763, width: 200}
+    layout_properties: {x: 12.642868041992188, y: 158.25, width: 200}
   - name: label_9
     properties: {text: 'Invested on : ', bold: true}
     type: Label

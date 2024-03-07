@@ -2,7 +2,7 @@ is_package: true
 container: {type: ColumnPanel}
 components:
 - name: xy_panel_1
-  properties: {height: 374.99993896484375, role: outlined-card}
+  properties: {height: 374.99993896484375, role: outlined-card, width: 920.222}
   type: XYPanel
   layout_properties: {grid_position: 'ZTIDSK,SMSLVN'}
   components:
@@ -59,25 +59,12 @@ components:
     layout_properties: {x: 735.2361068725586, y: 122.34722900390625, width: 200}
     data_bindings:
     - {property: text, code: 'self.item[''interest_rate'']', writeback: false}
-  - type: Label
-    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
-      visible: true, text: Loan ID, font_size: null, font: '', spacing_above: small,
-      icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
-      underline: false, icon: ''}
-    name: label_1
-    layout_properties: {x: 10, y: 86.888916015625, width: 160}
-  - type: Label
-    properties: {}
-    name: loan_id
-    layout_properties: {x: 735.2361068725586, y: 86.888916015625, width: 160}
-    data_bindings:
-    - {property: text, code: 'self.item[''loan_id'']'}
   - name: product_details
     properties: {}
     type: Label
     layout_properties: {x: 735.3750228881836, y: 34, width: 200}
     data_bindings:
-    - {property: text, code: 'self.item[''product_id'']', writeback: false}
+    - {property: text, code: 'self.item[''product_description'']', writeback: false}
   - name: mobile
     properties: {}
     type: Label
@@ -95,4 +82,4 @@ components:
     type: Label
     layout_properties: {x: 735.2361068725586, y: -12, width: 200}
     data_bindings:
-    - {property: text, code: 'self.item[''product_name'']', writeback: false}
+    - {property: text, code: 'self.item[''product_id'']', writeback: false}

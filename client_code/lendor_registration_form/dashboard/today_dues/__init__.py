@@ -11,13 +11,13 @@ from datetime import datetime, timezone,timedelta
 from .. import main_form_module as main_form_module
 
 class today_dues(today_duesTemplate):
-  def __init__(self, **properties):
+    def __init__(self, **properties):
         # Set Form properties and Data Bindings.
         self.user_id = main_form_module.userId
         self.init_components(**properties)
-        loan_details = []
+        
         today_date = datetime.now(timezone.utc).date()
-
+        loan_details = []
         # Fetch all loan details from fin_emi_table where next_payment matches today's date
         all_loans = list(app_tables.fin_emi_table.search(
             next_payment=q.less_than_or_equal_to(today_date)
@@ -47,6 +47,8 @@ class today_dues(today_duesTemplate):
                 emi_payment_type = loan_details_row['emi_payment_type']
                 lender_customer_id = loan_details_row['lender_customer_id']
                 first_emi_payment_due_date = loan_details_row['first_emi_payment_due_date']
+                total_repayment_amount = loan_details_row['total_repayment_amount']
+                total_processing_fee_amount = loan_details_row['total_processing_fee_amount']
 
                 # Populate loan details
                 loan_details = [{
@@ -64,7 +66,9 @@ class today_dues(today_duesTemplate):
                     'next_payment': next_payment,
                     'emi_payment_type': emi_payment_type,
                     'lender_customer_id': lender_customer_id,
-                    'first_emi_payment_due_date': first_emi_payment_due_date
+                    'first_emi_payment_due_date': first_emi_payment_due_date,
+                    'total_repayment_amount':total_repayment_amount,
+                    'total_processing_fee_amount' : total_processing_fee_amount
                 }]
                 
                 # Now you can use loan_details list containing details of the latest loan
@@ -102,6 +106,8 @@ class today_dues(today_duesTemplate):
               loan_disbursed_timestamp = loan_due['loan_disbursed_timestamp']
               emi_payment_type = loan_due['emi_payment_type']
               lender_customer_id = loan_due['lender_customer_id']
+              total_repayment_amount = loan_due['total_repayment_amount']
+              total_processing_fee_amount = loan_due['total_processing_fee_amount']
               
               # Calculate next_payment based on first_payment_due_date
               if emi_payment_type == 'One Time':
@@ -114,7 +120,7 @@ class today_dues(today_duesTemplate):
                   # For three-month payment, set next_payment to three months after first_payment_due_date
                   next_payment = loan_disbursed_timestamp.date() + timedelta(days=90)
               elif emi_payment_type == 'Six Month':
-                  # For six-month payment, set next_payment to six months after first_payment_due_date
+                  # For six-month payment, set next_payment  six months after first_payment_due_date
                   next_payment = loan_disbursed_timestamp.date() + timedelta(days=180)
               else:
                   # Default to monthly calculation if emi_payment_type is not recognized
@@ -123,7 +129,7 @@ class today_dues(today_duesTemplate):
               loan_details.append({
                   'loan_id': loan_id,
                   'loan_amount': loan_amount,
-                  'scheduled_payment': loan_disbursed_timestamp.date(),  # Set scheduled_payment to first_payment_due_date first_emi_payment_due_date
+                  'scheduled_payment':first_emi_payment_due_date,   # Set scheduled_payment to first_payment_due_date first_emi_payment_due_date
                   'next_payment': next_payment,
                   'days_left': days_left,
                   'tenure': tenure,
@@ -135,15 +141,36 @@ class today_dues(today_duesTemplate):
                   'account_number': account_number,
                   'emi_payment_type': emi_payment_type,
                   'lender_customer_id': lender_customer_id,
+                  'total_repayment_amount':total_repayment_amount,
                   # 'first_payment_due_date': first_payment_due_date
+                  'total_processing_fee_amount':total_processing_fee_amount
               })
         self.repeating_panel_1.items = loan_details
-        
-  
-  
-  def button_1_click(self, **event_args):
-    """This method is called when the button is clicked"""
-    open_form("lendor_registration_form.dashboard")
+        for loan_detail in loan_details:
+            print("Processing loan:", loan_detail)
+            if loan_detail['days_left'] >= 6 and loan_detail['days_left'] < 8:
+                print("Updating status to 'lapsed loan'")
+                loan_detail['loan_updated_status'] = 'lapsed loan'
+                loan_row = app_tables.fin_loan_details.get(loan_id=loan_detail['loan_id'])
+                if loan_row is not None:
+                    loan_row['loan_updated_status'] = 'lapsed loan'
+                    loan_row.update()
+            elif loan_detail['days_left'] >= 8 and loan_detail['days_left'] < 98:
+                print("Updating status to 'default loan'")
+                loan_detail['loan_updated_status'] = 'default loan'
+                loan_row = app_tables.fin_loan_details.get(loan_id=loan_detail['loan_id'])
+                if loan_row is not None:
+                    loan_row['loan_updated_status'] = 'default loan'
+                    loan_row.update()
+            elif loan_detail['days_left'] >= 98:
+                print("Updating status to 'default loan'")
+                loan_detail['loan_updated_status'] = 'NPA'
+                loan_row = app_tables.fin_loan_details.get(loan_id=loan_detail['loan_id'])
+                if loan_row is not None:
+                    loan_row['loan_updated_status'] = 'NPA'
+                    loan_row.update()
 
- 
-  
+                  
+    def home_borrower_registration_form_copy_1_click(self, **event_args):
+        """This method is called when the button is clicked"""
+        open_form('')

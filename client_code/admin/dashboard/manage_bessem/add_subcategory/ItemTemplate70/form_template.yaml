@@ -1,0 +1,22 @@
+is_package: true
+container:
+  type: ColumnPanel
+  properties: {col_widths: '{"ELWIVL":25,"TOBLSA":20,"CKZIGY":15}'}
+components:
+- name: label_1
+  properties: {align: center}
+  type: Label
+  layout_properties: {grid_position: 'KUSEGZ,ELWIVL'}
+  data_bindings:
+  - {property: text, code: 'self.item[''sub_category'']'}
+- name: label_2
+  properties: {align: center}
+  type: Label
+  layout_properties: {grid_position: 'KUSEGZ,TOBLSA'}
+  data_bindings:
+  - {property: text, code: 'self.item[''min_points'']'}
+- name: link_1
+  properties: {text: Edit Details}
+  type: Link
+  layout_properties: {grid_position: 'KUSEGZ,CKZIGY'}
+  event_bindings: {click: link_1_click}

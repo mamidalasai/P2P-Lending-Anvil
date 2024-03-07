@@ -18,4 +18,4 @@ class ItemTemplate39(ItemTemplate39Template):
   def link_1_click(self, **event_args):
     """This method is called when the link is clicked"""
     item_data = self.item
-    open_form('admin.dashboard.manage_bessem.add_subcategory.edit_details',selected_row=item_data)
+    open_form('admin.dashboard.manage_bessem.add_subcategory.edit_gender',selected_row=item_data)

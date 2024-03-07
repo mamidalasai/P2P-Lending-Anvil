@@ -30,7 +30,7 @@ components:
     grid_position: PNDNDM,TKYEBB
 - name: label_1_copy_1_copy_1
   properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
-    visible: true, text: View Profile, font_size: null, font: '', spacing_above: small,
+    visible: true, text: View Profile, font_size: 18, font: '', spacing_above: small,
     icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
     underline: false, icon: ''}
   type: Label
@@ -38,7 +38,10 @@ components:
     col_widths: {}
     grid_position: KDHAAT,CKVRJM
 - name: label_7
-  properties: {text: 'Loan Id:', bold: true}
+  properties: {role: null, align: right, tooltip: '', border: '', foreground: '',
+    visible: true, text: 'Loan Id:', font_size: null, font: '', spacing_above: small,
+    icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+    underline: false, icon: ''}
   type: Label
   layout_properties: {grid_position: 'FDIETG,BLPAKG'}
 - name: loan_id_label
@@ -46,7 +49,10 @@ components:
   type: Label
   layout_properties: {grid_position: 'FDIETG,ZKHZFF'}
 - name: label_8
-  properties: {bold: true, text: 'Loan Amount:'}
+  properties: {role: null, align: right, tooltip: '', border: '', foreground: '',
+    visible: true, text: 'Loan Amount:', font_size: null, font: '', spacing_above: small,
+    icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+    underline: false, icon: ''}
   type: Label
   layout_properties: {grid_position: 'PTPWQV,CUOMKR'}
 - name: loan_amount_label
@@ -56,7 +62,10 @@ components:
   data_bindings:
   - {property: text, code: 'self.item['''']', writeback: false}
 - name: label_2
-  properties: {bold: true, text: 'Due amount:'}
+  properties: {role: null, align: right, tooltip: '', border: '', foreground: '',
+    visible: true, text: 'Due amount:', font_size: null, font: '', spacing_above: small,
+    icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+    underline: false, icon: ''}
   type: Label
   layout_properties: {grid_position: 'SFYFOS,UQASGU'}
 - name: due_amount_label
@@ -66,7 +75,10 @@ components:
   data_bindings:
   - {property: text, code: 'self.item[''loan_updated_status'']', writeback: false}
 - name: label_11
-  properties: {bold: true, text: 'Intrest Rate:'}
+  properties: {role: null, align: right, tooltip: '', border: '', foreground: '',
+    visible: true, text: 'Intrest Rate:', font_size: null, font: '', spacing_above: small,
+    icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+    underline: false, icon: ''}
   type: Label
   layout_properties: {grid_position: 'DRPWYS,KHMDWY'}
 - name: intrest_rate_label
@@ -74,7 +86,10 @@ components:
   type: Label
   layout_properties: {grid_position: 'DRPWYS,QYSBQC'}
 - name: label_10
-  properties: {bold: true, text: 'Tenure:'}
+  properties: {role: null, align: right, tooltip: '', border: '', foreground: '',
+    visible: true, text: 'Tenure:', font_size: null, font: '', spacing_above: small,
+    icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+    underline: false, icon: ''}
   type: Label
   layout_properties: {grid_position: 'SGEVJA,NLZWBH'}
 - name: tenure_label
@@ -82,7 +97,10 @@ components:
   type: Label
   layout_properties: {grid_position: 'SGEVJA,UGWBFV'}
 - name: label_12
-  properties: {bold: true, text: 'Date Of Apply:'}
+  properties: {role: null, align: right, tooltip: '', border: '', foreground: '',
+    visible: true, text: 'Date Of Apply:', font_size: null, font: '', spacing_above: small,
+    icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+    underline: false, icon: ''}
   type: Label
   layout_properties: {grid_position: 'SZRCOX,ONHLCB'}
 - name: date_of_apply_label
@@ -90,7 +108,10 @@ components:
   type: Label
   layout_properties: {grid_position: 'SZRCOX,UWUPHU'}
 - name: label_1
-  properties: {bold: true, text: 'Due Date:'}
+  properties: {role: null, align: right, tooltip: '', border: '', foreground: '',
+    visible: true, text: 'Due Date:', font_size: null, font: '', spacing_above: small,
+    icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+    underline: false, icon: ''}
   type: Label
   layout_properties: {grid_position: 'EMKHVL,NSRNNZ'}
 - name: due_date_label
@@ -98,7 +119,10 @@ components:
   type: Label
   layout_properties: {grid_position: 'EMKHVL,AEVRLN'}
 - name: label_4
-  properties: {bold: true, text: 'How Many Days Left:'}
+  properties: {role: null, align: right, tooltip: '', border: '', foreground: '',
+    visible: true, text: 'How Many Days Left:', font_size: null, font: '', spacing_above: small,
+    icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+    underline: false, icon: ''}
   type: Label
   layout_properties: {grid_position: 'DSRLTI,AEIEYI'}
 - name: days_left_label

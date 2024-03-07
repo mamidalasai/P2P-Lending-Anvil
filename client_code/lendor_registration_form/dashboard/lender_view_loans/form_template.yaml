@@ -314,28 +314,28 @@ components:
         name: repeating_panel_5
         layout_properties: {}
     - name: repeating_panel_6
+      properties: {item_template: lendor_registration_form.dashboard.lender_view_loans.ItemTemplate27,
+        visible: false}
+      type: RepeatingPanel
+      layout_properties: {grid_position: 'VTGIYA,HAZLZQ'}
+    - name: repeating_panel_7
+      properties: {item_template: lendor_registration_form.dashboard.lender_view_loans.ItemTemplate49,
+        visible: false}
+      type: RepeatingPanel
+      layout_properties: {grid_position: 'DPZFPA,XIBBVW'}
+    - name: repeating_panel_8
       properties: {item_template: lendor_registration_form.dashboard.lender_view_loans.ItemTemplate50,
         visible: false}
       type: RepeatingPanel
-      layout_properties: {grid_position: 'KIGAQK,TAGLFZ'}
-    - name: repeating_panel_7
+      layout_properties: {grid_position: 'RIZZFC,DBUIJK'}
+    - name: repeating_panel_9
       properties: {item_template: lendor_registration_form.dashboard.lender_view_loans.ItemTemplate51,
         visible: false}
       type: RepeatingPanel
-      layout_properties: {grid_position: 'AGBVEL,SHNSVE'}
-    - name: repeating_panel_8
+      layout_properties: {grid_position: 'KQACQY,JPGESI'}
+    - name: repeating_panel_10
       properties: {item_template: lendor_registration_form.dashboard.lender_view_loans.ItemTemplate52,
         visible: false}
       type: RepeatingPanel
-      layout_properties: {grid_position: 'OIEBHW,SIBFFX'}
-    - name: repeating_panel_9
-      properties: {item_template: lendor_registration_form.dashboard.lender_view_loans.ItemTemplate53,
-        visible: false}
-      type: RepeatingPanel
-      layout_properties: {grid_position: 'NSBBJI,JPVUQU'}
-    - name: repeating_panel_10
-      properties: {item_template: lendor_registration_form.dashboard.lender_view_loans.ItemTemplate54,
-        visible: false}
-      type: RepeatingPanel
-      layout_properties: {grid_position: 'ENOKWK,DVJSVI'}
+      layout_properties: {grid_position: 'YZNXYG,XRGDTU'}
 is_package: true

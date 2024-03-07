@@ -44,10 +44,10 @@ components:
   properties: {background: 'theme:On Primary'}
   type: TextBox
   layout_properties: {grid_position: 'ETIKUL,OBTINV NILWPL,JQMAZW'}
-- name: label_6
+- name: label_7
   properties: {foreground: red}
   type: Label
-  layout_properties: {grid_position: 'ETIKUL,OBTINV PQEXWP,NBMDZP'}
+  layout_properties: {grid_position: 'ETIKUL,OBTINV PQEXWP,YAJQSF'}
 - name: label_3
   properties: {text: 'College Proof:', align: center, bold: true}
   type: Label
@@ -55,11 +55,11 @@ components:
 - name: borrower_college_proof_img
   properties: {}
   type: FileLoader
-  layout_properties: {grid_position: 'EIUQCI,PJYIKM ZJPZWR,VIQKOO'}
-- name: label_7
+  layout_properties: {grid_position: 'EIUQCI,PJYIKM GQURKN,TKMIXM'}
+- name: label_8
   properties: {foreground: red}
   type: Label
-  layout_properties: {grid_position: 'EIUQCI,PJYIKM FUQYHB,EJCPJV'}
+  layout_properties: {grid_position: 'EIUQCI,PJYIKM YTPPHH,RZEGMR'}
 - name: label_4
   properties: {text: 'College Address:', align: center, bold: true}
   type: Label
@@ -68,10 +68,10 @@ components:
   properties: {background: 'theme:On Primary'}
   type: TextArea
   layout_properties: {grid_position: 'CESJQI,LXAHIL SYXIDX,IXIAHE'}
-- name: label_8
+- name: label_6
   properties: {foreground: red}
   type: Label
-  layout_properties: {grid_position: 'CESJQI,LXAHIL CWQOKO,FPMKOV'}
+  layout_properties: {grid_position: 'CESJQI,LXAHIL CWQOKO,DELVRI'}
 - name: button_1_copy_1_copy_1_copy_1
   properties: {role: elevated-button, align: right, tooltip: '', border: '', enabled: true,
     foreground: 'theme:On Primary', visible: true, text: prev, font_size: null, font: '',

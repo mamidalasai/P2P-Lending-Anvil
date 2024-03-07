@@ -19,4 +19,3 @@ class ItemTemplate50(ItemTemplate50Template):
     """This method is called when the button is clicked"""
     selcted_row=self.item
     open_form('lendor_registration_form.dashboard.lender_view_loans.view_details_1',selected_row=selcted_row)
-

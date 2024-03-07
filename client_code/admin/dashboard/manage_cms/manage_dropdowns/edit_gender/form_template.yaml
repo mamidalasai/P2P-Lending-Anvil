@@ -39,7 +39,7 @@ components:
     properties: {role: tonal-button, align: full, tooltip: '', border: '', enabled: true,
       foreground: 'theme:On Primary', visible: true, text: SAVE, font_size: null,
       font: '', spacing_above: small, icon_align: left, spacing_below: small, italic: false,
-      background: '#00008B', bold: false, underline: false, icon: ''}
+      background: '#0b2547', bold: false, underline: false, icon: ''}
     type: Button
     layout_properties: {grid_position: 'FAYIQN,IMCBIM'}
     event_bindings: {click: button_1_click}

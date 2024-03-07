@@ -12,6 +12,7 @@ class view_loan_extension_requests(view_loan_extension_requestsTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
+      
     self.repeating_panel_6.items=app_tables.fin_extends_loan.search()
 
     self.repeating_panel_7.items = app_tables.fin_extends_loan.search(status=q.like('approved%'))
@@ -49,7 +50,7 @@ class view_loan_extension_requests(view_loan_extension_requestsTemplate):
     self.data_grid_4.visible = False
     self.label_1.visible = False
     self.data_grid_4_copy.visible = False
-    self.repeating_panel_5.visible = False
+    self.repeating_panel_5.visible = True
     self.repeating_panel_6.visible = False
     self.repeating_panel_7.visible =True
     self.repeating_panel_8.visible = False

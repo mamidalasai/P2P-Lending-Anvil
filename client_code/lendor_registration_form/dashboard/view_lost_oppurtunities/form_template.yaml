@@ -72,9 +72,9 @@ components:
       name: repeating_panel_2
       layout_properties: {}
   - name: repeating_panel_1
-    properties: {item_template: lendor_registration_form.dashboard.view_lost_oppurtunities.ItemTemplate47}
+    properties: {item_template: lendor_registration_form.dashboard.view_lost_oppurtunities.ItemTemplate53}
     type: RepeatingPanel
-    layout_properties: {grid_position: 'TIHLWL,UXXBFF'}
+    layout_properties: {grid_position: 'XHHXDQ,XYPCKL'}
 - type: FlowPanel
   properties: {}
   name: navbar_links

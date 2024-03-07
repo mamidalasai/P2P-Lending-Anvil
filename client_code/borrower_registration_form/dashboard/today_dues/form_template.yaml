@@ -24,10 +24,6 @@ components:
     underline: false, icon: ''}
   type: Label
   layout_properties: {grid_position: 'KIKEMK,JZDVFZ'}
-- name: spacer_1
-  properties: {height: 13}
-  type: Spacer
-  layout_properties: {grid_position: 'XWENJP,PSJFEF'}
 - name: data_grid_1
   properties:
     role: null
@@ -43,7 +39,7 @@ components:
     border: ''
     foreground: ''
     rows_per_page: 20
-    visible: true
+    visible: false
     wrap_on: never
     show_page_controls: true
     spacing_above: small
@@ -55,4 +51,8 @@ components:
   - name: repeating_panel_1
     properties: {item_template: borrower_registration_form.dashboard.today_dues.ItemTemplate22}
     type: RepeatingPanel
+- name: repeating_panel_2
+  properties: {item_template: borrower_registration_form.dashboard.today_dues.ItemTemplate73}
+  type: RepeatingPanel
+  layout_properties: {grid_position: 'BMKJXB,NHSVGR'}
 is_package: true

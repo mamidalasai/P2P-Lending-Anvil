@@ -38,7 +38,7 @@ components:
     - type: GridPanel
       properties: {}
       name: grid_panel_1
-      layout_properties: {grid_position: 'JEVKDV,OHEQAA'}
+      layout_properties: {grid_position: 'JEVKDV,FLIVFD'}
       components:
       - type: Label
         properties: {role: null, align: left, tooltip: '', border: '', foreground: '',

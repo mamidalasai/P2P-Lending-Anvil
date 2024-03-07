@@ -17,6 +17,12 @@ class ItemTemplate48(ItemTemplate48Template):
 
   def outlined_button_1_click(self, **event_args):
     """This method is called when the button is clicked"""
+    """This method is called when the link is clicked"""
     selected_row = self.item
-        # Open the Borr_loan_request form with the selected row data
-    open_form("lendor_registration_form.dashboard.view_borrower_loan_request.Borr_loan_request", selected_row=selected_row)
+    print(f"Selected row status: {selected_row['status']}")
+    open_form("lendor_registration_form.dashboard.view_loan_extension_requests.extension_details", selected_row=selected_row)
+    if selected_row['status'] == 'approved' or selected_row['status'] == 'rejected':
+        open_form("lendor_registration_form.dashboard.view_loan_extension_requests.extension_details_approved_or_rejected", selected_row=selected_row)
+    else:
+        # open_form("lendor_registration_form.dashboard.vlfr.foreclose_details")
+       None
